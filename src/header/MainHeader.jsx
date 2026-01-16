@@ -1,9 +1,9 @@
 import React from 'react'
-import Logo from "./../assets/Logo.svg"
+import LOGO from "./../assets/LOGO.svg"
 const MainHeader = () => {
   return (
     <div className='flex flex-row font-pretendard py-9 items-center justify-between'>
-        <img className='pl-10' src={Logo}/>
+        <img className='pl-10' src={LOGO}/>
             <div className='flex flex-row gap-10 items-center'>
                 <span className='text-[20px] text-[#686E7D] hover:text-[#FFAE00] hover:font-extrabold cursor-pointer'>HOME</span>
                 <span className='text-[20px] text-[#686E7D] hover:text-[#FFAE00] hover:font-extrabold cursor-pointer'>RECTUIT</span>
