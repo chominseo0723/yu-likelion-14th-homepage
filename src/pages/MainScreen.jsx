@@ -12,8 +12,8 @@ const MainScreen = () => {
     qa: useRef(null),
   };
 
-  const scrollToSection = (section) => {
-    section.current?.scrollIntoView({
+  const scrollToSection = (sectionRef) => {
+    sectionRef.current?.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
