@@ -1,12 +1,12 @@
 import React from "react";
-import Logo from "./../assets/Logo.svg";
+import LOGO from "./../assets/LOGO.svg";
 
 const MainHeader = ({ scrollToSection, sectionRefs }) => {
   return (
     <div className="flex flex-row font-pretendard py-9 items-center justify-between">
       <img
         className="pl-10 cursor-pointer"
-        src={Logo}
+        src={LOGO}
         onClick={() => scrollToSection(sectionRefs.home)}
       />
       <div className="flex flex-row gap-10 items-center">
