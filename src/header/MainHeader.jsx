@@ -22,7 +22,7 @@ const MainHeader = ({ scrollToHome }) => {
           onClick={scrollToHome}
           className="text-[20px] text-[#686E7D] hover:text-[#FFAE00] hover:font-extrabold cursor-pointer transition-all"
         >
-          HOME
+          <Link to="/">HOME</Link>
         </span>
 
         <span className="text-[20px] text-[#686E7D] hover:text-[#FFAE00] hover:font-extrabold cursor-pointer">
