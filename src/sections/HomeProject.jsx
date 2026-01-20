@@ -33,6 +33,9 @@ const Project = () => {
             </Link>
           ))}
         </div>
+      <div className='flex justify-center'>
+        <Link className='text-[#87725F] border-b border-[#87725F] inline-block text-[20px] font-pretendard mt-15' to="/project">멋사 13기 활동 더보기 &gt;&gt;</Link>
+      </div>
       </div>
     </div>
   )
