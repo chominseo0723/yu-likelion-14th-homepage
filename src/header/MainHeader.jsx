@@ -1,5 +1,7 @@
 import React from "react";
 import Logo from "./../assets/Logo.svg";
+import { Link } from "react-router-dom";
+
 
 const MainHeader = ({ scrollToHome }) => {
   return (
@@ -19,14 +21,14 @@ const MainHeader = ({ scrollToHome }) => {
           HOME
         </span>
 
-        <span className="text-[20px] text-[#686E7D]">
-          RECRUIT
+        <span className="text-[20px] text-[#686E7D] hover:text-[#FFAE00] hover:font-extrabold cursor-pointer">
+          <Link to="/recruit">RECRUIT</Link>
         </span>
-        <span className="text-[20px] text-[#686E7D]">
-          PROJECT
+        <span className="text-[20px] text-[#686E7D] hover:text-[#FFAE00] hover:font-extrabold cursor-pointer">
+          <Link to="/project">Project</Link>
         </span>
-        <span className="text-[20px] text-[#686E7D] mr-5">
-          Q&A
+        <span className="text-[20px] text-[#686E7D] mr-5 hover:text-[#FFAE00] hover:font-extrabold cursor-pointer">
+          <Link to="qanda">Q&A</Link>
         </span>
 
         <div

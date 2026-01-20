@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import MainHeader from "../header/MainHeader";
 import MainFooter from "../footer/MainFooter";
 import bodyImg from "../assets/body.svg";
-import Project from "../sections/Project";
+import HomeProject from "../sections/HomeProject";
 
 const MainScreen = () => {
   const homeRef = useRef(null);
@@ -40,7 +40,7 @@ const MainScreen = () => {
         {/* project */}
         <section className="snap-section flex">
           <div className="mt-45">
-            <Project />
+            <HomeProject />
           </div>
         </section>
 
