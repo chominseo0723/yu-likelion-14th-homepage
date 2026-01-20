@@ -5,15 +5,10 @@ import bodyImg from "../assets/body.svg";
 import Project from "../sections/Project";
 
 const MainScreen = () => {
-  const sectionRefs = {
-    home: useRef(null),
-    recruit: useRef(null),
-    project: useRef(null),
-    qa: useRef(null),
-  };
+  const homeRef = useRef(null);
 
-  const scrollToSection = (sectionRef) => {
-    sectionRef.current?.scrollIntoView({
+  const scrollToHome = () => {
+    homeRef.current?.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
@@ -22,51 +17,40 @@ const MainScreen = () => {
   return (
     <div className="relative w-screen h-screen bg-[#070709] overflow-hidden font-pretendard">
       <div className="fixed top-0 left-0 w-full z-10">
-        <MainHeader
-          scrollToSection={scrollToSection}
-          sectionRefs={sectionRefs}
-        />
+        <MainHeader scrollToHome={scrollToHome} />
       </div>
 
       <main className="snap-container no-scrollbar h-screen overflow-y-auto">
-        {/* 메인 */}
+        {/* HOME */}
         <section
-          ref={sectionRefs.home}
+          ref={homeRef}
           className="snap-section relative flex items-center justify-center overflow-hidden"
         >
-          {/* 배경 이미지 */}
           <img
             src={bodyImg}
             className="absolute top-0 w-auto h-full object-cover z-0"
           />
-          <div>{/* Timer 컴포넌트 */}</div>
         </section>
 
-        {/* recruit 섹션 */}
-        <section
-          ref={sectionRefs.recruit}
-          className="snap-section flex items-center justify-center bg-[#070708] text-white"
-        >
+        {/* recruit */}
+        <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
           <h1 className="text-4xl font-bold">RECRUIT CONTENT</h1>
         </section>
 
-        {/* project 섹션 */}
-        <section
-          ref={sectionRefs.project}
-          className="snap-section flex"
-        >
-         <div className="mt-45"> <Project/></div>
+        {/* project */}
+        <section className="snap-section flex">
+          <div className="mt-45">
+            <Project />
+          </div>
         </section>
 
-        {/* Q&A + footer 섹션 */}
-        <section
-          ref={sectionRefs.qa}
-          className="snap-section flex flex-col bg-[#070708] text-white"
-        >
+        {/* Q&A */}
+        <section className="snap-section flex flex-col bg-[#070708] text-white">
           <div className="flex-1 flex items-center justify-center">
             <h1 className="text-4xl font-bold">Q&A</h1>
           </div>
         </section>
+
         <MainFooter />
       </main>
     </div>
