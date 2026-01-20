@@ -1,15 +1,19 @@
 import React from "react";
-import Logo from "./../assets/Logo.svg";
+
 import { Link } from "react-router-dom";
+import LOGO from "./../assets/LOGO.svg";
+
 
 
 const MainHeader = ({ scrollToHome }) => {
   return (
     <div className="flex flex-row font-pretendard py-9 items-center justify-between">
       <img
-        className="pl-10"
-        src={Logo}
-        alt="logo"
+
+        className="pl-10 cursor-pointer"
+        src={LOGO}
+        onClick={() => scrollToSection(sectionRefs.home)}
+
       />
 
       <div className="flex flex-row gap-10 items-center">
