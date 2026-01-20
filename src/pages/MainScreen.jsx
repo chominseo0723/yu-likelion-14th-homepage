@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import MainHeader from "../header/MainHeader";
 import MainFooter from "../footer/MainFooter";
 import bodyImg from "../assets/body.svg";
+import Project from "../sections/Project";
 
 const MainScreen = () => {
   const sectionRefs = {
@@ -52,9 +53,9 @@ const MainScreen = () => {
         {/* project 섹션 */}
         <section
           ref={sectionRefs.project}
-          className="snap-section flex items-center justify-center bg-[#070708] text-white"
+          className="snap-section flex"
         >
-          <h1 className="text-4xl font-bold">PROJECT SHOWCASE</h1>
+         <div className="mt-45"> <Project/></div>
         </section>
 
         {/* Q&A + footer 섹션 */}
