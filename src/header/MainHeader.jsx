@@ -3,17 +3,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import LOGO from "./../assets/LOGO.svg";
 
-
-
 const MainHeader = ({ scrollToHome }) => {
   return (
-    <div className="flex flex-row font-pretendard py-9 items-center justify-between">
+    <div className="flex flex-row font-pretendard py-9 items-center justify-between bg-transparent">
       <img
-
         className="pl-10 cursor-pointer"
         src={LOGO}
         onClick={() => scrollToSection(sectionRefs.home)}
-
       />
 
       <div className="flex flex-row gap-10 items-center">
@@ -22,7 +18,7 @@ const MainHeader = ({ scrollToHome }) => {
           onClick={scrollToHome}
           className="text-[20px] text-[#686E7D] hover:text-[#FFAE00] hover:font-extrabold cursor-pointer transition-all"
         >
-          HOME
+          <Link to="/">HOME</Link>
         </span>
 
         <span className="text-[20px] text-[#686E7D] hover:text-[#FFAE00] hover:font-extrabold cursor-pointer">
