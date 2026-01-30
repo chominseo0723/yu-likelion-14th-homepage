@@ -3,6 +3,7 @@ import MainHeader from "../header/MainHeader";
 import MainFooter from "../footer/MainFooter";
 import bodyImg from "../assets/body.svg";
 import HomeProject from "../sections/HomeProject";
+import TrackCard from "../components/TrackCard";
 
 const MainScreen = () => {
   const homeRef = useRef(null);
@@ -35,6 +36,13 @@ const MainScreen = () => {
         {/* recruit */}
         <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
           <h1 className="text-4xl font-bold">RECRUIT CONTENT</h1>
+        </section>
+
+        {/* track */}
+        <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
+          <div>
+            <TrackCard />
+          </div>
         </section>
 
         {/* project */}
