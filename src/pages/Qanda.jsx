@@ -4,6 +4,7 @@ import MainHeader from '../header/MainHeader'
 import MainFooter from '../footer/MainFooter'
 import QnACard from '../components/Q&A/QnACard'
 import { QNA_DATA } from '../data/qnaData'
+import Time from '../components/Q&A/Time'
 
 const categories = [
   '주요',
@@ -28,23 +29,48 @@ const Qanda = () => {
       </div>
 
       <div className="flex gap-43">
-        {/* 카테고리 */}
-        <div className="flex flex-col gap-7.5 text-[30px] mt-44 pl-55">
-          {categories.map((c) => (
-            <button
-              key={c}
-              onClick={() => setSelected(c)}
-              className={`
-                text-left
-                ${selected === c ? 'text-[#FF9000] font-bold' : 'text-white'}
+  
+       {/* 카테고리 */}
+<div className="flex flex-col gap-6 mt-44 pl-55">
+  {categories.map((c) => {
+    const isActive = selected === c
+
+    return (
+      <button
+        key={c}
+        onClick={() => setSelected(c)}
+        className={`
+         w-43
+         pl-6
+          rounded-[30px]
+          text-[30px]
+          transition-all duration-200
+          text-left
+
+          ${
+            isActive
+              ? `
+                font-bold
+                text-[#FF9000]
+                bg-[linear-gradient(109deg,rgba(255,255,255,0.15)_16.55%,rgba(153,153,153,0.15)_97.22%)]
+                backdrop-blur-md
+                border border-[rgba(255,255,255,0.2)]
+              `
+              : `
+                font-medium
+                text-white
+                bg-transparent
                 hover:text-[#FF9000]
-                transition
-              `}
-            >
-              {c}
-            </button>
-          ))}
-        </div>
+              `
+          }
+        `}
+      >
+        {c}
+      </button>
+    )
+  })}
+</div>
+
 
         {/* Q&A 리스트 */}
         <div className="mt-44 ">
@@ -53,6 +79,8 @@ const Qanda = () => {
           ))}
         </div>
       </div>
+
+      <Time/>
 
       <MainFooter />
     </div>
