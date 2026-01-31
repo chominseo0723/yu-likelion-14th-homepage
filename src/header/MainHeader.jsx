@@ -28,7 +28,7 @@ const MainHeader = ({ scrollToHome }) => {
           <Link to="/project">Project</Link>
         </span>
         <span className="text-[20px] text-[#686E7D] mr-5 hover:text-[#FFAE00] hover:font-extrabold cursor-pointer">
-          <Link to="qanda">Q&A</Link>
+          <Link to="/qanda">Q&A</Link>
         </span>
 
         <div
