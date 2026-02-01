@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import bgLogo from "../assets/BE.svg";
 import feLogo from "../assets/FE.svg";
 import pndLogo from "../assets/P&D.svg";
 import light from "../assets/light.svg";
 
 const Card = ({ data }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
   return (
-    <div className="group w-[326.333px] h-[372px] max-w-sm [perspective:1000px] cursor-pointer">
-      <div className="relative w-full h-full transition-all duration-500 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-xl rounded-]">
+    <div
+      className="group w-[326.333px] h-[372px] max-w-sm [perspective:1000px] cursor-pointer"
+      onClick={() => setIsFlipped(!isFlipped)}
+    >
+      <div
+        className={`relative w-full h-full transition-all duration-500 ease-out [transform-style:preserve-3d] shadow-xl rounded-[30px]
+            ${isFlipped ? "[transform:rotateY(180deg)]" : "group-hover:[transform:rotateY(15deg)]"}`}
+      >
         {/* 앞면 */}
         <div
           className={`absolute inset-0 w-full h-full [backface-visibility:hidden] rounded-[30px]
