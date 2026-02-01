@@ -1,4 +1,9 @@
-
+---
+name: Refactor
+about: 리팩토링 작업
+title: "[refactor] "
+labels: ["Refactor"]
+---
 ## 배경
 - 
 
