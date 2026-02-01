@@ -1,4 +1,8 @@
-
+---
+name: Bug
+about: 버그 리포트
+title: "[bugfix] "
+labels: ["Bug"]
 ---
 
 ## 발생한 버그
