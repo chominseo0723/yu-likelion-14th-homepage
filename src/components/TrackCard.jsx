@@ -6,27 +6,27 @@ import light from "../assets/light.svg";
 
 const Card = ({ data }) => {
   return (
-    <div className="group w-110 h-109 max-w-sm [perspective:1000px] cursor-pointer">
+    <div className="group w-[326.333px] h-[372px] max-w-sm [perspective:1000px] cursor-pointer">
       <div className="relative w-full h-full transition-all duration-500 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-xl rounded-]">
         {/* 앞면 */}
         <div
-          className={`absolute inset-0 w-full h-full [backface-visibility:hidden] rounded-[2.5rem] 
-               bg-[linear-gradient(140deg,rgba(255,255,255,0.7)_0%,rgba(255,255,255,0.1)_5%,rgba(255,255,255,0.05)_10%,rgba(255,255,255,0)_50%,rgba(255,255,255,0.04)_90%,rgba(255,255,255,0.09)_95%,rgba(255,255,255,0.6)_100%)]
-               p-[1.5px] backdrop-blur-2xl shadow-lg overflow-hidden`}
+          className={`absolute inset-0 w-full h-full [backface-visibility:hidden] rounded-[30px]
+               bg-[linear-gradient(110deg,rgba(255,255,255,0.7)_0%,rgba(255,255,255,0.3)_17%,rgba(255,255,255,0.2)_28%,rgba(255,255,255,0.15)_36%,rgba(255,255,255,0.1)_50%,rgba(255,255,255,0.25)_100%)]
+               p-[0.5px] backdrop-blur-2xl shadow-lg overflow-hidden`}
         >
           <div
-            className="relative w-full h-full rounded-[2.5rem] overflow-hidden
-            bg-[linear-gradient(140deg,#261F19_0%,#2B251C_17%,#27221C_38%,#27211B_56%,#27221C_86%,#2B251C_100%)]
-            backdrop-blur-2xl flex flex-col items-center justify-center
+            className="relative w-full h-full rounded-[30px] overflow-hidden
+             bg-[linear-gradient(140deg,#261F19_0%,#2B251C_17%,#27221C_38%,#27211B_56%,#27221C_86%,#2B251C_100%)]
+            backdrop-blur-2xl flex flex-col items-center justify-between
           "
           >
             {/* 세션별 이미지 */}
             <img
               src={data.image}
               alt={data.title}
-              className="relative bottom-3 w-full h-full scale-125 pointer-events-none brightness-100 select-none"
+              className="relative w-[379.87px] h-[169.94px] scale-122 pointer-events-none select-none mt-[65.13px]"
             />
-            <p className="w-full pr-6 text-right text-3xl font-bold mb-8 text-white select-none">
+            <p className="relative w-full pr-[21.58px] text-right text-[24px] font-bold text-white select-none mb-[20.96px]">
               {data.subtitle}
             </p>
           </div>
@@ -34,41 +34,40 @@ const Card = ({ data }) => {
 
         {/* 뒷면 */}
         <div
-          className={`absolute inset-0 h-full w-full [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-[2.5rem] 
-             bg-[linear-gradient(140deg,rgba(255,255,255,0)_0%,rgba(255,255,255,0.1)_5%,rgba(255,255,255,0.05)_10%,rgba(255,255,255,0)_50%,rgba(255,255,255,0.04)_90%,rgba(255,255,255,0.09)_95%,rgba(255,255,255,0)_100%)]
-             p-[1.5px] backdrop-blur-2xl shadow-lg overflow-hidden flex flex-col items-center justify-center text-slate-800`}
+          className={`absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-[30px]
+               bg-[linear-gradient(110deg,rgba(255,255,255,0.7)_0%,rgba(255,255,255,0.3)_17%,rgba(255,255,255,0.2)_28%,rgba(255,255,255,0.15)_36%,rgba(255,255,255,0.1)_50%,rgba(255,255,255,0.25)_100%)]
+               p-[0.5px] backdrop-blur-2xl shadow-lg overflow-hidden`}
         >
           <div
-            className="relative w-full h-full rounded-[2.5rem] overflow-hidden
-            bg-[linear-gradient(180deg,#FFAE00_0%,#FF5E00_100%)]
-            flex flex-col items-center justify-center
+            className="relative w-full h-full rounded-[30px] overflow-hidden
+              bg-[linear-gradient(180deg,#FFAE00_0%,#FF5E00_100%)]
+              flex flex-col items-center justify-between
           "
           >
             {/* 세션별 이미지 */}
             <img
               src={data.image}
               alt={data.title}
-              className="relative bottom-11 w-full h-full scale-125 pointer-events-none select-none"
+              className="relative w-[379.87px] h-[169.94px] scale-122 pointer-events-none select-none mt-[65.13px]"
             />
+            <p className="relative w-full pr-[21.58px] text-right text-[24px] font-bold text-black select-none mb-[20.96px]">
+              {data.subtitle}
+            </p>
+
+            {/* 설명 */}
             <div
-              className={`absolute flex justify-center items-center h-full w-full pt-7 pb-20 px-8`}
+              className="absolute top-[15px] left-[24.65px] inset-0 w-[277.033px] h-[291px] rounded-[30px]
+              bg-[linear-gradient(110deg,rgba(255,255,255,0.9)_0%,rgba(255,255,255,0.2)_2%,rgba(255,255,255,0.1)_17%,rgba(255,255,255,0.11)_28%,rgba(255,255,255,0.15)_36%,rgba(255,255,255,0.1)_50%,rgba(255,255,255,0.1)_100%)]
+              p-[0.5px] backdrop-blur-[1.5px] overflow-hidden flex items-center"
             >
-              <div
-                className="w-full h-full border border-amber-100/25 rounded-[2rem] overflow-hidden
-                    bg-[linear-gradient(140deg,rgba(255,255,255,0.1)_0.4%,rgba(255,255,255,0.4)_0.9%,rgba(255,255,255,0.2)_10%,rgba(255,255,255,0.05)_15%,rgba(255,255,255,0)_25%,rgba(255,255,255,0.04)_80%,rgba(255,255,255,0.02)_95%,rgba(255,255,255,0.03)_100%)]
-                    p-[1.5px] backdrop-blur-xs
-              "
-              >
-                <div className="flex flex-col justify-center items-start gap-6 w-full px-5 py-5 text-black text-[17px] text-left font-semibold leading-relaxed break-keep whitespace-pre-line tracking-[-0.4px] select-none">
+              <div className="relative w-full h-full rounded-[30px] bg-transparent px-[18px] bg-transparent ">
+                <div className="flex flex-col pt-[28px] pb-[13px] gap-5 w-full text-black text-[16px] text-left font-semibold leading-relaxed break-keep whitespace-pre-line tracking-[-0.4px] select-none">
                   <p>{data.description1}</p>
                   <p>{data.description2}</p>
                   <p>{data.description3}</p>
                 </div>
               </div>
             </div>
-            <p className="w-full pr-6 text-right text-3xl font-bold mb-8 text-black select-none">
-              {data.subtitle}
-            </p>
           </div>
         </div>
       </div>
@@ -87,7 +86,7 @@ const TrackCard = () => {
       description2:
         "API, 서버 구조, 데이터베이스를 설계하고 안정적인 서비스 운영 환경을 구축합니다.",
       description3:
-        "Spring Boot를 중심으로 REST API 개발부터 배포, 인프라 기초까지\n단계적으로 학습합니다.",
+        "Spring Boot를 중심으로 REST API 개발부터 배포, 인프라 기초까지 단계적으로 학습합니다.",
       image: bgLogo,
     },
     {
@@ -107,7 +106,7 @@ const TrackCard = () => {
       title: "P&D",
       subtitle: "Planning & Design",
       description1:
-        "P&D는 서비스 기획과 UI/UX 디자인을\n 통해 프로젝트의 방향을 설계하는 트랙\n입니다.",
+        "P&D는 서비스 기획과 UI/UX 디자인을\n 통해 프로젝트의 방향을 설계하는 트랙 입니다.",
       description2:
         "사용자 관점에서 문제를 정의하고,\n개발자와 협업하며 아이디어를 실제 서비스로 구체화합니다.",
       description3: "기획부터 디자인, 협업까지 전 과정을 경험합니다.",
@@ -117,32 +116,31 @@ const TrackCard = () => {
 
   return (
     <div className="min-h-screen w-full bg-transparent flex flex-col items-center justify-center py-20 px-4 relative overflow-hidden">
-      <div className="w-full max-w-7xl flex flex-col items-start mb-13 gap-4 z-10">
-        <div className="flex flex-row items-center gap-4">
-          <img src={light} alt="light" className="w-10 h-10" />
+      <div className="w-full max-w-7xl flex flex-col items-start mb-[62.53px]">
+        <div className="flex flex-row items-center justify-center gap-4.75">
+          <img src={light} alt="light" className="w-[19.7] h-[19.7]" />
           <p
-            className="font-semibold text-xl bg-linear-to-r from-[#FF9000] to-[#FF5E00] 
-                    bg-clip-text text-transparent
-                    /* 1. 외곽선 추가 (두께와 색상) */
-                    [-webkit-text-stroke:0.3px_#FFAE00] 
-                    /* 2. 내부 입체 감을 위한 그림자 (x, y, blur, color) */
-                    [text-shadow:0_1px_1px_rgba(124,66,5,0.5)]
-          "
+            className="font-normal text-[20px] bg-linear-to-r from-[#FF9000] to-[#FF5E00] 
+                            bg-clip-text text-transparent
+                            [-webkit-text-stroke:0.2px_#FFAE00]
+                            [text-shadow:0_1.5px_1px_rgba(124,66,5,0.9)]
+                            select-none
+                  "
           >
             Track
           </p>
         </div>
-        <p className="text-[#C56908] font-semibold text-4xl">
+        <p className="text-[#C56908] text-[40px] font-semibold">
           3가지의 트랙이 있어요!
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 w-full max-w-7xl relative z-10 place-items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] w-full max-w-7xl relative z-10 place-items-center">
         {cards.map((card) => (
           <Card key={card.id} data={card} />
         ))}
       </div>
       <div>
-        <p className="text-[#87725F] text-xl mt-16 z-10 relative animate-bounce duration-initial">
+        <p className="text-[#87725F] text-xl mt-[62.53px] z-10 relative">
           궁금한 트랙부터 눌러서 확인해보세요!
         </p>
       </div>
