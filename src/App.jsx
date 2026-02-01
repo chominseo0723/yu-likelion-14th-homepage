@@ -6,16 +6,16 @@ import Project from "./pages/Project";
 import Qanda from "./pages/Qanda";
 
 const App = () => {
-  return(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<MainScreen/>}/>
-      <Route path="/recruit" element={<Recruit/>}/>
-      <Route path="/project" element={<Project/>}/>
-      <Route path="/qanda" element={<Qanda/>}/>
-    </Routes>
-  </BrowserRouter>
-  )
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainScreen />} />
+        <Route path="/recruit" element={<Recruit />} />
+        <Route path="/project" element={<Project />} />
+        <Route path="/qanda" element={<Qanda />} />
+      </Routes>
+    </BrowserRouter>
+  );
 };
 
 export default App;

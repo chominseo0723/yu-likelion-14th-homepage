@@ -116,7 +116,7 @@ const TrackCard = () => {
   ];
 
   return (
-    <div className="min-h-screen w-full bg-[#050300] flex flex-col items-center justify-center py-20 px-4 relative overflow-hidden">
+    <div className="min-h-screen w-full bg-transparent flex flex-col items-center justify-center py-20 px-4 relative overflow-hidden">
       <div className="w-full max-w-7xl flex flex-col items-start mb-13 gap-4 z-10">
         <div className="flex flex-row items-center gap-4">
           <img src={light} alt="light" className="w-10 h-10" />
