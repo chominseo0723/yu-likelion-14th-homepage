@@ -1,3 +1,9 @@
+---
+name: Feature
+about: 기능 개발 요청
+title: "[feat] "
+labels: ["Feat"]
+---
 
 ## 배경
 - 
