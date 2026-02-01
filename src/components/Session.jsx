@@ -95,8 +95,8 @@ const SessionCard = ({ data }) => {
 
 const Session = () => {
   return (
-    <div className="min-h-screen w-full bg-transparent flex flex-col items-center justify-center py-20 relative overflow-hidden">
-      <div className="w-full max-w-7xl flex flex-col items-start mb-[56.97px] z-0">
+    <div className="min-h-screen w-full max-w-6xl bg-transparent flex flex-col items-center justify-center py-20 px-4 relative overflow-hidden">
+      <div className="w-full flex flex-col items-start mb-[56.97px]">
         <div className="flex flex-row items-center justify-center gap-4.75">
           <img src={light} alt="light" className="w-[19.7] h-[19.7]" />
           <p
