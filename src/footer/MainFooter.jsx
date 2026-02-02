@@ -8,7 +8,7 @@ import github from "../assets/github_logo.svg";
 const MainFooter = () => {
   return (
     <>
-      <footer className="w-full py-5 px-10 bg-zinc-900 text-zinc-500 text-sm border-t border-white/10">
+      <footer className="w-full py-5 px-10 bg-[#070708] text-zinc-500 text-sm border-t border-white/10">
         <div className="flex flex-row justify-between items-center">
           <div className="flex flex-col gap-0.5">
             <img src={footerLogo} className="w-16 h-16" />
