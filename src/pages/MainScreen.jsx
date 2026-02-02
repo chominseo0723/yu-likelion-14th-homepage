@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 import MainHeader from "../header/MainHeader";
 import MainFooter from "../footer/MainFooter";
-import bodyImg from "../assets/body.svg";
 import HomeProject from "../sections/HomeProject";
 import TrackCard from "../components/TrackCard";
 import SessionCard from "../components/Session";
+import openingVideo from "./../assets/오프닝 영상.mp4";
 
 const MainScreen = () => {
   const homeRef = useRef(null);
@@ -28,10 +28,17 @@ const MainScreen = () => {
           ref={homeRef}
           className="snap-section relative flex items-center justify-center overflow-hidden"
         >
-          <img
-            src={bodyImg}
-            className="absolute top-0 w-auto h-full object-cover z-0"
-          />
+         <video
+  src={openingVideo}
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="w-full h-full "
+>
+  브라우저가 video 태그를 지원하지 않습니다.
+</video>
+
         </section>
 
         {/* recruit */}
