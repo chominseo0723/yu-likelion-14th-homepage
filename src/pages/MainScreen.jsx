@@ -5,8 +5,9 @@ import HomeProject from "../sections/HomeProject";
 import TrackCard from "../components/TrackCard";
 import SessionCard from "../components/Session";
 import openingVideo from "./../assets/오프닝 영상.mp4";
-
+import arrow from "./../assets/arrow.svg";
 const MainScreen = () => {
+  
   const homeRef = useRef(null);
 
   const scrollToHome = () => {
@@ -17,7 +18,7 @@ const MainScreen = () => {
   };
 
   return (
-    <div className="relative w-screen h-screen bg-[#070709] overflow-hidden font-pretendard">
+    <div className="relative w-screen h-screen bg-[#070708] overflow-hidden font-pretendard">
       <div className="fixed top-0 left-0 w-full z-10">
         <MainHeader scrollToHome={scrollToHome} />
       </div>
@@ -25,21 +26,31 @@ const MainScreen = () => {
       <main className="snap-container no-scrollbar h-screen overflow-y-auto">
         {/* HOME */}
         <section
-          ref={homeRef}
-          className="snap-section relative flex items-center justify-center overflow-hidden"
-        >
-         <video
+  ref={homeRef}
+  className="snap-section relative overflow-hidden"
+>
+ <video
   src={openingVideo}
   autoPlay
   loop
   muted
   playsInline
-  className="w-full h-full "
->
-  브라우저가 video 태그를 지원하지 않습니다.
-</video>
+  className=" absolute
+    inset-0
+    w-full
+    h-full
+    object-contain
+    z-0"
+/>
 
-        </section>
+
+  <img
+    src={arrow}
+    alt="scroll down"
+    className="absolute bottom-[38px] left-1/2 -translate-x-1/2 z-10 w-20 h-20"
+  />
+</section>
+
 
         {/* recruit */}
         <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
