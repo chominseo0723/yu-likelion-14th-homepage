@@ -1,4 +1,7 @@
+import { useNavigate } from 'react-router-dom'
+
 const ProjectCard = ({
+  id,
   tag,
   image,
   title,
@@ -6,8 +9,11 @@ const ProjectCard = ({
   description,
   author,
 }) => {
+  const navigate = useNavigate()
+
   return (
     <div
+     onClick={() => navigate(`/project/${id}`)}
       className="
         w-[333px] h-[355px]
         rounded-[30px]
@@ -16,6 +22,7 @@ const ProjectCard = ({
         shadow-[0_4px_4px_rgba(255,255,255,0.25)] font-pretendard
         p-4
         text-white
+        cursor-pointer
       "
     >
       {/* 썸네일 영역 */}

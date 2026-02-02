@@ -9,7 +9,7 @@ import ILKAN from '../../assets/ILKAN.svg'
 
 export const projectData = [
   {
-    id: 1,
+    id: 'mediv',
     tag: '아이디어톤',
     image: MEDIV,
     title: 'MEDIV',
@@ -19,7 +19,7 @@ export const projectData = [
     author: '개발자상주익',
   },
   {
-    id: 2,
+    id: 'clmn',
     tag: '아이디어톤',
     image: CLMN,
     title: 'Clmn',
@@ -29,7 +29,7 @@ export const projectData = [
     author: '찰나',
   },
   {
-    id: 3,
+    id: 'scooty',
     tag: '아이디어톤',
     image: Scooty,
     title: 'Scooty',
@@ -39,7 +39,7 @@ export const projectData = [
     author: '코코넛',
   },
   {
-    id: 4,
+    id:'deepsafe',
     tag: '아이디어톤',
     image: DEEPSAFE,
     title: 'DeepSafe',
@@ -49,7 +49,7 @@ export const projectData = [
     author: 'Highfive',
   },
   {
-    id: 5,
+    id:'start-pointer',
     tag: '해커톤',
     image: STARTPOINTER,
     title: 'Start Pointer',
@@ -59,7 +59,7 @@ export const projectData = [
     author: '개발자상주익',
   },
   {
-    id: 6,
+    id:'ondomi',
     tag: '해커톤',
     image: ONDOMI,
     title: 'Ondomi',
@@ -69,7 +69,7 @@ export const projectData = [
     author: '찰나',
   },
   {
-    id: 7,
+    id: 'bridgee',
     tag: '해커톤',
     image: BRIDGEE,
     title: 'Bridgee',
@@ -79,7 +79,7 @@ export const projectData = [
     author: '코코넛',
   },
   {
-    id: 8,
+    id: 'il-kan',
     tag: '해커톤',
     image: ILKAN,
     title: 'IL-KAN',
