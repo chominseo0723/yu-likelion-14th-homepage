@@ -2,6 +2,7 @@ import React from "react";
 import MainHeader from "../header/MainHeader";
 import MainFooter from "../footer/MainFooter";
 import IntroComment from "../components/Recruit/IntroComment";
+import IdealTalent from "../components/Recruit/IdealTalent";
 
 const Recruit = () => {
   return (
@@ -12,6 +13,7 @@ const Recruit = () => {
       <div className="relative pt-[100px] min-h-screen">
         <main className="relative z-10 min-h-screen">
           <IntroComment />
+          <IdealTalent />
         </main>
       </div>
       <MainFooter />
