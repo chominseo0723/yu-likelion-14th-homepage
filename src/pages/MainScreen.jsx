@@ -1,12 +1,14 @@
 import React, { useRef } from "react";
 import MainHeader from "../header/MainHeader";
 import MainFooter from "../footer/MainFooter";
-import bodyImg from "../assets/body.svg";
 import HomeProject from "../sections/HomeProject";
 import TrackCard from "../components/TrackCard";
 import SessionCard from "../components/Session";
-
+import openingVideo from "./../assets/오프닝 영상.mp4";
+import arrow from "./../assets/arrow.svg";
+import TopTimer from "../components/TopTimer";
 const MainScreen = () => {
+  
   const homeRef = useRef(null);
 
   const scrollToHome = () => {
@@ -17,7 +19,7 @@ const MainScreen = () => {
   };
 
   return (
-    <div className="relative w-screen h-screen bg-[#070709] overflow-hidden font-pretendard">
+    <div className="relative w-screen h-screen bg-[#070708] overflow-hidden font-pretendard">
       <div className="fixed top-0 left-0 w-full z-10">
         <MainHeader scrollToHome={scrollToHome} />
       </div>
@@ -25,14 +27,34 @@ const MainScreen = () => {
       <main className="snap-container no-scrollbar h-screen overflow-y-auto">
         {/* HOME */}
         <section
-          ref={homeRef}
-          className="snap-section relative flex items-center justify-center overflow-hidden"
-        >
-          <img
-            src={bodyImg}
-            className="absolute top-0 w-auto h-full object-cover z-0"
-          />
-        </section>
+  ref={homeRef}
+  className="snap-section relative overflow-hidden"
+>
+ <video
+  src={openingVideo}
+  autoPlay
+  loop
+  muted
+  playsInline
+  className=" absolute
+    inset-0
+    w-full
+    h-full
+    object-contain
+    z-0"
+/>
+
+
+  <img
+    src={arrow}
+    alt="scroll down"
+    className="absolute bottom-[38px] left-1/2 -translate-x-1/2 z-10 w-20 h-20"
+  />
+</section>
+
+<section className="snap-section relative overflow-hidden bg-[#070708]">
+  <TopTimer />
+</section>
 
         {/* recruit */}
         <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
