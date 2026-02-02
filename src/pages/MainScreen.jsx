@@ -6,6 +6,7 @@ import TrackCard from "../components/TrackCard";
 import SessionCard from "../components/Session";
 import openingVideo from "./../assets/오프닝 영상.mp4";
 import arrow from "./../assets/arrow.svg";
+import TopTimer from "../components/TopTimer";
 const MainScreen = () => {
   
   const homeRef = useRef(null);
@@ -51,6 +52,9 @@ const MainScreen = () => {
   />
 </section>
 
+<section className="snap-section relative overflow-hidden bg-[#070708]">
+  <TopTimer />
+</section>
 
         {/* recruit */}
         <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
