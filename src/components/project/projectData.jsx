@@ -1,5 +1,3 @@
-// components/project/projectData.jsx
-
 import MEDIV from '../../assets/MEDIV.svg'
 import CLMN from '../../assets/CLMN.svg'
 import Scooty from '../../assets/Scooty.svg'
