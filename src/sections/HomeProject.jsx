@@ -1,9 +1,12 @@
 import React from 'react'
 import star from "./../assets/star.svg"
 import { Link } from 'react-router-dom'
-import spoon from "./../assets/spoon.svg"
+import MEDIV from './../assets/MEDIV.svg'
+import BRIDGEE from './../assets/BRIDGEE.svg'
+import DEEPSAFE from './../assets/DEEPSAFE.svg'
+import CLMN from './../assets/CLMN.svg'
 
-const cards = [spoon, spoon, spoon, spoon]; {/* 추후 수정 */}
+const cards = [MEDIV, CLMN, DEEPSAFE, BRIDGEE]
 
 const Project = () => {
   return (
@@ -24,7 +27,7 @@ const Project = () => {
                     leading-[60px]
                 '>Project</span>
             </div>
-            <span className='text-[40px] font-bold text-[#C56908] ml-50'>13기가 진행한 프로젝트에요!</span>
+            <Link className='text-[40px] font-bold text-[#C56908] ml-50' to='/project'>멋사 13기 활동 더보기  &gt;&gt;</Link>
 <div className="marquee-mask mt-12">
         <div className="marquee-track pause-on-hover gap-12">
           {[...cards, ...cards, ...cards].map((src, i) => (
