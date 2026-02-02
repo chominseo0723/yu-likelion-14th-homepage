@@ -10,6 +10,7 @@ import BRIDGEE from '../assets/BRIDGEE.svg'
 import ILKAN from '../assets/ILKAN.svg'
 import STARTPOINTER from '../assets/STARTPOINTER.svg'
 
+// 프로젝트 카드들 추가
 const cards = [MEDIV, CLMN, DEEPSAFE, BRIDGEE, Scooty, ONDOMI, ILKAN, STARTPOINTER]
 
 const Project = () => {
