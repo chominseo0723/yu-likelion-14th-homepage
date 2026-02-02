@@ -4,6 +4,7 @@ import MainFooter from "../footer/MainFooter";
 import bodyImg from "../assets/body.svg";
 import HomeProject from "../sections/HomeProject";
 import TrackCard from "../components/TrackCard";
+import SessionCard from "../components/Session";
 
 const MainScreen = () => {
   const homeRef = useRef(null);
@@ -40,8 +41,15 @@ const MainScreen = () => {
 
         {/* track */}
         <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
-          <div>
+          <div className="z-0">
             <TrackCard />
+          </div>
+        </section>
+
+        {/* session */}
+        <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
+          <div className="z-0">
+            <SessionCard />
           </div>
         </section>
 

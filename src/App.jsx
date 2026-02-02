@@ -7,6 +7,7 @@ import Qanda from "./pages/Qanda";
 import ProjectDetail from "./pages/ProjectDetail";
 
 const App = () => {
+
   return(
   <BrowserRouter>
     <Routes>
@@ -14,6 +15,7 @@ const App = () => {
       <Route path="/recruit" element={<Recruit/>}/>
       <Route path="/project" element={<Project/>}/>
       <Route path="/project/:id" element={<ProjectDetail/>}/>
+       <Route path="/recruit" element={<Recruit />} />
       <Route path="/qanda" element={<Qanda/>}/>
     </Routes>
   </BrowserRouter>
