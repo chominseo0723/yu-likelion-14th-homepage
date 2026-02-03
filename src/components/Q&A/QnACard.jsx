@@ -14,7 +14,7 @@ const QnACard = ({ q, a }) => {
         onClick={() => setIsOpen((prev) => !prev)}
         className={`
           w-full text-left
-          px-8 py-6
+          px-6 py-6
           border border-[rgba(255,255,255,0.15)]
           bg-[linear-gradient(109deg,rgba(255,255,255,0.12)_16.55%,rgba(153,153,153,0.12)_97.22%)]
           backdrop-blur-md
@@ -23,14 +23,17 @@ const QnACard = ({ q, a }) => {
           ${isOpen ? 'rounded-t-[30px] rounded-b-none' : 'rounded-[30px]'}
         `}
       >
-        <span
-          className={`
-            text-[28px] transition-colors duration-200
-            ${isOpen ? 'text-[#FF9000] font-bold' : 'text-white font-medium text-[24px]'}
-          `}
-        >
-          Q. {q}
-        </span>
+      <span
+  className={`
+    transition-all duration-300 ease-out
+    leading-tight
+    ${isOpen
+      ? "text-[#FF9000] font-bold text-[28px]"
+      : "text-white font-medium text-[24px]"}
+  `}
+>
+  Q. {q}
+</span>
       </button>
 
       {/* A */}

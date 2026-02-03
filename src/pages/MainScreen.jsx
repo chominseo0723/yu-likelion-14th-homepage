@@ -7,6 +7,8 @@ import SessionCard from "../components/Session";
 import openingVideo from "./../assets/오프닝 영상.mp4";
 import arrow from "./../assets/arrow.svg";
 import TopTimer from "../components/TopTimer";
+import Qna from "../components/Q&A/Qna";
+import Time from "../components/Q&A/Time";
 const MainScreen = () => {
   
   const homeRef = useRef(null);
@@ -83,11 +85,13 @@ const MainScreen = () => {
         </section>
 
         {/* Q&A */}
-        <section className="snap-section flex flex-col bg-[#070708] text-white">
-          <div className="flex-1 flex items-center justify-center">
-            <h1 className="text-4xl font-bold">Q&A</h1>
+          <section className="snap-section flex">
+          <div className="mt-45">
+          <Qna/>
           </div>
         </section>
+
+        <Time/>
 
         <MainFooter />
       </main>
