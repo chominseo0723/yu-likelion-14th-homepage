@@ -21,7 +21,7 @@ const MainFooter = () => {
             {/* 인스타 링크 */}
             <a
               href="https://www.instagram.com/likelion_yu"
-              className="group relative flex items-center justify-center w-16 h-16 transition-all duration-300
+              className="group relative flex items-center justify-center w-[50px] h-[50px] transition-all duration-300
                                     bg-[linear-gradient(135deg,#737373_0%,#2E2E35_17%,#1E1E1F_38%,#202021_56%,#3A3A40_86%,#4C4C4C_100%)]
                                     backdrop-blur-2xl 
                                     border border-white/20 
@@ -34,13 +34,13 @@ const MainFooter = () => {
             >
               <img
                 src={instagram}
-                className="w-8 h-8 [WebkitTouchCallout:none] select-none"
+                className="w-[24px] h-[24px] [WebkitTouchCallout:none] select-none"
               ></img>
             </a>
             {/* 카카오 링크 */}
             <a
-              href="https://www.instagram.com/"
-              className="group relative flex items-center justify-center w-16 h-16 transition-all duration-300
+              href="https://open.kakao.com/o/sDw4nwdi"
+              className="group relative flex items-center justify-center w-[50px] h-[50px] transition-all duration-300
                                     bg-[linear-gradient(135deg,#737373_0%,#2E2E35_17%,#1E1E1F_38%,#202021_56%,#3A3A40_86%,#4C4C4C_100%)]
                                     backdrop-blur-2xl 
                                     border border-white/20 
@@ -53,13 +53,13 @@ const MainFooter = () => {
             >
               <img
                 src={kakao}
-                className="w-8 h-8 [WebkitTouchCallout:none] select-none"
+                className="w-[24px] h-[24px] [WebkitTouchCallout:none] select-none"
               ></img>
             </a>
             {/* 깃허브 링크 */}
             <a
               href="https://github.com/Likelion-YeungNam-Univ"
-              className="group relative flex items-center justify-center w-16 h-16 transition-all duration-300
+              className="group relative flex items-center justify-center w-[50px] h-[50px] transition-all duration-300
                                     bg-[linear-gradient(135deg,#737373_0%,#2E2E35_17%,#1E1E1F_38%,#202021_56%,#3A3A40_86%,#4C4C4C_100%)]
                                     backdrop-blur-2xl 
                                     border border-white/20 
@@ -72,7 +72,7 @@ const MainFooter = () => {
             >
               <img
                 src={github}
-                className="w-8 h-8 [WebkitTouchCallout:none] select-none"
+                className="w-[24px] h-[24px] [WebkitTouchCallout:none] select-none"
               ></img>
             </a>
           </div>
