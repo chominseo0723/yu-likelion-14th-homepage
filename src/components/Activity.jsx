@@ -90,40 +90,29 @@ const ActivityList = () => {
     },
   ];
 
+  const activeIndex = activities.findIndex((act) => act.id === clickedId);
+
   return (
     <div className="flex flex-row items-start gap-[64px]">
       {/* 활동 목록 */}
-      <div className="flex flex-col gap-[25px]">
+      <div className="flex flex-col gap-[25px] relative">
+        <div
+          className="absolute left-0 w-[386px] h-[40px] rounded-[30px] p-[0.5px] backdrop-blur-2xl transition-all duration-600 ease-[cubic-bezier(0.34,1.4,0.5,1.02)] z-0
+                     bg-[linear-gradient(160deg,rgba(255,255,255,0.7)_0%,rgba(255,255,255,0.3)_17%,rgba(255,255,255,0.2)_28%,rgba(255,255,255,0.15)_36%,rgba(255,255,255,0.1)_50%,rgba(255,255,255,0.25)_100%)]"
+          style={{ transform: `translateY(${activeIndex * (40 + 25)}px)` }}
+        >
+          <div className="w-full h-full rounded-[30px] bg-[linear-gradient(160deg,#261F19_0%,#2B251C_17%,#27221C_38%,#27211B_56%,#27221C_86%,#2B251C_100%)]"></div>
+        </div>
+
         {activities.map((act) => (
           <div
             key={act.id}
             onClick={() => setClickedId(act.id)}
-            className={`rounded-[30px] cursor-pointer transition-all duration-300 ease-in-out
-                        w-[386px] h-[40px] overflow-hidden
-                        ${
-                          clickedId === act.id
-                            ? "bg-[linear-gradient(160deg,rgba(255,255,255,0.7)_0%,rgba(255,255,255,0.3)_17%,rgba(255,255,255,0.2)_28%,rgba(255,255,255,0.15)_36%,rgba(255,255,255,0.1)_50%,rgba(255,255,255,0.25)_100%)] p-[0.3px] backdrop-blur-2xl shadow-lg"
-                            : "bg-transparent"
-                        }
-                        ${
-                          clickedId === act.id
-                            ? "translate-x-1"
-                            : "hover:translate-x-1"
-                        }
-                        
-                        `}
+            className="relatiive z-10 w-[386px] h-[40px] flex items-center pl-5 cursor-pointer transition-transform duration-300"
           >
-            <div
-              className={`flex flex-row items-center gap-[62px] w-[386px] h-[40px] rounded-[30px] overflow-hidden pl-5
-                        ${
-                          clickedId === act.id
-                            ? "bg-[linear-gradient(160deg,#261F19_0%,#2B251C_17%,#27221C_38%,#27211B_56%,#27221C_86%,#2B251C_100%)] rounded-[30px] backdrop-blur-2xl"
-                            : "bg-transparent"
-                        }
-            `}
-            >
+            <div className="flex flex-row items-center gap-[62px]">
               <div
-                className={`text-[20px] select-none text-right
+                className={`text-[20px] select-none text-right transition-colors duration-300
                             ${
                               clickedId === act.id
                                 ? "text-[#B0701C]"
@@ -134,10 +123,10 @@ const ActivityList = () => {
                 0{act.id}
               </div>
               <div
-                className={`text-[30px] select-none
+                className={`text-[30px] select-none transition-colors duration-300
                             ${
                               clickedId === act.id
-                                ? "font-black bg-[linear-gradient(0deg,#FF9000_0%,#FF5E00_45%,#FF9000_60%,#FF5E00_100%)] bg-clip-text text-transparent"
+                                ? "font-black bg-gradient-to-r from-[#FF9000] to-[#FF5E00] bg-clip-text text-transparent drop-shadow-[0_4px_4px_rgba(255,255,255,0.145)]"
                                 : "text-white"
                             }
                 `}
