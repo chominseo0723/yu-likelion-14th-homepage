@@ -1,4 +1,3 @@
-// Qanda.jsx
 import React, { useState } from 'react'
 import MainHeader from '../header/MainHeader'
 import MainFooter from '../footer/MainFooter'
