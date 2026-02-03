@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import MainHeader from "../header/MainHeader";
 import MainFooter from "../footer/MainFooter";
 import HomeProject from "../sections/HomeProject";
+import Activity from "../components/Activity";
 import TrackCard from "../components/TrackCard";
 import SessionCard from "../components/Session";
 import openingVideo from "./../assets/오프닝 영상.mp4";
@@ -10,7 +11,6 @@ import TopTimer from "../components/TopTimer";
 import Qna from "../components/Q&A/Qna";
 import Time from "../components/Q&A/Time";
 const MainScreen = () => {
-  
   const homeRef = useRef(null);
 
   const scrollToHome = () => {
@@ -29,38 +29,44 @@ const MainScreen = () => {
       <main className="snap-container no-scrollbar h-screen overflow-y-auto">
         {/* HOME */}
         <section
-  ref={homeRef}
-  className="snap-section relative overflow-hidden"
->
- <video
-  src={openingVideo}
-  autoPlay
-  loop
-  muted
-  playsInline
-  className=" absolute
+          ref={homeRef}
+          className="snap-section relative overflow-hidden"
+        >
+          <video
+            src={openingVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className=" absolute
     inset-0
     w-full
     h-full
     object-contain
     z-0"
-/>
+          />
 
+          <img
+            src={arrow}
+            alt="scroll down"
+            className="absolute bottom-[38px] left-1/2 -translate-x-1/2 z-10 w-20 h-20"
+          />
+        </section>
 
-  <img
-    src={arrow}
-    alt="scroll down"
-    className="absolute bottom-[38px] left-1/2 -translate-x-1/2 z-10 w-20 h-20"
-  />
-</section>
-
-<section className="snap-section relative overflow-hidden bg-[#070708]">
-  <TopTimer />
-</section>
+        <section className="snap-section relative overflow-hidden bg-[#070708]">
+          <TopTimer />
+        </section>
 
         {/* recruit */}
         <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
           <h1 className="text-4xl font-bold">RECRUIT CONTENT</h1>
+        </section>
+
+        {/* activity */}
+        <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
+          <div className="z-0">
+            <Activity />
+          </div>
         </section>
 
         {/* track */}
