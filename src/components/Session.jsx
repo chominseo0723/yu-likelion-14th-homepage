@@ -1,44 +1,6 @@
 import React from "react";
-import light from "../assets/light.svg";
-
-/* 추후 노션 링크 추가하기 */
-const cards = [
-  {
-    id: 1,
-    title1: "Frontend",
-    title2: "프론트엔드",
-    subtitle: "VS Code / React\n / Next.js / Tailwind CSS",
-    url: "https://naver.com",
-  },
-  {
-    id: 2,
-    title1: "Backend",
-    title2: "백엔드",
-    subtitle: "IntelliJ / Spring Boot\n / JPA / MySQL",
-    url: "https://google.com",
-  },
-  {
-    id: 3,
-    title1: "Planning & Design",
-    title2: "기획/디자인",
-    subtitle: "Figma",
-    url: "",
-  },
-  {
-    id: 4,
-    title1: "AI 특강",
-    title2: "AI 특강",
-    subtitle: "huggingface / cursor",
-    url: "",
-  },
-  {
-    id: 5,
-    title1: "기획 특강",
-    title2: "기획 특강",
-    subtitle: "서비스 기획 & 문제정의",
-    url: "",
-  },
-];
+import SessionData from "../data/SessionData";
+import star from "../assets/star.svg";
 
 const SessionCard = ({ data }) => {
   return (
@@ -98,7 +60,7 @@ const Session = () => {
     <div className="min-h-screen w-full max-w-6xl bg-transparent flex flex-col items-center justify-center py-20 px-4 relative overflow-hidden">
       <div className="w-full flex flex-col items-start mb-[56.97px]">
         <div className="flex flex-row items-center justify-center gap-4.75">
-          <img src={light} alt="light" className="w-[19.7] h-[19.7]" />
+          <img src={star} alt="star" className="w-[19.7] h-[19.7]" />
           <p
             className="font-normal text-[20px] bg-linear-to-r from-[#FF9000] to-[#FF5E00] 
                     bg-clip-text text-transparent
@@ -121,7 +83,7 @@ const Session = () => {
         </h3>
       </div>
       <div className="flex flex-wrap justify-center gap-x-13.5 gap-y-12.5 w-full h-full max-w-7xl relative z-10">
-        {cards.map((card) => (
+        {SessionData.map((card) => (
           <SessionCard key={card.id} data={card} />
         ))}
       </div>

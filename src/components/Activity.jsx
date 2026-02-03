@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import light from "../assets/light.svg";
+import star from "../assets/star.svg";
 import act1 from "../assets/activites/active1.svg";
 import act2 from "../assets/activites/active2.svg";
 import act3 from "../assets/activites/active3.svg";
@@ -190,7 +190,7 @@ const Activity = () => {
     <div className="min-h-screen w-full bg-transparent flex flex-col items-center justify-center py-20 px-4 relative overflow-hidden">
       <div className="w-full max-w-7xl flex flex-col items-start mb-[62.53px]">
         <div className="flex flex-row items-center justify-center gap-4.75">
-          <img src={light} alt="light" className="w-[19.7] h-[19.7]" />
+          <img src={star} alt="star" className="w-[19.7] h-[19.7]" />
           <p
             className="font-normal text-[20px] bg-linear-to-r from-[#FF9000] to-[#FF5E00] 
                               bg-clip-text text-transparent
