@@ -16,23 +16,17 @@ const cards = [MEDIV, CLMN, DEEPSAFE, BRIDGEE, Scooty, ONDOMI, ILKAN, STARTPOINT
 const Project = () => {
   return (
     <div className='flex flex-col font-pretendard'>
-            <div className='flex flex-row ml-50 gap-5'>
+            <div className='flex flex-row ml-52 gap-5 items-center'>
                 <img src={star} />
                 <span className='
-                   bg-[linear-gradient(92deg,rgba(255,144,0,0.5)_0.69%,rgba(255,94,0,0.5)_97.06%)]
-                    bg-clip-text
-                    text-transparent
-                    [-webkit-background-clip:text]
-                    [-webkit-text-fill-color:transparent]
-                    [-webkit-text-stroke-width:0.2px]
-                    [-webkit-text-stroke-color:#000]
-                    font-pretendard
-                    text-[20px]
-                    font-medium
-                    leading-[60px]
+                  font-normal text-[20px] bg-linear-to-r from-[#FF9000] to-[#FF5E00] 
+                    bg-clip-text text-transparent
+                    [-webkit-text-stroke:0.2px_#FFAE00]
+                    [text-shadow:0_1.5px_1px_rgba(124,66,5,0.9)]
+                    select-none
                 '>Project</span>
             </div>
-            <Link className='text-[40px] font-bold text-[#C56908] ml-50' to='/project'>멋사 13기 활동 더보기  &gt;&gt;</Link>
+            <Link className='text-[40px] font-bold text-[#C56908] ml-52' to='/project'>멋사 13기 활동 더보기  &gt;&gt;</Link>
 <div className="marquee-mask mt-12">
         <div className="marquee-track pause-on-hover gap-12">
           {[...cards, ...cards, ...cards].map((src, i) => (
