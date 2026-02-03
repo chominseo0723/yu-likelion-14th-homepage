@@ -1,5 +1,5 @@
 import React from "react";
-import light from "../../assets/light.svg";
+import star from "../../assets/star.svg";
 import QnASection from "./QnASection";
 
 const Qna = () => {
@@ -8,7 +8,7 @@ const Qna = () => {
       {/* 타이틀 영역 */}
       <div className="flex flex-col ml-52">
         <div className="flex flex-row items-center gap-4">
-          <img src={light} alt="light" />
+          <img src={star} alt="star" />
           <span
             className="font-normal text-[20px] bg-linear-to-r from-[#FF9000] to-[#FF5E00] 
                     bg-clip-text text-transparent
