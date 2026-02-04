@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import MainHeader from "../header/MainHeader";
 import MainFooter from "../footer/MainFooter";
 import HomeProject from "../sections/HomeProject";
+import Stats from "../components/Stats";
 import Activity from "../components/Activity";
 import TrackCard from "../components/TrackCard";
 import SessionCard from "../components/Session";
@@ -62,6 +63,13 @@ const MainScreen = () => {
           <h1 className="text-4xl font-bold">RECRUIT CONTENT</h1>
         </section>
 
+        {/* stats */}
+        <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
+          <div className="z-0">
+            <Stats />
+          </div>
+        </section>
+
         {/* activity */}
         <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
           <div className="z-0">
@@ -91,13 +99,13 @@ const MainScreen = () => {
         </section>
 
         {/* Q&A */}
-          <section className="snap-section flex">
+        <section className="snap-section flex">
           <div className="mt-45">
-          <Qna/>
+            <Qna />
           </div>
         </section>
 
-        <Time/>
+        <Time />
 
         <MainFooter />
       </main>
