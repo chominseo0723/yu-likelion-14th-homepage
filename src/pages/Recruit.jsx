@@ -10,46 +10,34 @@ import RecruitQnaSection from "../components/Recruit/RecruitQnaSection";
 
 const Recruit = () => {
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+    <div
+      className="min-h-screen text-white overflow-x-hidden"
+      style={{
+        background:
+          "linear-gradient(180deg, #000000 0%, #000000 35%, #362209 100%)",
+      }}
+    >
       <div className="fixed top-0 left-0 w-full z-20">
         <MainHeader scrollToHome={() => {}} />
       </div>
       <div className="relative min-h-screen">
-        <main className="snap-container no-scrollbar h-screen overflow-y-auto pt-[100px] relative z-10">
-          <section
-            className="snap-section relative"
-            style={{ height: "auto", minHeight: "100vh", scrollSnapStop: "normal" }}
-          >
+        <main className="relative z-10 pt-[100px]">
+          <section className="relative" style={{ minHeight: "100vh" }}>
             <IntroComment />
           </section>
-          <section
-            className="snap-section relative"
-            style={{ height: "auto", minHeight: "100vh", scrollSnapStop: "normal" }}
-          >
+          <section className="relative" style={{ minHeight: "100vh" }}>
             <IdealTalent />
           </section>
-          <section
-            className="snap-section relative"
-            style={{ height: "auto", minHeight: "100vh", scrollSnapStop: "normal" }}
-          >
+          <section className="relative" style={{ minHeight: "100vh" }}>
             <Schedule />
           </section>
-          <section
-            className="snap-section relative"
-            style={{ height: "auto", minHeight: "100vh", scrollSnapStop: "normal" }}
-          >
+          <section className="relative" style={{ minHeight: "100vh" }}>
             <AnnualSchedule />
           </section>
-          <section
-            className="snap-section relative"
-            style={{ height: "auto", minHeight: "100vh", scrollSnapStop: "normal" }}
-          >
+          <section className="relative" style={{ minHeight: "100vh" }}>
             <RequiredParticipation />
           </section>
-          <section
-            className="snap-section relative"
-            style={{ height: "auto", minHeight: "100vh", scrollSnapStop: "normal" }}
-          >
+          <section className="relative" style={{ minHeight: "100vh" }}>
             <RecruitQnaSection />
           </section>
         </main>

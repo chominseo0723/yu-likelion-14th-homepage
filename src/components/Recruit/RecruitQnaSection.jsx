@@ -28,9 +28,12 @@ const RecruitQnaSection = () => {
 	const qnaList = QNA_DATA["주요"] || [];
 
 	return (
-		<section className="relative w-full px-[200px] pb-[140px] box-border overflow-hidden">
+		<section
+			className="relative w-full px-[200px] pb-[16vh] box-border"
+			style={{ overflow: "visible" }}
+		>
 			<div className="relative w-full max-w-[1040px] mx-auto">
-				<div className="flex w-full max-w-[632.6772px] h-[35.6772px] items-center gap-[19px] text-left pt-[120px]">
+				<div className="flex w-full max-w-[632.6772px] h-[35.6772px] items-center gap-[19px] text-left pt-[19vh]">
 					<img src={light} alt="Q&A" style={{ width: "35.6772px", height: "35.6772px" }} />
 					<span style={sectionLabelStyle}>Q&A</span>
 				</div>
