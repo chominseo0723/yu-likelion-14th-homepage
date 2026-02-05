@@ -30,7 +30,7 @@ const AnnualSchedule = () => {
 	};
 
 	return (
-		<section className="relative w-full px-[200px] pb-0 box-border overflow-hidden">
+		<section className="relative w-full px-[200px] pb-[353.89px] box-border overflow-hidden">
 			<div className="relative w-full max-w-[1040px] mx-auto">
 				<div className="flex w-full max-w-[632.6772px] h-[35.6772px] items-center gap-[19px] text-left pt-[120px]">
 					<img src={light} alt="annual schedule" style={{ width: "35.6772px", height: "35.6772px" }} />

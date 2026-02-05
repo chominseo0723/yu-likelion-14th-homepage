@@ -22,7 +22,7 @@ const sectionLabelStyle = {
 
 const RequiredParticipation = () => {
 	return (
-		<section className="relative w-full px-[200px] pb-[140px] mt-[353.89px] box-border overflow-hidden">
+		<section className="relative w-full px-[200px] pb-[411.03px] box-border overflow-hidden">
 			<div className="relative w-full max-w-[1040px] mx-auto">
 				<div className="flex w-full max-w-[632.6772px] h-[35.6772px] items-center gap-[19px] text-left pt-[120px]">
 					<img src={light} alt="star" style={{ width: "35.6772px", height: "35.6772px" }} />

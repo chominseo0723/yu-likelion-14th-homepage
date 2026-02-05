@@ -10,8 +10,8 @@ import {
 
 const IdealTalent = () => {
 	return (
-		<section className="relative w-full px-[200px] pb-[140px] box-border overflow-hidden">
-			<div className="relative w-full max-w-[1040px] mt-[269.15px] mx-auto">
+		<section className="relative w-full px-[200px] pb-[416.22px] box-border overflow-hidden">
+			<div className="relative w-full max-w-[1040px] mx-auto">
 				<div className="flex w-[632.6772px] h-[35.6772px] items-center gap-[19px] text-left">
                     {/* asset 변경 필요 */}
 					<img src={light} alt="star" style={{ width: "35.6772px", height: "35.6772px" }}/> 
