@@ -4,6 +4,7 @@ import MainFooter from "../footer/MainFooter";
 import IntroComment from "../components/Recruit/IntroComment";
 import IdealTalent from "../components/Recruit/IdealTalent";
 import Schedule from "../components/Recruit/schedule";
+import RequiredParticipation from "../components/Recruit/RequiredParticipation";
 
 const Recruit = () => {
   return (
@@ -16,6 +17,7 @@ const Recruit = () => {
           <IntroComment />
           <IdealTalent />
           <Schedule />
+          <RequiredParticipation />
         </main>
       </div>
       <MainFooter />
