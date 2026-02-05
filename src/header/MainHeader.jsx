@@ -6,11 +6,11 @@ import LOGO from "./../assets/LOGO.svg";
 const MainHeader = ({ scrollToHome }) => {
   return (
     <div className="flex flex-row font-pretendard py-9 items-center justify-between bg-transparent">
-      <img
+      <Link to='/'><img
         className="pl-10 cursor-pointer"
         src={LOGO}
         onClick={() => scrollToSection(sectionRefs.home)}
-      />
+      /></Link>
 
       <div className="flex flex-row gap-10 items-center">
         {/* HOME 눌렀을 때 첫화면  */}

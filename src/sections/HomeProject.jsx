@@ -30,9 +30,9 @@ const Project = () => {
 <div className="marquee-mask mt-12">
         <div className="marquee-track pause-on-hover gap-12">
           {[...cards, ...cards, ...cards].map((src, i) => (
-            <Link to="/" key={i} className="shrink-0">
+            <div to="/" key={i} className="shrink-0">
               <img src={src} alt={`project-${i}`} />
-            </Link>
+            </div>
           ))}
         </div>
       <div className='flex justify-center'>

@@ -73,9 +73,14 @@ const Qanda = () => {
 
         {/* Q&A 리스트 */}
         <div className="mt-44 ">
-          {(QNA_DATA[selected] || []).map((item, idx) => (
-            <QnACard key={idx} q={item.q} a={item.a} />
-          ))}
+         {(QNA_DATA[selected] || []).map((item, idx) => (
+  <QnACard
+    key={`${selected}-${idx}`}  
+    q={item.q}
+    a={item.a}
+  />
+))}
+
         </div>
       </div>
 
