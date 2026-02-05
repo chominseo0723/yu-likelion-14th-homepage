@@ -83,11 +83,11 @@ const ActivityList = () => {
                               ${isActive ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}
                               bg-transparent`}
               >
-                <div className="w-full h-full px-[30px] pt-[59px] pb-[10px] whitespace-pre-line glass glass-main glass-ideal rounded-[30px] self-stretch">
-                  <p className="text-[20px] font-bold text-white mb-2">
+                <div className="w-full h-full px-[30px] pt-[59px] pb-[10px] whitespace-pre-line glass glass-main rounded-[30px] self-stretch">
+                  <p className="text-[20px] font-[700] leading-[35px] text-white mb-2">
                     {act.description1}
                   </p>
-                  <p className="flex items-center w-[472px] h-[140px] text-[20px] font-normal text-white leading-relaxed">
+                  <p className="flex items-center w-[472px] h-[140px] text-[20px] font-[400] leading-[35px] text-white leading-relaxed">
                     {act.description2}
                   </p>
                 </div>
