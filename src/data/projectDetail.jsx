@@ -1,15 +1,15 @@
-import MEDIV from '../assets/MEDIV.svg'
-import CLMN from '../assets/CLMN.svg'
-import Scooty from '../assets/Scooty.svg'
-import DEEPSAFE from '../assets/DEEPSAFE.svg'
-import ONDOMI from '../assets/ONDOMI.svg'
-import BRIDGEE from '../assets/BRIDGEE.svg'
-import ILKAN from '../assets/ILKAN.svg'
-import STARTPOINTER from '../assets/STARTPOINTER.svg'
+import pdmediv from '../assets/pdmediv.png'
+import pdclmn from '../assets/pdclmn.png'
+import pdscooty from '../assets/pdscooty.png'
+import pddeepsafe from '../assets/pddeepsafe.png'
+import pdondomi from '../assets/pdondomi.png'
+import pdbridegee from '../assets/pdbridegee.png'
+import pdilkan from '../assets/pdilkan.png'
+import pdstartpointer from '../assets/pdstartpointer.png'
 
 export const projectDetail = {
   mediv: {
-    heroImage: MEDIV,
+    heroImage: pdmediv,
     title: 'MEDIV',
     subtitle: '메디브',
     tag: ['아이디어톤', '개발 지상주의'],
@@ -39,7 +39,7 @@ MEDIV는 단순한 검색 서비스가 아니라, ‘불안한 복약’을 ‘�
   },
 
   clmn: {
-    heroImage: CLMN,
+    heroImage: pdclmn,
     title: 'Clmn',
     subtitle: '칼럼',
     tag: ['아이디어톤', '찰나'],
@@ -67,7 +67,7 @@ Clmn은 단순한 뉴스 요약 앱이 아니라, ‘뉴스를 멀게 느끼는 
   },
 
   scooty: {
-    heroImage: Scooty,
+    heroImage: pdscooty,
     title: 'Scooty',
     subtitle: '스쿠티',
     tag: ['아이디어톤', '코코넛'],
@@ -96,13 +96,13 @@ CScooty는 사용자가 스쿠터를 호출한 순간부터 탑승까지의 전 
   },
 
   deepsafe: {
-    heroImage: DEEPSAFE,
+    heroImage: pddeepsafe,
     title: 'DeepSafe',
     subtitle: '딥세이프',
     tag: ['아이디어톤', 'Highfive'],
 
     summary:
-      'Clmn(찰나)은 과도한 뉴스 정보 속에서 길을 잃은 사용자에게, 핵심만 요약하고 ‘나에게 미칠 영향’까지 연결해주는 AI 기반 맞춤형 뉴스 이해 서비스입니다.',
+      'DeepSafe는 딥페이크·딥보이스 범죄로부터 가족을 보호하기 위해, 실시간 탐지와 즉각적인 알림으로 위험 순간을 연결하는 AI 기반 보안 서비스입니다.',
 
     team: {
       pd: ['김소윤'],
@@ -120,7 +120,7 @@ DeepSafe는 딥페이크·딥보이스를 실시간으로 탐지하고, 위험�
   },
 
   'start-pointer': {
-    heroImage: STARTPOINTER,
+    heroImage: pdstartpointer,
     title: 'Start Pointer',
     subtitle: '스타트 포인터',
     tag: ['해커톤', '개발지상주의'],
@@ -148,7 +148,7 @@ Start Pointer(SPO)는 경산 청년 창업자를 위한 AI 기반 통합 창업 
   },
 
   ondomi: {
-    heroImage: ONDOMI,
+    heroImage: pdondomi,
     title: 'Ondomi',
     subtitle: '온도미',
     tag: ['아이디어톤', '찰나'],
@@ -173,7 +173,7 @@ Start Pointer(SPO)는 경산 청년 창업자를 위한 AI 기반 통합 창업 
   },
 
   bridgee: {
-    heroImage: BRIDGEE,
+    heroImage: pdbridegee,
     title: 'Bridgee',
     subtitle: '브릿지',
     tag: ['해커톤', '코코넛'],
@@ -199,7 +199,7 @@ Bridgee는 소상공인이 가게 운영에 필요한 도움을 ‘공모전’ 
   },
 
   'il-kan': {
-    heroImage: ILKAN,
+    heroImage: pdilkan,
     title: 'IL-KAN',
     subtitle: '일칸',
     tag: ['해커톤', 'Highfive'],
