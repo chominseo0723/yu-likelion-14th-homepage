@@ -17,7 +17,7 @@ const dateGradient = {
 const Schedule = () => {
 	return (
 		<section className="relative w-full px-[200px] pb-[140px] box-border overflow-hidden">
-			<div className="relative w-full max-w-[1040px] mt-[416.22px] mx-auto">
+			<div className="relative w-full max-w-[1040px] mt-[333px] mx-auto">
 				<div className="flex items-center text-left w-[632.6772px] h-[35.6772px] gap-[19px]">
 					<img src={light} alt="schedule" className="w-[35.6772px] h-[35.6772px] shrink-0" />
 					<span
