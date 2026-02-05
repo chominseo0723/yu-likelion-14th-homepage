@@ -16,9 +16,12 @@ const dateGradient = {
 
 const Schedule = () => {
 	return (
-		<section className="relative w-full px-[200px] pb-[333px] box-border overflow-hidden">
+		<section
+			className="relative w-full px-[200px] pb-[16vh] box-border"
+			style={{ overflow: "visible" }}
+		>
 			<div className="relative w-full max-w-[1040px] mx-auto">
-				<div className="flex items-center text-left w-[632.6772px] h-[35.6772px] gap-[19px]">
+				<div className="flex items-center text-left w-[632.6772px] h-[35.6772px] gap-[19px] pt-[19vh]">
 					<img src={light} alt="schedule" className="w-[35.6772px] h-[35.6772px] shrink-0" />
 					<span
 						style={{
@@ -57,15 +60,10 @@ const Schedule = () => {
 					{ScheduleData.map((card) => (
 						<div
 							key={card.id}
-							className="w-[245px] h-[395px] min-w-[245px] min-h-[395px] bg-transparent p-px rounded-[30px] shrink-0"
+							className="w-[245px] h-[395px] min-w-[245px] min-h-[395px] bg-transparent rounded-[30px] shrink-0"
 						>
 							<div
-								className="relative w-full h-full rounded-[30px] overflow-hidden flex flex-col box-border pt-[50.14px] pb-[16.78px] px-6 border border-[#3B2A1A80] backdrop-blur-md shadow-[inset_0_1px_0_0_#FFFFFF14,0_4px_24px_#0000001F]"
-								style={{
-									background:
-										"linear-gradient(135deg, #FFAE002E 0%, #FF9F001F 50%, #FF5E002E 100%)",
-									WebkitBackdropFilter: "blur(12px)",
-								}}
+								className="relative w-full h-full rounded-[30px] overflow-hidden flex flex-col box-border pt-[50.14px] pb-[16.78px] px-6 glass glass-ideal"
 							>
 								<div
 									className="absolute top-0 left-0 w-[70%] h-[55%] pointer-events-none"
