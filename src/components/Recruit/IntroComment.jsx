@@ -19,7 +19,7 @@ const semiBoldStyle = {
 const IntroComment = () => {
   return (
     <section
-      className="pt-[209px] px-5 sm:px-10 md:px-[200px] pb-20 box-border"
+      className="pt-[209px] px-5 sm:px-10 md:px-[200px] pb-[269.15px] box-border"
       style={semiBoldStyle}
     >
       <div className="w-full max-w-[1040px] mx-auto">
