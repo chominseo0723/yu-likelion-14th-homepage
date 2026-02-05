@@ -41,12 +41,12 @@ const SessionCard = ({ data }) => {
             }
           }}
         >
-          <div className="rounded-[30px] flex flex-col items-center gap-7">
-            <p className="text-center font-bold text-[24px] text-black select-none whitespace-pre-line">
+          <div className="rounded-[30px] flex flex-col gap-[20px]">
+            <p className="w-[261px] h-[49.977px] flex items-center justify-center text-center font-bold text-[24px] text-black select-none whitespace-pre-line pt-[25.01px]">
               {data.subtitle}
             </p>
-            <p className="text-[#7D3A13] text-center text-[18px] font-normal leading-8 border-b border-b-[#7D3A13] select-none">
-              {data.title2} 교육과정 보러가기 {">>"}
+            <p className="h-[50px] text-[#7D3A13] text-center text-[18px] font-normal leading-18 border-b border-b-[#7D3A13] select-none">
+              {data.title2} 보러가기 {">>"}
             </p>
           </div>
         </div>
