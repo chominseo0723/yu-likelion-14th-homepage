@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import MainHeader from "../header/MainHeader";
 import MainFooter from "../footer/MainFooter";
 import HomeProject from "../sections/HomeProject";
@@ -11,14 +11,29 @@ import arrow from "./../assets/arrow.svg";
 import TopTimer from "../components/TopTimer";
 import Qna from "../components/Q&A/Qna";
 import Time from "../components/Q&A/Time";
+
 const MainScreen = () => {
   const homeRef = useRef(null);
+  const videoRef = useRef(null);
+  const [hasPlayed, setHasPlayed] = useState(false);
+
+  useEffect(() => {
+    const played = sessionStorage.getItem("openingPlayed");
+    if (played === "true") {
+      setHasPlayed(true);
+    }
+  }, []);
 
   const scrollToHome = () => {
     homeRef.current?.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
+  };
+
+  const handleVideoEnded = () => {
+    setHasPlayed(true);
+    sessionStorage.setItem("openingPlayed", "true");
   };
 
   return (
@@ -33,19 +48,25 @@ const MainScreen = () => {
           ref={homeRef}
           className="snap-section relative overflow-hidden"
         >
-          <video
-            src={openingVideo}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className=" absolute
-    inset-0
-    w-full
-    h-full
-    object-contain
-    z-0"
-          />
+          {!hasPlayed ? (
+            <video
+              ref={videoRef}
+              src={openingVideo}
+              autoPlay
+              muted
+              playsInline
+              onEnded={handleVideoEnded}
+              className="absolute inset-0 w-full h-full object-contain z-0"
+            />
+          ) : (
+    
+            <video
+              src={openingVideo}
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-contain z-0"
+            />
+          )}
 
           <img
             src={arrow}
@@ -106,7 +127,6 @@ const MainScreen = () => {
         </section>
 
         <Time />
-
         <MainFooter />
       </main>
     </div>
