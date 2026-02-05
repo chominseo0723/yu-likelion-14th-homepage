@@ -39,8 +39,8 @@ const ProjectDetail = () => {
       <div className="relative z-10">
         <MainHeader />
         {/* 전체 컨테이너 */}
-        <div className="max-w-[1080px] mx-auto px-4 mb-60">
-          <div className="w-full h-full object-contain rounded-[30px] overflow-hidden">
+        <div className="max-w-[1080px]  mx-auto px-4 mb-60">
+          <div className="object-contain rounded-[30px] overflow-hidden">
             <img
               src={data.heroImage}
               alt={data.title}
