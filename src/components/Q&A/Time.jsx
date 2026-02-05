@@ -42,7 +42,7 @@ const Time = () => {
     <div className="relative flex justify-center mt-138 mb-22">
       <img src={backgroundstar} alt="background" className="w-700" />
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center font-semibold">
+      <div className="absolute inset-0 flex flex-col items-center justify-center font-semibold ">
         <p className="text-white text-[32px] mb-10">
           같이 성장해나가며{' '}
           <span className="text-[#FF9000] font-semibold">
