@@ -28,7 +28,7 @@ const Project = () => {
             </div>
             <Link className='text-[40px] font-bold text-[#C56908] ml-52' to='/project'>멋사 13기 활동 더보기  &gt;&gt;</Link>
 <div className="marquee-mask mt-12">
-        <div className="marquee-track pause-on-hover gap-12">
+        <div className="marquee-track pause-on-hover gap-[59px]">
           {[...cards, ...cards, ...cards].map((src, i) => (
             <div to="/" key={i} className="shrink-0">
               <img src={src} alt={`project-${i}`} />
