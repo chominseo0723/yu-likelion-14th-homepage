@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import MainHeader from "../header/MainHeader";
 import MainFooter from "../footer/MainFooter";
 import HomeProject from "../sections/HomeProject";
+import Introduce from "../components/Introduce";
 import Stats from "../components/Stats";
 import Activity from "../components/Activity";
 import TrackCard from "../components/TrackCard";
@@ -61,6 +62,13 @@ const MainScreen = () => {
         {/* recruit */}
         <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
           <h1 className="text-4xl font-bold">RECRUIT CONTENT</h1>
+        </section>
+
+        {/* introduce */}
+        <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
+          <div className="snap-container no-scorll h-screen overflow-y-auto no-scrollbar z-0">
+            <Introduce />
+          </div>
         </section>
 
         {/* stats */}
