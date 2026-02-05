@@ -3,7 +3,6 @@ import IdealTalentData from "../../data/IdealTalentData";
 import light from "/src/assets/star.svg";
 import {
 	mediumStyle,
-	boldStyle,
 	semiBoldStyle,
 	regularStyle,
 	titleStyle,
@@ -35,8 +34,8 @@ const IdealTalent = () => {
 				</div>
 				<div className="mt-[27.16px]">
 					<p
-						className="text-[40px] leading-[60px] w-[598px] h-[60px]"
-						style={titleStyle}
+						className="w-[598px] h-[60px]"
+						style={{ ...titleStyle, fontSize: "40px", lineHeight: "60px" }}
 					>
 						멋사는 이런분들을 기다려요!
 					</p>

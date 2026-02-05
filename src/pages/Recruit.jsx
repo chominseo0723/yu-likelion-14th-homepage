@@ -3,6 +3,7 @@ import MainHeader from "../header/MainHeader";
 import MainFooter from "../footer/MainFooter";
 import IntroComment from "../components/Recruit/IntroComment";
 import IdealTalent from "../components/Recruit/IdealTalent";
+import Schedule from "../components/Recruit/schedule";
 
 const Recruit = () => {
   return (
@@ -14,6 +15,7 @@ const Recruit = () => {
         <main className="relative z-10 min-h-screen">
           <IntroComment />
           <IdealTalent />
+          <Schedule />
         </main>
       </div>
       <MainFooter />
