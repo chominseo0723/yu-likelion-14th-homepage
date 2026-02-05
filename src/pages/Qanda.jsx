@@ -24,7 +24,7 @@ const Qanda = () => {
       {/* 타이틀 */}
       <div className="flex mt-41 gap-3 pl-50">
         <span className="text-white text-[42px] font-semibold">자주 묻는 질문</span>
-        <span className="text-[#FF9000] text-[42px] font-semibold">Q&A</span>
+        <span className="text-[#FF9000] text-[42px] font-semibold">'Q&A'</span>
       </div>
 
       <div className="flex gap-43">
