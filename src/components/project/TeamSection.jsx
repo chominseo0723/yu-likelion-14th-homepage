@@ -8,7 +8,7 @@ const TeamSection = ({ team }) => {
     backdrop-blur-[20px]
     border border-white/[0.18]
     shadow-[inset_0_1px_0_rgba(255,255,255,0.15),0_8px_40px_rgba(0,0,0,0.3)]
-    p-8
+  pt-[20px] pb-[30px] px-[20.5px]
     space-y-8
       "
     >
@@ -28,7 +28,9 @@ const TeamSection = ({ team }) => {
               shadow-[inset_0_1px_0_rgba(255,255,255,0.25)]
             "
           >
-            <span className="text-[#FF9000] text-[30px] font-bold">
+            <span className=" bg-[linear-gradient(90deg,#FF9000_0%,#FF5E00_100%)]
+    bg-clip-text 
+    text-transparent text-[30px] font-black ">
               P&D
             </span>
           </div>
@@ -48,6 +50,7 @@ const TeamSection = ({ team }) => {
           <div
             className="
               inline-flex items-center
+             
               h-[40px]
               px-[23px]
               rounded-full
@@ -57,7 +60,9 @@ const TeamSection = ({ team }) => {
               w-full
             "
           >
-            <span className="text-[#FF9000] text-[30px] font-bold">
+            <span className=" bg-[linear-gradient(90deg,#FF9000_0%,#FF5E00_100%)]
+    bg-clip-text
+    text-transparent text-[30px] font-black">
               FE
             </span>
           </div>
@@ -85,7 +90,9 @@ const TeamSection = ({ team }) => {
               shadow-[inset_0_1px_0_rgba(255,255,255,0.25)]
             "
           >
-            <span className="text-[#FF9000] text-[30px] font-bold">
+            <span className=" bg-[linear-gradient(90deg,#FF9000_0%,#FF5E00_100%)]
+    bg-clip-text
+    text-transparent text-[30px] font-black">
               BE
             </span>
           </div>

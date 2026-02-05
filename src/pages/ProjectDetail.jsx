@@ -57,7 +57,7 @@ const ProjectDetail = () => {
       className="
         px-5 py-2
         rounded-[40px]
-        text-[12px]
+        text-[14px]
         font-medium
         bg-white/10
         border border-white/[0.25]
