@@ -3,8 +3,10 @@ import MainHeader from "../header/MainHeader";
 import MainFooter from "../footer/MainFooter";
 import IntroComment from "../components/Recruit/IntroComment";
 import IdealTalent from "../components/Recruit/IdealTalent";
+import AnnualSchedule from "../components/Recruit/AnnualSchedule";
 import Schedule from "../components/Recruit/schedule";
 import RequiredParticipation from "../components/Recruit/RequiredParticipation";
+import RecruitQnaSection from "../components/Recruit/RecruitQnaSection";
 
 const Recruit = () => {
   return (
@@ -17,7 +19,9 @@ const Recruit = () => {
           <IntroComment />
           <IdealTalent />
           <Schedule />
+          <AnnualSchedule />
           <RequiredParticipation />
+          <RecruitQnaSection />
         </main>
       </div>
       <MainFooter />
