@@ -40,7 +40,7 @@ const IntroItem = ({ data }) => {
         className="absolute left-0 top-0 z-10 
                     flex flex-col items-start self-stretch
                     w-[578px] h-[305px] p-[30px] gap-[10px]
-                    rounded-[30px] glass glass-ideal"
+                    rounded-[30px] glass glass-main"
       >
         {/* 내부 스타일링 컨테이너 */}
         <div className="flex flex-col items-start w-[518px] gap-[30px]">
