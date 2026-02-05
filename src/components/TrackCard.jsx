@@ -64,10 +64,10 @@ const Card = ({ data }) => {
             <div
               className="absolute top-[15px] left-[24.65px] inset-0 w-[277.033px] h-[291px] rounded-[30px]
               bg-[linear-gradient(110deg,rgba(255,255,255,0.9)_0%,rgba(255,255,255,0.2)_2%,rgba(255,255,255,0.1)_17%,rgba(255,255,255,0.11)_28%,rgba(255,255,255,0.15)_36%,rgba(255,255,255,0.1)_50%,rgba(255,255,255,0.1)_100%)]
-              p-[0.5px] backdrop-blur-[1.5px] overflow-hidden flex items-center"
+              p-[0.5px] backdrop-blur-[1.5px] overflow-hidden flex items-center border-[1px] border-[#FFFFB9]/40"
             >
               <div className="relative w-full h-full rounded-[30px] bg-transparent px-[18px] bg-transparent ">
-                <div className="flex flex-col pt-[28px] pb-[13px] gap-5 w-full text-black text-[16px] text-left font-semibold leading-relaxed break-keep whitespace-pre-line tracking-[-0.4px] select-none">
+                <div className="flex flex-col pt-[28px] pb-[13px] gap-5 w-full text-black text-[16px] text-left font-semibold leading-[25px] break-keep whitespace-pre-line tracking-[-0.4px] select-none">
                   <p>{data.description1}</p>
                   <p>{data.description2}</p>
                   <p>{data.description3}</p>
@@ -98,7 +98,7 @@ const TrackCard = () => {
             Track
           </p>
         </div>
-        <p className="text-[#C56908] text-[40px] font-semibold">
+        <p className="text-[#C56908] text-[40px] font-semibold leading-[60px]">
           3가지의 트랙이 있어요!
         </p>
       </div>
