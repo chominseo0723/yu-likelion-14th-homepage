@@ -34,38 +34,50 @@ const Qanda = () => {
           {categories.map((c) => {
             const isActive = selected === c
 
-            return (
-              <button
-                key={c}
-                onClick={() => setSelected(c)}
-                className={`
-                  w-43
-                  pl-6
-                  rounded-[30px]
-                  text-[30px]
-                  transition-all duration-200
-                  text-left
-                  ${
-                    isActive
-                      ? `
-                        font-bold
-                        text-[#FF9000]
-                        bg-[linear-gradient(109deg,rgba(255,255,255,0.15)_16.55%,rgba(153,153,153,0.15)_97.22%)]
-                        backdrop-blur-md
-                        border border-[rgba(255,255,255,0.2)]
-                      `
-                      : `
-                        font-medium
-                        text-white
-                        bg-transparent
-                        hover:text-[#FF9000]
-                      `
-                  }
-                `}
-              >
-                {c}
-              </button>
-            )
+        return (
+  <button
+    key={c}
+    onClick={() => setSelected(c)}
+    className={`
+      w-43
+      pl-6
+      rounded-[30px]
+      text-[30px]
+      transition-all duration-200
+      text-left
+      ${
+        isActive
+          ? `
+            bg-[linear-gradient(109deg,rgba(255,255,255,0.15)_16.55%,rgba(153,153,153,0.15)_97.22%)]
+            backdrop-blur-md
+            border border-[rgba(255,255,255,0.2)]
+          `
+          : `
+            font-medium
+            text-white
+            bg-transparent
+            hover:text-[#FF9000]
+          `
+      }
+    `}
+  >
+    {isActive ? (
+      <span
+        className="
+          font-bold
+          bg-[linear-gradient(90deg,#FF9000_0%,#FF5E00_100%)]
+          bg-clip-text
+          text-transparent
+        "
+      >
+        {c}
+      </span>
+    ) : (
+      c
+    )}
+  </button>
+)
+
           })}
         </div>
 
