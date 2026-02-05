@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 .font-pretendard {
-  font-family: "Pretendard Variable", Pretendard, BlinkMacSystemFont, system-ui,
-    Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
+  font-family:
+    "Pretendard Variable", Pretendard, BlinkMacSystemFont, system-ui, Roboto,
+    "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
     "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
     sans-serif;
 }
@@ -54,10 +55,32 @@
     inset -10px -10px 30px rgba(255, 255, 255, 0.12);
 }
 
+.glass-main {
+  position: relative;
+  /* 전체적으로 더 투명한 베이스 */
+  background: rgba(255, 255, 255, 0.08);
+
+  /* 공통 blur */
+  backdrop-filter: blur(4px) saturate(130%);
+  /* Safari용 prefix 필수 */
+  -webkit-backdrop-filter: blur(4px) saturate(130%);
+
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    0 18px 40px rgba(15, 23, 42, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    inset -10px -10px 30px rgba(255, 255, 255, 0.12);
+}
+
 /* IdealTalent 스타일에 맞춘 오렌지 글래스 버전 */
 .glass-ideal {
   /* 조금 더 투명한 오렌지 글래스 */
-  background: linear-gradient(108deg, rgba(255, 174, 0, 0.1) 0%, rgba(255, 94, 0, 0.1) 100%);
+  background: linear-gradient(
+    108deg,
+    rgba(255, 174, 0, 0.1) 0%,
+    rgba(255, 94, 0, 0.1) 100%
+  );
   border-color: rgba(59, 42, 26, 0.6);
   box-shadow:
     0 22px 60px rgba(0, 0, 0, 0.7),
@@ -85,10 +108,10 @@
   .glass {
     /* Chromium에서도 동일하게 낮은 blur 사용 */
     backdrop-filter: blur(4px) saturate(130%) url(#liquidGlassRefraction);
-    -webkit-backdrop-filter: blur(4px) saturate(130%) url(#liquidGlassRefraction);
+    -webkit-backdrop-filter: blur(4px) saturate(130%)
+      url(#liquidGlassRefraction);
   }
 }
-
 
 @keyframes marquee {
   from {
@@ -99,12 +122,10 @@
   }
 }
 
-
 .marquee-mask {
   width: 100%;
   overflow: hidden;
 }
-
 
 .marquee-track {
   display: flex;
@@ -113,13 +134,11 @@
   will-change: transform;
 }
 
-
 .marquee-group {
   display: flex;
   width: 50%;
   gap: 48px;
 }
-
 
 .marquee-group img {
   width: 395px;
