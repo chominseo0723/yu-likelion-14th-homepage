@@ -52,7 +52,7 @@ const Time = () => {
         </p>
 
         {/* 카운트다운 */}
-        <div className="flex text-[54px]items-center gap-[28px] mb-30">
+        <div className="flex items-center gap-[28px] mb-30">
           <TimeUnit value={timeLeft.days} label="일" />
           <TimeUnit value={timeLeft.hours} label="시" />
           <TimeUnit value={timeLeft.minutes} label="분" />
@@ -105,7 +105,7 @@ backdrop-blur-xl
 border border-[rgba(255,255,255,0.25)]
               flex items-center justify-center
               text-white
-              text-[36px]
+              text-[54px]
               font-bold
             "
           >
