@@ -105,7 +105,7 @@ const DEADLINE = new Date("2026-03-08T23:59:59");
   <TimeGroup value={timeLeft.seconds} label="초" />
 </div>
 {/* 지원하기 버튼 */}
-<div className="flex flex-col items-center mt-12">
+<div className="flex flex-col items-center mt-[135px]">
   <button
     className="
         inline-flex items-center justify-center
