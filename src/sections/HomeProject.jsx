@@ -15,8 +15,7 @@ const cards = [MEDIV, CLMN, DEEPSAFE, BRIDGEE, Scooty, ONDOMI, ILKAN, STARTPOINT
 
 const Project = () => {
   return (
-    <div className="min-h-screen w-full bg-transparent flex flex-col items-center justify-center py-20 px-4 relative overflow-hidden font-pretendard">
-      
+   <div className="w-full bg-transparent flex flex-col items-center justify-start py-20 px-4 relative overflow-hidden font-pretendard">
       <div className="w-full max-w-6xl">
         <div className="w-full flex flex-col items-start">
           <div className="flex flex-row gap-5 items-center">
@@ -43,7 +42,8 @@ const Project = () => {
         </div>
       </div>
 
-      <div className="mt- w-screen overflow-visible mt-[232px]">
+    <div className="mt-[232px] w-screen overflow-hidden relative">
+
         <div className="marquee-track pause-on-hover gap-[59px] px-12">
           {[...cards, ...cards, ...cards].map((src, i) => (
             <div key={i} className="shrink-0">
