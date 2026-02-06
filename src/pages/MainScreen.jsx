@@ -121,8 +121,8 @@ const MainScreen = () => {
         </section>
 
         {/* project */}
-        <section className="snap-section flex">
-          <div className="mt-45">
+        <section className="snap-section flex items-center justify-center">
+          <div className="z-0">
             <HomeProject />
           </div>
         </section>
