@@ -169,7 +169,7 @@ const Stats = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center gap-25">
+    <div className="flex flex-col items-center gap-25 pt-[50px]">
       {/* 타이틀 */}
       <div className="flex flex-col items-center">
         <p
