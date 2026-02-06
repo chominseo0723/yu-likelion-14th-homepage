@@ -7,6 +7,7 @@ import Stats from "../components/Stats";
 import Activity from "../components/Activity";
 import TrackCard from "../components/TrackCard";
 import SessionCard from "../components/Session";
+import Review from "../components/Review";
 import openingVideo from "./../assets/오프닝 영상.mp4";
 import arrow from "./../assets/arrow.svg";
 import TopTimer from "../components/TopTimer";
@@ -22,7 +23,7 @@ const MainScreen = () => {
     });
   };
 
-  const Spacer = ({ height = "h-4" }) => (
+  const Spacer = ({ height = "h-[4px]" }) => (
     <div className={`snap-section ${height} bg-[#070708]`} />
   );
 
@@ -100,6 +101,13 @@ const MainScreen = () => {
         <section className="snap-section relative flex items-center justify-center bg-[#070708] text-white overflow-hidden">
           <div className="z-0 w-full flex justify-center">
             <HomeProject />
+          </div>
+        </section>
+
+        {/* stats */}
+        <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
+          <div className="relative z-5">
+            <Review />
           </div>
         </section>
 
