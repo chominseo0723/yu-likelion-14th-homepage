@@ -95,23 +95,22 @@ const MainScreen = () => {
             <SessionCard />
           </div>
         </section>
-
+        {/* 위치 수정 (project,qna *session에 맞췄습니다 ! ) */}
         {/* project */}
-        <section className="snap-section flex">
-          <div className="mt-45">
+        <section className="snap-section relative flex items-center justify-center bg-[#070708] text-white overflow-hidden">
+          <div className="z-0 w-full flex justify-center">
             <HomeProject />
           </div>
         </section>
 
         {/* Q&A */}
-        <section className="snap-section flex">
-          <div className="mt-45">
+        <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
+          <div className="z-0 w-full flex justify-center">
             <Qna />
           </div>
         </section>
 
         <Time />
-
         <MainFooter />
       </main>
     </div>
