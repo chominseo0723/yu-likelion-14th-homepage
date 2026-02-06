@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import MainHeader from "../header/MainHeader";
 import MainFooter from "../footer/MainFooter";
 import HomeProject from "../sections/HomeProject";
-import Introduce from "../components/Introduce";
+import Introduce from "../components/Introduce"; // vercel 오류 -> 이거 대소문자 구분해야돼요!!!
 import Stats from "../components/Stats";
 import Activity from "../components/Activity";
 import TrackCard from "../components/TrackCard";
