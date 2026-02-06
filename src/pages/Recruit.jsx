@@ -21,41 +21,23 @@ const Recruit = () => {
         <MainHeader scrollToHome={() => {}} />
       </div>
       <div className="relative min-h-screen">
-        <main className="snap-container no-scrollbar h-screen overflow-y-auto pt-[100px] relative z-10">
-          <section
-            className="snap-section relative"
-            style={{ height: "auto", minHeight: "100vh", scrollSnapStop: "always" }}
-          >
+        <main className="snap-container no-scrollbar relative z-10 pt-[100px]">
+          <section className="snap-section-center relative">
             <IntroComment />
           </section>
-          <section
-            className="snap-section relative"
-            style={{ height: "auto", minHeight: "100vh", scrollSnapStop: "always" }}
-          >
+          <section className="snap-section-center relative">
             <IdealTalent />
           </section>
-          <section
-            className="snap-section relative"
-            style={{ height: "auto", minHeight: "100vh", scrollSnapStop: "always" }}
-          >
+          <section className="snap-section-center relative">
             <Schedule />
           </section>
-          <section
-            className="snap-section relative"
-            style={{ height: "auto", minHeight: "100vh", scrollSnapStop: "always" }}
-          >
+          <section className="snap-section-center relative">
             <AnnualSchedule />
           </section>
-          <section
-            className="snap-section relative"
-            style={{ height: "auto", minHeight: "100vh", scrollSnapStop: "always" }}
-          >
+          <section className="snap-section-center relative">
             <RequiredParticipation />
           </section>
-          <section
-            className="snap-section relative"
-            style={{ height: "auto", minHeight: "100vh", scrollSnapStop: "always" }}
-          >
+          <section className="snap-section-center relative">
             <RecruitQnaSection />
           </section>
         </main>
