@@ -34,10 +34,10 @@ const IntroData = [
 const IntroItem = ({ data }) => {
   return (
     // 전체 컨테이너
-    <div className="relative w-[1000px] h-[480px]">
+    <div className="relative w-[948px] h-[480px]">
       {/* 글래스 컨테이너 */}
       <div
-        className="absolute left-0 top-0 z-10 
+        className="absolute left-0 top-0 z-5
                     flex flex-col items-start self-stretch
                     w-[578px] h-[305px] p-[30px] gap-[10px]
                     rounded-[30px] glass glass-main"
@@ -65,7 +65,7 @@ const IntroItem = ({ data }) => {
       </div>
 
       {/* 이미지 박스 */}
-      <div className="absolute left-[380px] top-[267px] z-5">
+      <div className="absolute left-[380px] top-[267px] z-0">
         <img
           src={data.background}
           alt={data.title}
@@ -78,13 +78,13 @@ const IntroItem = ({ data }) => {
 
 const Introduce = () => {
   return (
-    <div className="w-full">
+    <>
       {IntroData.map((data) => (
         <section
           key={data.id}
-          className="snap-section min-h-screen w-full flex justify-center items-center py-[120px] px-10 bg-[#070708]"
+          className="snap-section min-h-screen w-full flex justify-center items-center bg-[#070708]"
         >
-          <div className="w-full max-w-7xl flex flex-row items-start gap-10">
+          <div className="w-full max-w-7xl flex flex-row justify-center items-start gap-10 py-45">
             {/* 수직 라인 */}
             <div className="flex flex-col items-center relative">
               <img src={star} className="w-[30px] h-[30px] z-5" />
@@ -108,7 +108,7 @@ const Introduce = () => {
           </div>
         </section>
       ))}
-    </div>
+    </>
   );
 };
 
