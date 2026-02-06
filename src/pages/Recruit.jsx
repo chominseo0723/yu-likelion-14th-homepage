@@ -21,23 +21,23 @@ const Recruit = () => {
         <MainHeader scrollToHome={() => {}} />
       </div>
       <div className="relative min-h-screen">
-        <main className="relative z-10 pt-[100px]">
-          <section className="relative" style={{ minHeight: "100vh" }}>
+        <main className="snap-container no-scrollbar relative z-10 pt-[100px]">
+          <section className="snap-section-center relative">
             <IntroComment />
           </section>
-          <section className="relative" style={{ minHeight: "100vh" }}>
+          <section className="snap-section-center relative">
             <IdealTalent />
           </section>
-          <section className="relative" style={{ minHeight: "100vh" }}>
+          <section className="snap-section-center relative">
             <Schedule />
           </section>
-          <section className="relative" style={{ minHeight: "100vh" }}>
+          <section className="snap-section-center relative">
             <AnnualSchedule />
           </section>
-          <section className="relative" style={{ minHeight: "100vh" }}>
+          <section className="snap-section-center relative">
             <RequiredParticipation />
           </section>
-          <section className="relative" style={{ minHeight: "100vh" }}>
+          <section className="snap-section-center relative">
             <RecruitQnaSection />
           </section>
         </main>
