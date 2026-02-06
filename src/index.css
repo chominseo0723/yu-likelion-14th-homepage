@@ -55,6 +55,18 @@
     inset -10px -10px 30px rgba(255, 255, 255, 0.12);
 }
 
+/* 헤더 전용 글래스 디자인 */
+.glass-header {
+  position: relative;
+  /* 전체적으로 더 투명한 베이스 */
+  background: rgba(0, 0, 0, 0);
+
+  /* 공통 blur */
+  backdrop-filter: blur(4px) saturate(130%);
+  /* Safari용 prefix 필수 */
+  -webkit-backdrop-filter: blur(10px) saturate(130%);
+}
+
 .glass-main {
   position: relative;
   /* 전체적으로 더 투명한 베이스 */

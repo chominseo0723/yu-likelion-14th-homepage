@@ -28,7 +28,7 @@ const QnACard = ({ q, a }) => {
     transition-all duration-300 ease-out
     leading-tight
     ${isOpen
-      ? "text-[#FF9000] font-bold text-[28px]"
+      ? "font-bold text-[28px] bg-[linear-gradient(90deg,#FF9000_0%,#FF5E00_100%)] bg-clip-text text-transparent"
       : "text-white font-medium text-[24px]"}
   `}
 >
