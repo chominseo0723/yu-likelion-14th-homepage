@@ -80,11 +80,11 @@ const DEADLINE = new Date("2026-03-08T23:59:59");
       {/* 콘텐츠 */}
       <div className="relative z-10 text-center text-white">
             <div className="flex flex-col justify-center items-center">
-                <div className="flex flex-row text-[30px] justify-center items-center gap-1">
+                <div className="flex flex-row justify-center items-center gap-1 text-[30px] leading-[50px]">
                     <span className="text-[#FF9000] font-semibold">경험이 쌓여, 결과로 이어지는</span>
                     <span className="text-white font-semibold">동아리</span>
                 </div>
-                <span className="text-[30px]">멋쟁이 사자처럼 영남대학교에서</span>
+                <span className="text-[30px] leading-[50px]">멋쟁이 사자처럼 영남대학교에서</span>
 
                 <div className="flex flex-row text-[50px] font-black">
                     <span>같이 성장해나갈</span>
