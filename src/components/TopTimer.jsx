@@ -29,7 +29,7 @@ const TimeGroup = ({ value, label }) => {
         <DigitBox digit={digits[0]} />
         <DigitBox digit={digits[1]} />
       </div>
-      <span className="ml-1 text-sm text-white/60">{label}</span>
+      <span className="ml-1 mt-15 text-[15px] text-white">{label}</span>
     </div>
   );
 };
