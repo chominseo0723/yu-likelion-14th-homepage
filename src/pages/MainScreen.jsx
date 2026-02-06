@@ -19,6 +19,12 @@ const MainScreen = () => {
   const [hasPlayed, setHasPlayed] = useState(false);
 
   useEffect(() => {
+  // 새로고침할 때마다 오프닝 다시 재생되게
+  sessionStorage.removeItem("openingPlayed");
+  setHasPlayed(false);
+}, []);
+
+  useEffect(() => {
     const played = sessionStorage.getItem("openingPlayed");
     if (played === "true") {
       setHasPlayed(true);
@@ -46,35 +52,35 @@ const MainScreen = () => {
       <main className="snap-container no-scrollbar h-screen overflow-y-auto">
         {/* HOME */}
         <section
-          ref={homeRef}
-          className="snap-section relative overflow-hidden"
-        >
-          {!hasPlayed ? (
-            <video
-              ref={videoRef}
-              src={openingVideo}
-              autoPlay
-              muted
-              playsInline
-              onEnded={handleVideoEnded}
-              className="absolute inset-0 w-full h-full object-contain z-0"
-            />
-          ) : (
-    
-            <video
-              src={openingVideo}
-              muted
-              playsInline
-              className="absolute inset-0 w-full h-full object-contain z-0"
-            />
-          )}
+  ref={homeRef}
+  className="snap-section relative overflow-hidden"
+>
+  <video
+    ref={videoRef}
+    src={openingVideo}
+    muted
+    playsInline
+    autoPlay={!hasPlayed}   // 처음 접속시에만 자동재생
+    onEnded={() => {
+      const video = videoRef.current;
+      if (!video) return;
 
-          <img
-            src={arrow}
-            alt="scroll down"
-            className="absolute bottom-[38px] left-1/2 -translate-x-1/2 z-10 w-20 h-20"
-          />
-        </section>
+      // 마지막 프레임에 멈춤
+      video.pause();
+      video.currentTime = video.duration;
+
+      setHasPlayed(true);
+      sessionStorage.setItem("openingPlayed", "true");
+    }}
+    className="absolute inset-0 w-full h-full object-contain z-0"
+  />
+
+  <img
+    src={arrow}
+    alt="scroll down"
+    className="absolute bottom-[38px] left-1/2 -translate-x-1/2 z-10 w-20 h-20"
+  />
+</section>
 
         <section className="snap-section relative overflow-hidden bg-[#070708]">
           <TopTimer />
