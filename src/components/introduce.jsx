@@ -84,7 +84,7 @@ const Introduce = () => {
           key={data.id}
           className="snap-section min-h-screen w-full flex justify-center items-center bg-[#070708]"
         >
-          <div className="w-full max-w-7xl flex flex-row justify-center items-start gap-10 py-45">
+          <div className="w-full max-w-7xl flex flex-row justify-center items-start gap-10">
             {/* 수직 라인 */}
             <div className="flex flex-col items-center relative">
               <img src={star} className="w-[30px] h-[30px] z-5" />

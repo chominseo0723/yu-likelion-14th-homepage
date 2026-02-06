@@ -22,6 +22,10 @@ const MainScreen = () => {
     });
   };
 
+  const Spacer = ({ height = "h-4" }) => (
+    <div className={`snap-section ${height} bg-[#070708]`} />
+  );
+
   return (
     <div className="relative w-screen h-screen bg-[#070708] overflow-hidden font-pretendard">
       <div className="fixed top-0 left-0 w-full z-10">
@@ -59,13 +63,9 @@ const MainScreen = () => {
           <TopTimer />
         </section>
 
-        {/* recruit */}
-        <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
-          <h1 className="text-4xl font-bold">RECRUIT CONTENT</h1>
-        </section>
-
         {/* introduce */}
         <Introduce />
+        <Spacer />
 
         {/* stats */}
         <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
@@ -73,6 +73,7 @@ const MainScreen = () => {
             <Stats />
           </div>
         </section>
+        <Spacer />
 
         {/* activity */}
         <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
