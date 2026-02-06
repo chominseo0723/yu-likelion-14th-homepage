@@ -105,12 +105,10 @@ const AnnualSchedule = () => {
 
 				{/* 상단 월별 레이블 영역 */}
 				<div
-					className="relative flex items-center justify-center"
+					className="glass-main relative flex items-center justify-center"
 					style={{
 						width: `${gridWidth}px`,
 						height: "38px",
-						borderRadius: "30px",
-						background: "linear-gradient(170.86deg, #FFAE004D 28.724%, #FF5E004D 97.77%)",
 						zIndex: 1,
 					}}
 				>
@@ -135,14 +133,12 @@ const AnnualSchedule = () => {
 
 				{/* 이벤트 박스들 */}
 				<div
-					className="absolute flex items-center justify-center"
+					className="glass-event absolute flex items-center justify-center"
 					style={{
 						left: "0px",
 						top: "88px",
 						width: "863px",
 						height: "90px",
-						background: "linear-gradient(155.334deg, #FFFFFF4D 28.724%, #9999994D 97.77%)",
-						borderRadius: "30px",
 						zIndex: 20,
 					}}
 				>
@@ -150,14 +146,12 @@ const AnnualSchedule = () => {
 				</div>
 
 				<div
-					className="absolute flex items-center justify-center"
+					className="glass-event absolute flex items-center justify-center"
 					style={{
 						left: "0px",
 						top: "208px",
 						width: "422px",
 						height: "100px",
-						background: "linear-gradient(133.781deg, #FFFFFF4D 28.724%, #9999994D 97.77%)",
-						borderRadius: "30px",
 						zIndex: 20,
 					}}
 				>
@@ -165,14 +159,12 @@ const AnnualSchedule = () => {
 				</div>
 
 				<div
-					className="absolute flex items-center justify-center"
+					className="glass-event absolute flex items-center justify-center"
 					style={{
 						left: "443px",
 						top: "208px",
 						width: "244px",
 						height: "100px",
-						background: "linear-gradient(118.991deg, #FFFFFF4D 28.724%, #9999994D 97.77%)",
-						borderRadius: "30px",
 						zIndex: 20,
 					}}
 				>
@@ -180,14 +172,12 @@ const AnnualSchedule = () => {
 				</div>
 
 				<div
-					className="absolute flex items-center justify-center"
+					className="glass-event absolute flex items-center justify-center"
 					style={{
 						left: "796px",
 						top: "208px",
 						width: "244px",
 						height: "100px",
-						background: "linear-gradient(118.991deg, #FFFFFF4D 28.724%, #9999994D 97.77%)",
-						borderRadius: "30px",
 						zIndex: 20,
 					}}
 				>
@@ -196,14 +186,12 @@ const AnnualSchedule = () => {
 
 				{/* 하단 월별 레이블 영역 */}
 				<div
-					className="absolute flex items-center justify-center"
+					className="glass-main absolute flex items-center justify-center"
 					style={{
 						top: `${secondBlockOffset}px`,
 						left: "0px",
 						width: `${gridWidth}px`,
 						height: "38px",
-						borderRadius: "30px",
-						background: "linear-gradient(170.86deg, #FFAE004D 28.724%, #FF5E004D 97.77%)",
 						zIndex: 1,
 					}}
 				>
@@ -236,14 +224,12 @@ const AnnualSchedule = () => {
 				</div>
 
 				<div
-					className="absolute flex items-center justify-center"
+					className="glass-event absolute flex items-center justify-center"
 					style={{
 						left: "0px",
 						top: `${secondBlockOffset + 88}px`,
 						width: "245px",
 						height: "100px",
-						background: "linear-gradient(119.09deg, #FFFFFF4D 28.724%, #9999994D 97.77%)",
-						borderRadius: "30px",
 						zIndex: 20,
 					}}
 				>
@@ -251,14 +237,12 @@ const AnnualSchedule = () => {
 				</div>
 
 				<div
-					className="absolute flex items-center justify-center"
+					className="glass-event absolute flex items-center justify-center"
 					style={{
 						left: "265px",
 						top: `${secondBlockOffset + 88}px`,
 						width: "775px",
 						height: "100px",
-						background: "linear-gradient(150.395deg, #FFFFFF4D 28.724%, #9999994D 97.77%)",
-						borderRadius: "30px",
 						zIndex: 20,
 					}}
 				>

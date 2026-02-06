@@ -21,23 +21,41 @@ const Recruit = () => {
         <MainHeader scrollToHome={() => {}} />
       </div>
       <div className="relative min-h-screen">
-        <main className="relative z-10 pt-[100px]">
-          <section className="relative" style={{ minHeight: "100vh" }}>
+        <main className="snap-container no-scrollbar h-screen overflow-y-auto pt-[100px] relative z-10">
+          <section
+            className="snap-section relative"
+            style={{ height: "auto", minHeight: "100vh", scrollSnapStop: "always" }}
+          >
             <IntroComment />
           </section>
-          <section className="relative" style={{ minHeight: "100vh" }}>
+          <section
+            className="snap-section relative"
+            style={{ height: "auto", minHeight: "100vh", scrollSnapStop: "always" }}
+          >
             <IdealTalent />
           </section>
-          <section className="relative" style={{ minHeight: "100vh" }}>
+          <section
+            className="snap-section relative"
+            style={{ height: "auto", minHeight: "100vh", scrollSnapStop: "always" }}
+          >
             <Schedule />
           </section>
-          <section className="relative" style={{ minHeight: "100vh" }}>
+          <section
+            className="snap-section relative"
+            style={{ height: "auto", minHeight: "100vh", scrollSnapStop: "always" }}
+          >
             <AnnualSchedule />
           </section>
-          <section className="relative" style={{ minHeight: "100vh" }}>
+          <section
+            className="snap-section relative"
+            style={{ height: "auto", minHeight: "100vh", scrollSnapStop: "always" }}
+          >
             <RequiredParticipation />
           </section>
-          <section className="relative" style={{ minHeight: "100vh" }}>
+          <section
+            className="snap-section relative"
+            style={{ height: "auto", minHeight: "100vh", scrollSnapStop: "always" }}
+          >
             <RecruitQnaSection />
           </section>
         </main>
