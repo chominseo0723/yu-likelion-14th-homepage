@@ -119,6 +119,8 @@ const MainScreen = () => {
             <SessionCard />
           </div>
         </section>
+
+        {/* 위치 수정 (project,qna *session에 맞췄습니다 ! ) */}
         {/* project */}
        <section className="snap-section relative flex items-center justify-center bg-[#070708] text-white overflow-hidden">
           <div className="z-0 w-full flex justify-center">
