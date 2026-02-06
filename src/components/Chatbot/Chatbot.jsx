@@ -252,7 +252,7 @@ const Chatbot = () => {
   }
 
   return (
-    <div className="fixed bottom-32 right-8 z-40 font-pretendard">
+    <div className="fixed bottom-6 right-8 z-40 font-pretendard">
       {/* 플로팅 챗봇 버튼 */}
       {!isOpen && (
         <button
@@ -278,7 +278,7 @@ const Chatbot = () => {
 
       {/* 챗봇 창 */}
       {isOpen && (
-        <div className="glass w-96 h-[600px] bg-[#1a1a1a]/90 flex flex-col overflow-hidden">
+        <div className="glass w-96 h-[calc(100vh-1.5rem)] max-h-[600px] bg-[#1a1a1a]/90 flex flex-col overflow-hidden">
           {/* 헤더 */}
           <div className="relative bg-gradient-to-r from-[#FF9000] to-[#FF5E00] p-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
