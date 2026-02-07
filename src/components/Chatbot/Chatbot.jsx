@@ -367,7 +367,7 @@ const Chatbot = () => {
           </div>
 
           {/* 메시지 영역 */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-[#0a0a0a]/50">
+          <div className="flex-1 overflow-y-auto no-scrollbar p-4 space-y-3 bg-[#0a0a0a]/50">
             {messages.map((message, index) => (
               <div
                 key={index}

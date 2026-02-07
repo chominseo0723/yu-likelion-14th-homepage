@@ -13,11 +13,9 @@ const QnACard = ({ q, a }) => {
       <button
         onClick={() => setIsOpen((prev) => !prev)}
         className={`
+          glass-qna
           w-full text-left
           px-6 py-6
-          border border-[rgba(255,255,255,0.15)]
-          bg-[linear-gradient(109deg,rgba(255,255,255,0.12)_16.55%,rgba(153,153,153,0.12)_97.22%)]
-          backdrop-blur-md
           flex items-center justify-between
           transition-all duration-200
           ${isOpen ? 'rounded-t-[30px] rounded-b-none' : 'rounded-[30px]'}
@@ -45,11 +43,10 @@ const QnACard = ({ q, a }) => {
       >
         <div
           className="
+            glass-qna
             px-8 py-6
             rounded-b-[30px]
-            border border-t-0 border-[rgba(255,255,255,0.15)]
-            bg-[rgba(255,255,255,0.06)]
-            backdrop-blur-md
+            border-t-0
           "
         >
           <div className="leading-relaxed">

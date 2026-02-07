@@ -98,11 +98,9 @@ const TimeUnit = ({ value, label }) => {
           <div
             key={idx}
             className="
+              glass-timer-digit
               w-[62.7px] h-[92.2px]
               rounded-[23px]
-              bg-[linear-gradient(180deg,rgba(255,255,255,0.18)_0%,rgba(255,255,255,0.06)_100%)]
-backdrop-blur-xl
-border border-[rgba(255,255,255,0.25)]
               flex items-center justify-center
               text-white
               text-[54px]

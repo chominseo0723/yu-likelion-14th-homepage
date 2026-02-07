@@ -42,7 +42,8 @@ const MainHeader = ({ scrollToHome }) => {
           backdrop-blur-sm mr-15 cursor-pointer
           hover:from-[#FF5E00]
           hover:to-[#FFAE00]
-          transition-all duration-300 ease-in-out"
+          transition-all duration-300 ease-in-out
+          flex items-center justify-center whitespace-nowrap"
         >
           14기 지원하기
         </div>

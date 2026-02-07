@@ -40,9 +40,10 @@ const Recruit = () => {
           <section className="snap-section-center relative">
             <RecruitQnaSection />
           </section>
+          <MainFooter />
         </main>
+      
       </div>
-      <MainFooter />
     </div>
   );
 };

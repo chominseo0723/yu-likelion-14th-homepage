@@ -5,15 +5,12 @@ import arrow from "../assets/arrow.svg";
 const DigitBox = ({ digit }) => (
   <div
     className="
+      glass-timer-digit
       flex items-center justify-center
       w-[62px] h-[92px]
       rounded-[23px]
-      bg-white/10
-      backdrop-blur-md
-      text-white  font-bold
-    text-[54px]
-       border border-white/10
-     shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]
+      text-white font-bold
+      text-[54px]
     "
   >
     {digit}
@@ -107,16 +104,10 @@ const DEADLINE = new Date("2026-03-08T23:59:59");
 {/* 지원하기 버튼 */}
 <div className="flex flex-col items-center mt-[135px]">
   <button
-    className="
-        inline-flex items-center justify-center
-    px-[39px] py-[14px]
-    rounded-[40px]
-    bg-[linear-gradient(85deg,rgba(255,94,0,0.40)_0.3%,rgba(255,174,0,0.40)_90.1%)]
-    shadow-[inset_0_4px_4px_rgba(255,233,207,0.25)]
-    text-white font-semibold
-    backdrop-blur-sm
-    text-[20px]
-    "
+    className="w-[192px] h-[52px] border rounded-[40px] px-10 py-3 font-extrabold text-white text-[20px]
+      bg-gradient-to-r from-[#FF5E00]/40 to-[#FFAE00]/40 border-white/30 backdrop-blur-sm cursor-pointer
+      hover:from-[#FF5E00] hover:to-[#FFAE00] transition-all duration-300 ease-in-out
+      flex items-center justify-center whitespace-nowrap"
   >
     14기 지원하기
   </button>
