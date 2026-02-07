@@ -54,7 +54,10 @@ const ReviewCard = () => {
       <div className="flex flex-col w-full gap-[154px]">
         {/* 리뷰 타이틀 */}
         <div className="w-[1040px] h-[164px]">
-          <p className="whitespace-pre-line text-[60px] text-white font-[600] leading-[82px] text-left">
+          <p
+            key={activeIndex}
+            className="animate-review whitespace-pre-line text-[60px] text-white font-[600] leading-[82px] text-left"
+          >
             {currentData.title}
           </p>
         </div>
@@ -75,7 +78,10 @@ const ReviewCard = () => {
         className="absolute bottom-[-320px] right-0 cursor-pointer group transition-all duration-500 hover:translate-y-[-10px] z-50"
       >
         <div className="flex flex-col items-end gap-4">
-          <div className="glass rounded-[30px] w-[567px] h-[278.6px] p-[20px] opacity-40 group-hover:opacity-80 transition-opacity overflow-hidden">
+          <div
+            className={`glass rounded-[30px] w-[567px] h-[278.6px] p-[30px] bg-white/5 border border-white/10 overflow-hidden transition-all duration-600 ease-in-out
+                        blur-[3px] group-hover:blur-none opacity-90 group-hover:opacity-100`}
+          >
             <p className="text-white text-[16.8px] font-[400] leading-[29.4px] line-clamp-4 pointer-events-none">
               {nextData.detail}
             </p>

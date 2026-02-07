@@ -93,7 +93,7 @@
     0 18px 40px rgba(15, 23, 42, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.65),
     inset -10px -10px 30px rgba(255, 255, 255, 0.12);
-  
+
   white-space: nowrap;
 }
 
@@ -109,7 +109,7 @@
     0 18px 40px rgba(15, 23, 42, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.65),
     inset -10px -10px 30px rgba(255, 255, 255, 0.12);
-  
+
   white-space: nowrap;
 }
 
@@ -185,4 +185,19 @@
   height: 234px;
   flex-shrink: 0;
   border-radius: 30px;
+}
+
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translteX(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-review {
+  animation: slideFadeIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
