@@ -110,6 +110,7 @@ const MainScreen = () => {
             <HomeProject />
           </div>
         </section>
+        <Spacer />
 
         {/* stats */}
         <section className="snap-section flex items-center justify-center bg-transparent text-white">
