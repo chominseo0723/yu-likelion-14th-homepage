@@ -82,7 +82,7 @@ const Introduce = () => {
       {IntroData.map((data) => (
         <section
           key={data.id}
-          className="snap-section min-h-screen w-full flex justify-center items-center bg-[#070708]"
+          className="snap-section min-h-screen w-full flex justify-center items-center bg-transparent"
         >
           <div className="w-full max-w-7xl flex flex-row justify-center items-start gap-10">
             {/* 수직 라인 */}
