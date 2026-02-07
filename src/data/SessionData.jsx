@@ -36,7 +36,7 @@ const SessionData = [
     url: "https://dusty-headlight-097.notion.site/2fc8d8d8838b807682fcfa3b7c458d2b?source=copy_link",
   },
   {
-    id: 5,
+    id: 6,
     title1: "PBL 자료",
     title2: "모든 트랙 PBL",
     subtitle: "모든 트랙의 PBL\n교육과정을 볼 수 있어요",

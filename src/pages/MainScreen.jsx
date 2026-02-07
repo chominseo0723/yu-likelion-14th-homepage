@@ -23,17 +23,24 @@ const MainScreen = () => {
     });
   };
 
-  const Spacer = ({ height = "h-[4px]" }) => (
-    <div className={`snap-section ${height} bg-[#070708]`} />
+  const Spacer = ({ height = "h-[100px]" }) => (
+    <div className={`${height} bg-transparent`} />
   );
 
   return (
-    <div className="relative w-screen h-screen bg-[#070708] overflow-hidden font-pretendard">
+    <div className="relative w-screen h-screen overflow-hidden font-pretendard">
       <div className="fixed top-0 left-0 w-full z-10">
         <MainHeader scrollToHome={scrollToHome} />
       </div>
 
-      <main className="snap-container no-scrollbar h-screen overflow-y-auto">
+      <main
+        className="snap-container no-scrollbar h-screen overflow-y-auto"
+        style={{
+          background:
+            "linear-gradient(180deg, #070708 0%, #070709 14%, #251706 24%, #38240A 38%, #251706 46%, #070708 59%, #1D1307 79%, #38240A 100%)",
+          backgroundAttachment: "local",
+        }}
+      >
         {/* HOME */}
         <section
           ref={homeRef}
@@ -60,7 +67,7 @@ const MainScreen = () => {
           />
         </section>
 
-        <section className="snap-section relative overflow-hidden bg-[#070708]">
+        <section className="snap-section relative overflow-hidden bg-transparent">
           <TopTimer />
         </section>
 
@@ -69,7 +76,7 @@ const MainScreen = () => {
         <Spacer />
 
         {/* stats */}
-        <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
+        <section className="snap-section flex items-center justify-center bg-transparent text-white">
           <div className="z-0">
             <Stats />
           </div>
@@ -77,42 +84,43 @@ const MainScreen = () => {
         <Spacer />
 
         {/* activity */}
-        <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
+        <section className="snap-section flex items-center justify-center bg-transparent text-white">
           <div className="z-0">
             <Activity />
           </div>
         </section>
 
         {/* track */}
-        <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
+        <section className="snap-section flex items-center justify-center bg-transparent text-white">
           <div className="z-0">
             <TrackCard />
           </div>
         </section>
 
         {/* session */}
-        <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
+        <section className="snap-section flex items-center justify-center bg-transparent text-white">
           <div className="z-0">
             <SessionCard />
           </div>
         </section>
         {/* 위치 수정 (project,qna *session에 맞췄습니다 ! ) */}
         {/* project */}
-        <section className="snap-section relative flex items-center justify-center bg-[#070708] text-white overflow-hidden">
+        <section className="snap-section relative flex items-center justify-center bg-transparent text-white overflow-hidden">
           <div className="z-0 w-full flex justify-center">
             <HomeProject />
           </div>
         </section>
 
         {/* stats */}
-        <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
+        <section className="snap-section flex items-center justify-center bg-transparent text-white">
           <div className="relative z-5">
             <Review />
           </div>
         </section>
+        <Spacer />
 
         {/* Q&A */}
-        <section className="snap-section flex items-center justify-center bg-[#070708] text-white">
+        <section className="snap-section flex items-center justify-center bg-transparent text-white">
           <div className="z-0 w-full flex justify-center">
             <Qna />
           </div>
