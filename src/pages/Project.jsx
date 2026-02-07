@@ -6,7 +6,8 @@ import Time from '../components/Q&A/Time'
 
 const Project = () => {
   return (
-    <div className="bg-[linear-gradient(180deg,#000000_0%,#3A250A_100%)] min-h-screen font-pretendard">
+    <div className="bg-[linear-gradient(180deg,#000000_0%,#3A250A_100%)] font-pretendard h-screen overflow-hidden flex flex-col">
+      <div className="flex-1 overflow-y-auto overflow-x-hidden no-scrollbar min-h-0">
       <MainHeader />
 
   
@@ -34,6 +35,7 @@ const Project = () => {
 
       <Time />
       <MainFooter />
+      </div>
     </div>
   )
 }
