@@ -34,7 +34,7 @@ const MainScreen = () => {
       </div>
 
       <main
-        className="snap-container no-scrollbar h-screen overflow-y-auto"
+        className="no-scrollbar h-screen overflow-y-auto"
         style={{
           background:
             "linear-gradient(180deg, #070708 0%, #070709 14%, #251706 24%, #38240A 38%, #251706 46%, #070708 59%, #1D1307 79%, #38240A 100%)",
@@ -46,19 +46,18 @@ const MainScreen = () => {
           ref={homeRef}
           className="snap-section relative overflow-hidden"
         >
-        <video
-  src={openingVideo}
-  autoPlay
-  muted
-  playsInline
-  onEnded={(e) => {
-    const video = e.currentTarget;
-    video.pause();
-    video.currentTime = video.duration; 
-  }}
-  className="absolute inset-0 w-full h-full object-contain z-0"
-/>
-
+          <video
+            src={openingVideo}
+            autoPlay
+            muted
+            playsInline
+            onEnded={(e) => {
+              const video = e.currentTarget;
+              video.pause();
+              video.currentTime = video.duration;
+            }}
+            className="absolute inset-0 w-full h-full object-contain z-0"
+          />
 
           <img
             src={arrow}
