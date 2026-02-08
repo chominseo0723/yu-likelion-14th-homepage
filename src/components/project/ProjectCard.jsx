@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 const ProjectCard = ({
   id,
@@ -9,11 +9,11 @@ const ProjectCard = ({
   description,
   author,
 }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <div
-     onClick={() => navigate(`/project/${id}`)}
+      onClick={() => navigate(`/project/${id}`)}
       className="
         w-[333px] h-[355px]
         rounded-[30px]
@@ -26,12 +26,8 @@ const ProjectCard = ({
       "
     >
       {/* 썸네일 영역 */}
-      <div className="relative w-full h-[181px] rounded-[20px] overflow-hidden">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover"
-        />
+      <div className="relative w-full h-[181px] rounded-[30px] overflow-hidden">
+        <img src={image} alt={title} className="w-full h-full object-cover" />
 
         {/* 아이디어톤 태그 */}
         <span className="absolute top-3 left-3 text-xs w-16 text-center bg-[#000000]/10 py-2 rounded-[40px] text-white text-[12px]">
@@ -43,12 +39,8 @@ const ProjectCard = ({
       <div className="mt-4">
         {/* 제목 */}
         <div className="flex items-end gap-2">
-          <h3 className="text-[32px] font-bold leading-none">
-            {title}
-          </h3>
-          <span className="text-[16px] font-light text-white">
-            {subtitle}
-          </span>
+          <h3 className="text-[32px] font-bold leading-none">{title}</h3>
+          <span className="text-[16px] font-light text-white">{subtitle}</span>
         </div>
 
         {/* 설명 */}
@@ -57,12 +49,10 @@ const ProjectCard = ({
         </p>
 
         {/* 작성자 */}
-        <div className="mt-3 text-[10px] text-white text-right">
-          {author}
-        </div>
+        <div className="mt-3 text-[10px] text-white text-right">{author}</div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProjectCard
+export default ProjectCard;
