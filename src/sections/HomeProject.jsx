@@ -37,7 +37,7 @@ const Project = () => {
             className="text-[40px] font-bold text-[#C56908]"
             to="/project"
           >
-          13기가 진행한 프로젝트에요!
+          13기가 진행한 프로젝트예요!
           </Link>
         </div>
       </div>
