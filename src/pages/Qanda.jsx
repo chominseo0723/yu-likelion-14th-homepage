@@ -4,6 +4,7 @@ import MainFooter from '../footer/MainFooter'
 import QnACard from '../components/Q&A/QnACard'
 import { QNA_DATA } from '../data/qnaData'
 import Time from '../components/Q&A/Time'
+import { qnaTitleStyle, qnaCategoryStyle, qnaCategoryActiveStyle } from '../styles/typography'
 
 const categories = [
   '주요',
@@ -23,62 +24,49 @@ const Qanda = () => {
       <MainHeader />
 
     
-      <div className="flex mt-41 gap-3 pl-97">
-        <span className="text-white text-[42px] font-semibold">자주 묻는 질문</span>
-        <span className="text-[#FF9000] text-[42px] font-semibold">'Q&A'</span>
+      <div className="flex mt-41 gap-3 pl-57">
+        <span style={{ ...qnaTitleStyle, color: "#FFFFFF" }}>자주 묻는 질문</span>
+        <span style={{ ...qnaTitleStyle, color: "#FF9000" }}>'Q&A'</span>
       </div>
 
     
       <div className="flex gap-43 justify-center mx-auto max-w-[1200px] px-10">
         {/* 카테고리 */}
-        <div className="flex flex-col gap-6 mt-[176px]">
+        <div className="flex flex-col gap-[30px] mt-[176px] relative">
+          <div
+            className="absolute left-0 w-[179px] h-[40px] rounded-[30px] p-[0.5px] z-0
+              bg-[linear-gradient(160deg,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0.06)_50%,rgba(255,255,255,0.08)_100%)]
+              transition-all duration-600 ease-[cubic-bezier(0.34,1.4,0.5,1.02)]"
+            style={{
+              transform: `translateY(${categories.indexOf(selected) * (40 + 30)}px)`,
+            }}
+          >
+            <div className="glass-toc-slide w-full h-full rounded-[30px]" />
+          </div>
+
           {categories.map((c) => {
             const isActive = selected === c
-
-        return (
-  <button
-    key={c}
-    onClick={() => setSelected(c)}
-    className={`
-      w-43
-      pl-6
-      rounded-[30px]
-      text-[30px]
-      transition-all duration-200
-      text-left
-      ${
-        isActive
-          ? `
-            bg-[linear-gradient(109deg,rgba(255,255,255,0.15)_16.55%,rgba(153,153,153,0.15)_97.22%)]
-            backdrop-blur-md
-            border border-[rgba(255,255,255,0.2)]
-          `
-          : `
-            font-medium
-            text-white
-            bg-transparent
-            hover:text-[#FF9000]
-          `
-      }
-    `}
-  >
-    {isActive ? (
-      <span
-        className="
-          font-bold
-          bg-[linear-gradient(90deg,#FF9000_0%,#FF5E00_100%)]
-          bg-clip-text
-          text-transparent
-        "
-      >
-        {c}
-      </span>
-    ) : (
-      c
-    )}
-  </button>
-)
-
+            return (
+              <button
+                key={c}
+                type="button"
+                onClick={() => setSelected(c)}
+                className="relative z-10 w-[179px] h-[40px] flex items-center px-[23px] rounded-[30px] cursor-pointer transition-colors duration-300 text-left"
+              >
+                <div className="flex flex-row items-center">
+                  <span
+                    className={`select-none transition-colors duration-300 ${
+                      isActive
+                        ? "bg-gradient-to-r from-[#FF9000] to-[#FF5E00] bg-clip-text text-transparent drop-shadow-[0_4px_4px_rgba(255,255,255,0.145)]"
+                        : "text-white"
+                    }`}
+                    style={isActive ? qnaCategoryActiveStyle : qnaCategoryStyle}
+                  >
+                    {c}
+                  </span>
+                </div>
+              </button>
+            )
           })}
         </div>
 

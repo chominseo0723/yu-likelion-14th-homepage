@@ -1,4 +1,10 @@
 import React, { useState } from 'react'
+import {
+  qnaQuestionOpenStyle,
+  qnaQuestionClosedStyle,
+  qnaAnswerStyle,
+  qnaNoticeStyle,
+} from '../../styles/typography'
 
 const QnACard = ({ q, a }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -22,16 +28,15 @@ const QnACard = ({ q, a }) => {
         `}
       >
       <span
-  className={`
-    transition-all duration-300 ease-out
-    leading-tight
-    ${isOpen
-      ? "font-bold text-[28px] bg-[linear-gradient(90deg,#FF9000_0%,#FF5E00_100%)] bg-clip-text text-transparent"
-      : "text-white font-medium text-[24px]"}
-  `}
->
-  Q. {q}
-</span>
+        className={`transition-all duration-300 ease-out ${
+          isOpen
+            ? "bg-[linear-gradient(90deg,#FF9000_0%,#FF5E00_100%)] bg-clip-text text-transparent"
+            : "text-white"
+        }`}
+        style={isOpen ? qnaQuestionOpenStyle : qnaQuestionClosedStyle}
+      >
+        Q. {q}
+      </span>
       </button>
 
       {/* A */}
@@ -66,10 +71,11 @@ const QnACard = ({ q, a }) => {
               return (
                 <p
                   key={idx}
-                  className={
+                  className={isNotice ? "mt-3" : ""}
+                  style={
                     isNotice
-                      ? 'text-[15px] text-[#C56908] mt-3'
-                      : 'text-[22px] text-white'
+                      ? { ...qnaNoticeStyle, color: "#C56908" }
+                      : { ...qnaAnswerStyle, color: "#FFFFFF" }
                   }
                 >
                   {line}

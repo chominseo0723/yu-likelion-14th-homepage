@@ -3,6 +3,7 @@ import ProjectCard from '../components/project/ProjectCard'
 import { projectData } from '../components/project/projectData'
 import MainFooter from '../footer/MainFooter'
 import Time from '../components/Q&A/Time'
+import { pageTitleStyle, body20Style } from '../styles/typography'
 
 const Project = () => {
   return (
@@ -14,13 +15,13 @@ const Project = () => {
       <div className="max-w-[1080px] mx-auto px-6">
  
         <div className="mt-24">
-          <h1 className="text-[42px] font-semibold text-white">
-            아이디어가 <span className="text-[#FF9000]">'프로젝트'</span>로
+          <h1 style={{ ...pageTitleStyle, color: "#FFFFFF" }}>
+            아이디어가 <span style={{ ...pageTitleStyle, color: "#FF9000" }}>'프로젝트'</span>로
           </h1>
-          <p className="mt-4 text-white text-[20px]">
+          <p className="mt-4 text-white" style={body20Style}>
             멋쟁이사자처럼 13기 프로젝트 둘러보기
           </p>
-          <p className="text-white text-[20px]">
+          <p className="text-white" style={body20Style}>
             14기 여러분이 한 학기 동안 도전하게 될 프로젝트입니다.
           </p>
         </div>

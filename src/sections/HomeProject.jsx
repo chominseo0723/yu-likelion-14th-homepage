@@ -1,6 +1,7 @@
 import React from 'react'
 import star from "./../assets/star.svg"
 import { Link } from 'react-router-dom'
+import { sectionTitleStyle, body20Style, caption20Style } from '../styles/typography'
 import MEDIV from '../assets/MEDIV.svg'
 import CLMN from '../assets/CLMN.svg'
 import Scooty from '../assets/Scooty.svg'
@@ -21,23 +22,15 @@ const Project = () => {
           <div className="flex flex-row gap-5 items-center">
             <img src={star} alt="star" />
             <span
-              className="
-                font-normal text-[20px] bg-linear-to-r from-[#FF9000] to-[#FF5E00] 
-                bg-clip-text text-transparent
-                [-webkit-text-stroke:0.2px_#FFAE00]
-                [text-shadow:0_1.5px_1px_rgba(124,66,5,0.9)]
-                select-none
-              "
+              className="bg-linear-to-r from-[#FF9000] to-[#FF5E00] bg-clip-text text-transparent [-webkit-text-stroke:0.2px_#FFAE00] [text-shadow:0_1.5px_1px_rgba(124,66,5,0.9)] select-none"
+              style={body20Style}
             >
               Project
             </span>
           </div>
 
-          <Link
-            className="text-[40px] font-bold text-[#C56908]"
-            to="/project"
-          >
-          13기가 진행한 프로젝트에요!
+          <Link className="text-[#C56908]" to="/project" style={sectionTitleStyle}>
+            13기가 진행한 프로젝트에요!
           </Link>
         </div>
       </div>
@@ -58,8 +51,9 @@ const Project = () => {
 
         <div className="flex justify-center">
           <Link
-            className="text-[#87725F] border-b border-[#87725F] inline-block text-[20px] font-pretendard mt-15"
+            className="text-[#87725F] border-b border-[#87725F] inline-block mt-15"
             to="/project"
+            style={caption20Style}
           >
             멋사 13기 활동 더보기 &gt;&gt;
           </Link>

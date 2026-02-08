@@ -3,6 +3,7 @@ import star from "../assets/star.svg";
 import intro1 from "../assets/introduce/intro1.png";
 import intro2 from "../assets/introduce/intro2.png";
 import intro3 from "../assets/introduce/intro3.png";
+import { qnaTitleStyle, body20Leading35Style, body20Style } from "../styles/typography";
 
 const IntroData = [
   {
@@ -46,18 +47,16 @@ const IntroItem = ({ data }) => {
         <div className="flex flex-col items-start w-[518px] gap-[30px]">
           {/* subtitle1 스타일링 */}
           <p
-            className="whitespace-pre-line text-white select-none
-                        w-[410px] h-[119px] 
-                        font-pretendard text-[42px] font-[600] leading-[60px]"
+            className="whitespace-pre-line text-white select-none w-[410px] h-[119px]"
+            style={qnaTitleStyle}
           >
             {data.subtitle1}
           </p>
 
           {/* subtitle2 스타일링 */}
           <p
-            className="whitespace-pre-line text-white break-keep select-none
-                        w-[527.561px] h-[86.297px] 
-                        font-pretendard text-[20px] font-[400] leading-[35px]"
+            className="whitespace-pre-line text-white break-keep select-none w-[527.561px] h-[86.297px]"
+            style={body20Leading35Style}
           >
             {data.subtitle2}
           </p>
@@ -94,12 +93,8 @@ const Introduce = () => {
             {/* 콘텐츠 영역 */}
             <div className="flex flex-col items-start gap-[32px]">
               <p
-                className="font-normal text-[20px] bg-linear-to-r from-[#FF9000] to-[#FF5E00] 
-                              bg-clip-text text-transparent
-                              [-webkit-text-stroke:0.2px_#FFAE00]
-                              [text-shadow:0_1.5px_1px_rgba(124,66,5,0.9)]
-                              select-none
-                    "
+                className="bg-linear-to-r from-[#FF9000] to-[#FF5E00] bg-clip-text text-transparent [-webkit-text-stroke:0.2px_#FFAE00] [text-shadow:0_1.5px_1px_rgba(124,66,5,0.9)] select-none"
+                style={body20Style}
               >
                 {data.title}
               </p>
