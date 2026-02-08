@@ -78,8 +78,8 @@ const Session = () => {
         <h3 className="text-white text-[20px] font-light whitespace-pre-line">
           14기부터는! 중앙 멋사에서 내려오는 PBL 자료가 제공돼요!
           <br />
-          운영진들이 직접 만든 맞춤 수업자료와 커리큘럼, 퀄리티 있는 공식
-          PBL 자료를 제공받을 수 있어요!
+          운영진들이 직접 만든 맞춤 수업자료와 커리큘럼, 퀄리티 있는 PBL 자료를
+          제공받을 수 있어요!
         </h3>
       </div>
       <div className="flex flex-wrap justify-center gap-x-13.5 gap-y-12.5 w-full h-full max-w-7xl relative z-10">
