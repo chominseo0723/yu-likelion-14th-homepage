@@ -31,54 +31,47 @@ const Qanda = () => {
     
       <div className="flex gap-43 justify-center mx-auto max-w-[1200px] px-10">
         {/* 카테고리 */}
-        <div className="flex flex-col gap-6 mt-[176px]">
-          {categories.map((c) => {
+        <div className="flex flex-col gap-6 mt-[176px] relative">
+          <div
+            className="absolute left-0 w-[280px] h-[48px] rounded-[30px] p-[0.5px] z-0
+              bg-[linear-gradient(160deg,rgba(255,255,255,0.25)_0%,rgba(255,255,255,0.15)_50%,rgba(255,255,255,0.2)_100%)]
+              transition-all duration-600 ease-[cubic-bezier(0.34,1.4,0.5,1.02)]"
+            style={{
+              transform: `translateY(${categories.indexOf(selected) * (48 + 24)}px)`,
+            }}
+          >
+            <div className="glass-toc-slide w-full h-full rounded-[30px]" />
+          </div>
+
+          {categories.map((c, index) => {
             const isActive = selected === c
-
-        return (
-  <button
-    key={c}
-    onClick={() => setSelected(c)}
-    className={`
-      w-43
-      pl-6
-      rounded-[30px]
-      text-[30px]
-      transition-all duration-200
-      text-left
-      ${
-        isActive
-          ? `
-            bg-[linear-gradient(109deg,rgba(255,255,255,0.15)_16.55%,rgba(153,153,153,0.15)_97.22%)]
-            backdrop-blur-md
-            border border-[rgba(255,255,255,0.2)]
-          `
-          : `
-            font-medium
-            text-white
-            bg-transparent
-            hover:text-[#FF9000]
-          `
-      }
-    `}
-  >
-    {isActive ? (
-      <span
-        className="
-          font-bold
-          bg-[linear-gradient(90deg,#FF9000_0%,#FF5E00_100%)]
-          bg-clip-text
-          text-transparent
-        "
-      >
-        {c}
-      </span>
-    ) : (
-      c
-    )}
-  </button>
-)
-
+            return (
+              <button
+                key={c}
+                type="button"
+                onClick={() => setSelected(c)}
+                className="relative z-10 w-[280px] h-[48px] flex items-center pl-5 rounded-[30px] cursor-pointer transition-colors duration-300 text-left"
+              >
+                <div className="flex flex-row items-center gap-4">
+                  <span
+                    className={`text-[20px] select-none text-right transition-colors duration-300 ${
+                      isActive ? "text-[#B0701C]" : "text-[#B4A69E]"
+                    }`}
+                  >
+                    0{index + 1}
+                  </span>
+                  <span
+                    className={`text-[24px] select-none transition-colors duration-300 ${
+                      isActive
+                        ? "font-black bg-linear-to-r from-[#FF9000] to-[#FF5E00] bg-clip-text text-transparent drop-shadow-[0_4px_4px_rgba(255,255,255,0.145)]"
+                        : "text-white font-medium"
+                    }`}
+                  >
+                    {c}
+                  </span>
+                </div>
+              </button>
+            )
           })}
         </div>
 
