@@ -45,7 +45,9 @@ const ProjectDetail = () => {
       />
 
       <div className="relative z-10">
-        <MainHeader />
+        <div className="sticky top-0 z-50">
+          <MainHeader />
+        </div>
         {/* 전체 컨테이너 */}
         <div className="max-w-[1080px]  mx-auto px-4 mb-60 ">
   <div className="w-[1072px] h-[603px] mx-auto rounded-[30px] overflow-hidden bg-black">
