@@ -46,19 +46,19 @@ const MainScreen = () => {
           ref={homeRef}
           className="snap-section relative overflow-hidden"
         >
-          <video
-            src={openingVideo}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className=" absolute
-    inset-0
-    w-full
-    h-full
-    object-contain
-    z-0"
-          />
+        <video
+  src={openingVideo}
+  autoPlay
+  muted
+  playsInline
+  onEnded={(e) => {
+    const video = e.currentTarget;
+    video.pause();
+    video.currentTime = video.duration; 
+  }}
+  className="absolute inset-0 w-full h-full object-contain z-0"
+/>
+
 
           <img
             src={arrow}
