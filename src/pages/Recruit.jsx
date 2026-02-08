@@ -21,7 +21,7 @@ const Recruit = () => {
         <MainHeader scrollToHome={() => {}} />
       </div>
       <div className="relative min-h-screen">
-        <main className="no-scrollbar relative z-10 pt-[100px] overflow-x-hidden">
+        <main className="snap-container no-scrollbar relative z-10 overflow-x-hidden">
           <section className="snap-section-center relative">
             <IntroComment />
           </section>

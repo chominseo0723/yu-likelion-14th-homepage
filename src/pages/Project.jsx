@@ -8,12 +8,11 @@ import { pageTitleStyle, body20Style } from '../styles/typography'
 const Project = () => {
   return (
     <div className="bg-[linear-gradient(180deg,#000000_0%,#3A250A_100%)] font-pretendard h-screen overflow-hidden flex flex-col">
-      <div className="flex-1 overflow-y-auto overflow-x-hidden no-scrollbar min-h-0">
-      <div className="sticky top-0 z-50">
-    <MainHeader />
-  </div>
-
-  
+      <div className="fixed top-0 left-0 w-full z-20">
+        <MainHeader />
+      </div>
+      <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden no-scrollbar snap-container-inner pt-[120px]">
+      <section className="snap-section-center min-h-0 pt-0">
       <div className="max-w-[1080px] mx-auto px-6">
  
         <div className="mt-24">
@@ -35,6 +34,7 @@ const Project = () => {
           ))}
         </div>
       </div>
+      </section>
 
       <Time />
       <MainFooter />

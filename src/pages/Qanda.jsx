@@ -20,14 +20,12 @@ const Qanda = () => {
 
   return (
     <div className="bg-[linear-gradient(180deg,#000000_0%,#3A250A_100%)] font-pretendard h-screen overflow-hidden flex flex-col">
-      <div className="flex-1 overflow-y-auto overflow-x-hidden no-scrollbar min-h-0">
-       <div className="sticky top-0 z-50 backdrop-blur-md bg-black/60">
-    <MainHeader />
-  </div>
-
-
-    
-      <div className="flex mt-41 gap-3 pl-57">
+      <div className="fixed top-0 left-0 w-full z-20">
+        <MainHeader />
+      </div>
+      <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden no-scrollbar snap-container-inner pt-[120px]">
+      <section className="snap-section-center min-h-0 pt-0">
+      <div className="flex mt-41 gap-3 mx-auto max-w-[1200px] px-10">
         <span style={{ ...qnaTitleStyle, color: "#FFFFFF" }}>자주 묻는 질문</span>
         <span style={{ ...qnaTitleStyle, color: "#FF9000" }}>'Q&A'</span>
       </div>
@@ -82,6 +80,7 @@ const Qanda = () => {
           ))}
         </div>
       </div>
+      </section>
 
       <Time />
       <MainFooter />

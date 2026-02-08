@@ -34,7 +34,7 @@ const MainScreen = () => {
       </div>
 
       <main
-        className="no-scrollbar h-screen overflow-y-auto"
+        className="snap-container no-scrollbar overflow-x-hidden"
         style={{
           background:
             "linear-gradient(180deg, #070708 0%, #070709 14%, #251706 24%, #38240A 38%, #251706 46%, #070708 59%, #1D1307 79%, #38240A 100%)",
@@ -66,7 +66,7 @@ const MainScreen = () => {
           />
         </section>
 
-        <section className="relative overflow-hidden bg-transparent">
+        <section className="snap-section relative overflow-hidden bg-transparent">
           <TopTimer />
         </section>
 
@@ -75,7 +75,7 @@ const MainScreen = () => {
         <Spacer />
 
         {/* stats */}
-        <section className="flex items-center justify-center bg-transparent text-white">
+        <section className="snap-section flex items-center justify-center bg-transparent text-white">
           <div className="z-0">
             <Stats />
           </div>
@@ -83,28 +83,28 @@ const MainScreen = () => {
         <Spacer />
 
         {/* activity */}
-        <section className="flex items-center justify-center bg-transparent text-white">
+        <section className="snap-section flex items-center justify-center bg-transparent text-white">
           <div className="z-0">
             <Activity />
           </div>
         </section>
 
         {/* track */}
-        <section className="flex items-center justify-center bg-transparent text-white">
+        <section className="snap-section flex items-center justify-center bg-transparent text-white">
           <div className="z-0">
             <TrackCard />
           </div>
         </section>
 
         {/* session */}
-        <section className="flex items-center justify-center bg-transparent text-white">
+        <section className="snap-section flex items-center justify-center bg-transparent text-white">
           <div className="z-0">
             <SessionCard />
           </div>
         </section>
         {/* 위치 수정 (project,qna *session에 맞췄습니다 ! ) */}
         {/* project */}
-        <section className="relative flex items-center justify-center bg-transparent text-white overflow-hidden">
+        <section className="snap-section relative flex items-center justify-center bg-transparent text-white overflow-hidden">
           <div className="z-0 w-full flex justify-center">
             <HomeProject />
           </div>
@@ -112,7 +112,7 @@ const MainScreen = () => {
         <Spacer />
 
         {/* stats */}
-        <section className="flex items-center justify-center bg-transparent text-white">
+        <section className="snap-section flex items-center justify-center bg-transparent text-white">
           <div className="relative z-5">
             <Review />
           </div>
@@ -120,7 +120,7 @@ const MainScreen = () => {
         <Spacer />
 
         {/* Q&A */}
-        <section className="flex items-center justify-center bg-transparent text-white">
+        <section className="snap-section flex items-center justify-center bg-transparent text-white">
           <div className="z-0 w-full flex justify-center">
             <Qna />
           </div>
