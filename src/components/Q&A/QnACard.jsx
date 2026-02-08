@@ -3,15 +3,10 @@ import {
   qnaQuestionOpenStyle,
   qnaQuestionClosedStyle,
   qnaAnswerStyle,
-  qnaNoticeStyle,
 } from '../../styles/typography'
 
 const QnACard = ({ q, a }) => {
   const [isOpen, setIsOpen] = useState(false)
-
-  const lines = a.split('\n')
-
-  let isNoticeBlock = false
 
   return (
     <div className="w-172 mb-6 font-pretendard">
@@ -43,7 +38,7 @@ const QnACard = ({ q, a }) => {
       <div
         className={`
           overflow-hidden transition-all duration-300 ease-in-out
-          ${isOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}
+          ${isOpen ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}
         `}
       >
         <div
@@ -54,34 +49,11 @@ const QnACard = ({ q, a }) => {
             border-t-0
           "
         >
-          <div className="leading-relaxed">
-            {lines.map((line, idx) => {
-              const trimmed = line.trim()
-
-              if (trimmed.startsWith('(')) {
-                isNoticeBlock = true
-              }
-
-              const isNotice = isNoticeBlock
-
-              if (trimmed.endsWith(')')) {
-                isNoticeBlock = false
-              }
-
-              return (
-                <p
-                  key={idx}
-                  className={isNotice ? "mt-3" : ""}
-                  style={
-                    isNotice
-                      ? { ...qnaNoticeStyle, color: "#C56908" }
-                      : { ...qnaAnswerStyle, color: "#FFFFFF" }
-                  }
-                >
-                  {line}
-                </p>
-              )
-            })}
+          <div
+            className="leading-relaxed whitespace-pre-line"
+            style={{ ...qnaAnswerStyle, color: '#FFFFFF' }}
+          >
+            {a}
           </div>
         </div>
       </div>
