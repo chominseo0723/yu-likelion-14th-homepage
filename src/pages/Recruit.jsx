@@ -42,7 +42,6 @@ const Recruit = () => {
           </section>
           <MainFooter />
         </main>
-      
       </div>
     </div>
   );
