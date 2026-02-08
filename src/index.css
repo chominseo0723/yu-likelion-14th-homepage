@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 .font-pretendard {
-  font-family: "Pretendard Variable", Pretendard, BlinkMacSystemFont, system-ui,
-    Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
+  font-family:
+    "Pretendard Variable", Pretendard, BlinkMacSystemFont, system-ui, Roboto,
+    "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
     "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
     sans-serif;
 }
@@ -25,9 +26,7 @@
     scroll-snap-align: start;
     scroll-snap-stop: normal;
     min-height: 100vh;
-    height: 100vh;
     width: 100%;
-    overflow: hidden;
     flex-shrink: 0;
     padding-top: 120px;
     box-sizing: border-box;
@@ -53,7 +52,7 @@
 
   /* Q&A·Recruit */
   .icon-contact-warm {
-    background: linear-gradient(135deg, #4D4135 0%, #3D3329 40%, #2e2520 100%);
+    background: linear-gradient(135deg, #4d4135 0%, #3d3329 40%, #2e2520 100%);
     border: 1px solid rgba(199, 140, 88, 0.45);
     box-shadow:
       inset 0 1px 2px rgba(255, 200, 150, 0.12),
