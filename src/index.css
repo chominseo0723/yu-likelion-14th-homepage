@@ -50,6 +50,14 @@
     scrollbar-width: none;
   }
 
+  .qna-answer-note {
+    display: block;
+    font-family: "Pretendard Variable", Pretendard, sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: #C56908;
+  }
+
   /* Q&A·Recruit */
   .icon-contact-warm {
     background: linear-gradient(135deg, #4d4135 0%, #3d3329 40%, #2e2520 100%);

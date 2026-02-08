@@ -9,7 +9,7 @@ const QnACard = ({ q, a }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="w-172 mb-6 font-pretendard">
+    <div className="w-175 mb-6 font-pretendard">
       {/* Q */}
       <button
         onClick={() => setIsOpen((prev) => !prev)}
@@ -50,7 +50,7 @@ const QnACard = ({ q, a }) => {
           "
         >
           <div
-            className="leading-relaxed whitespace-pre-line"
+            className="leading-relaxed whitespace-pre-line pl-[1em] -indent-[1em]"
             style={{ ...qnaAnswerStyle, color: '#FFFFFF' }}
           >
             {a}
