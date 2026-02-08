@@ -27,7 +27,7 @@ const Qanda = () => {
 
 
     
-      <div className="flex mt-41 gap-3 pl-57">
+      <div className="flex mt-41 gap-3 mx-auto max-w-[1200px] px-10">
         <span style={{ ...qnaTitleStyle, color: "#FFFFFF" }}>자주 묻는 질문</span>
         <span style={{ ...qnaTitleStyle, color: "#FF9000" }}>'Q&A'</span>
       </div>
