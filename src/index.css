@@ -9,27 +9,37 @@
 
 @layer utilities {
   .snap-container {
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
     height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
   }
 
+  /* flex 자식에서 높이를 flex로 받을 때 사용 (Project, Q&A 등) */
+  .snap-container-inner {
+    scroll-snap-type: y proximity;
+  }
+
+  /* 헤더 높이만큼 상단 여백 → 스냅 시 제목이 헤더에 가려지지 않도록 */
   .snap-section {
     scroll-snap-align: start;
-    scroll-snap-stop: always;
+    scroll-snap-stop: normal;
     min-height: 100vh;
     height: 100vh;
     width: 100%;
     overflow: hidden;
     flex-shrink: 0;
+    padding-top: 120px;
+    box-sizing: border-box;
   }
 
   .snap-section-center {
-    scroll-snap-align: center;
-    scroll-snap-stop: always;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
     min-height: 100vh;
     width: 100%;
+    padding-top: 120px;
+    box-sizing: border-box;
   }
 
   .no-scrollbar::-webkit-scrollbar {
