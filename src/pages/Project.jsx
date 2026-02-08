@@ -9,7 +9,9 @@ const Project = () => {
   return (
     <div className="bg-[linear-gradient(180deg,#000000_0%,#3A250A_100%)] font-pretendard h-screen overflow-hidden flex flex-col">
       <div className="flex-1 overflow-y-auto overflow-x-hidden no-scrollbar min-h-0">
-      <MainHeader />
+      <div className="sticky top-0 z-50">
+    <MainHeader />
+  </div>
 
   
       <div className="max-w-[1080px] mx-auto px-6">

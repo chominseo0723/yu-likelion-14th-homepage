@@ -18,8 +18,7 @@ const QnASection = () => {
         />
       ))}
        
-
-<span className="pl-46 mt-[26px]" style={{ ...caption20Style, color: "#87725F" }}>추가로 궁금한점이 있다면 디엠과 오픈채팅방으로 문의주세요!</span>
+<span className='text-[20px] text-[#87725F] pl-46 mt-[26px]'>추가로 궁금한 점이 있다면 디엠과 오픈채팅방으로 문의하세요</span>
 
 <div className="flex flex-row mt-3 gap-4 pl-120 items-center">
       <img src={akar} alt="" />

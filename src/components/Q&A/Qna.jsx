@@ -22,7 +22,7 @@ const Qna = () => {
           </div>
 
           <span className="text-[40px] text-[#C56908] font-bold mt-[27px]">
-            멋사에 이런게 궁금해요!
+            멋사에 이런 게 궁금해요!
           </span>
         </div>
 

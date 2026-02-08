@@ -21,7 +21,10 @@ const Qanda = () => {
   return (
     <div className="bg-[linear-gradient(180deg,#000000_0%,#3A250A_100%)] font-pretendard h-screen overflow-hidden flex flex-col">
       <div className="flex-1 overflow-y-auto overflow-x-hidden no-scrollbar min-h-0">
-      <MainHeader />
+       <div className="sticky top-0 z-50 backdrop-blur-md bg-black/60">
+    <MainHeader />
+  </div>
+
 
     
       <div className="flex mt-41 gap-3 pl-57">

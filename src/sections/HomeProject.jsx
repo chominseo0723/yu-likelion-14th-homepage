@@ -29,8 +29,12 @@ const Project = () => {
             </span>
           </div>
 
-          <Link className="text-[#C56908]" to="/project" style={sectionTitleStyle}>
-            13기가 진행한 프로젝트에요!
+
+          <Link
+            className="text-[40px] font-bold text-[#C56908]"
+            to="/project"
+          >
+          13기가 진행한 프로젝트예요!
           </Link>
         </div>
       </div>

@@ -6,11 +6,13 @@ import Project from "./pages/Project";
 import Qanda from "./pages/Qanda";
 import ProjectDetail from "./pages/ProjectDetail";
 import Chatbot from "./components/Chatbot/Chatbot";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
 
   return(
   <BrowserRouter>
+     <ScrollToTop /> 
     <Routes>
       <Route path="/" element={<MainScreen/>}/>
       <Route path="/recruit" element={<Recruit/>}/>
