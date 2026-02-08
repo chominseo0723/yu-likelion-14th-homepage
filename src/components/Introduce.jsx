@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import star from "../assets/star.svg";
 import intro1 from "../assets/introduce/intro1.png";
 import intro2 from "../assets/introduce/intro2.png";
 import intro3 from "../assets/introduce/intro3.png";
-import { qnaTitleStyle, body20Leading35Style, body20Style } from "../styles/typography";
+import {
+  qnaTitleStyle,
+  body20Leading35Style,
+  body20Style,
+} from "../styles/typography";
 
 const IntroData = [
   {
@@ -75,35 +79,97 @@ const IntroItem = ({ data }) => {
   );
 };
 
+const IntroSection = ({ data, body20Style }) => {
+  const [progress, setProgress] = useState(0);
+  const sectionRef = useRef(null);
+
+  const fastProgress = Math.min(1, progress * 2.5);
+  const brightness = 0.8 + fastProgress * 0.2;
+
+  useEffect(() => {
+    // MainScreen의 snap-container를 참조하거나 window를 참조
+    const scrollContainer = document.querySelector(".snap-container") || window;
+
+    const calculateProgress = () => {
+      if (!sectionRef.current) return;
+
+      const rect = sectionRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      // 별이 화면 중간(진입)에 왔을 때 0%
+      // 섹션이 화면 위로 나갈 때 100%
+      const startPoint = windowHeight / 2;
+      const endPoint = 0;
+
+      const currentProgress = (startPoint - rect.top) / rect.height;
+
+      setProgress(Math.max(0, Math.min(1, currentProgress)));
+    };
+
+    scrollContainer.addEventListener("scroll", calculateProgress);
+    calculateProgress();
+
+    return () =>
+      scrollContainer.removeEventListener("scroll", calculateProgress);
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="snap-section min-h-screen w-full flex justify-center items-center bg-transparent"
+    >
+      <div className="w-full max-w-7xl flex flex-row justify-center items-start gap-10">
+        {/* 수직 라인 영역 */}
+        <div className="flex flex-col items-center relative min-w-[30px]">
+          {/* 별 아이콘 */}
+          <img
+            src={star}
+            className="w-[30px] h-[30px] z-10 relative"
+            alt="star"
+          />
+
+          {/* 실시간으로 자라나는 선 */}
+          <div
+            className="w-[2px] absolute top-4 z-5 transition-transform duration-75 ease-out"
+            style={{
+              height: "100vh", // 다음 섹션까지 충분히 내려가도록 설정
+              background:
+                "linear-gradient(180deg, #FFFFFF 0%, #FF9000 20%, #FF5E00 50%, rgba(0,0,0,0) 100%)",
+              transform: `scaleY(${progress})`,
+              transformOrigin: "top",
+            }}
+          />
+        </div>
+
+        {/* 콘텐츠 영역 */}
+        <div
+          className="flex flex-col items-start gap-[32px]"
+          style={{
+            opacity: fastProgress,
+            transition: "all 0.4s ease-out",
+            filter: `brightness(${brightness}) contrast(${0.9 + fastProgress * 0.1})`,
+          }}
+        >
+          <p
+            className="bg-linear-to-r from-[#FF9000] to-[#FF5E00] bg-clip-text text-transparent select-none"
+            style={body20Style}
+          >
+            {data.title}
+          </p>
+          <IntroItem data={data} />
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Introduce = () => {
   return (
-    <>
+    <div className="relative w-full">
       {IntroData.map((data) => (
-        <section
-          key={data.id}
-          className="snap-section min-h-screen w-full flex justify-center items-center bg-transparent"
-        >
-          <div className="w-full max-w-7xl flex flex-row justify-center items-start gap-10">
-            {/* 수직 라인 */}
-            <div className="flex flex-col items-center relative">
-              <img src={star} className="w-[30px] h-[30px] z-5" />
-              <div className="w-[2px] h-screen bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(255,144,0,1)_37%,rgba(255,94,0,1)_65%,rgba(0,0,0,1)_100%)] to-transparent absolute top-3 z-0" />
-            </div>
-
-            {/* 콘텐츠 영역 */}
-            <div className="flex flex-col items-start gap-[32px]">
-              <p
-                className="bg-linear-to-r from-[#FF9000] to-[#FF5E00] bg-clip-text text-transparent [-webkit-text-stroke:0.2px_#FFAE00] [text-shadow:0_1.5px_1px_rgba(124,66,5,0.9)] select-none"
-                style={body20Style}
-              >
-                {data.title}
-              </p>
-              <IntroItem data={data} />
-            </div>
-          </div>
-        </section>
+        <IntroSection key={data.id} data={data} body20Style={body20Style} />
       ))}
-    </>
+    </div>
   );
 };
 
