@@ -49,14 +49,16 @@ const ProjectDetail = () => {
           <MainHeader />
         </div>
         {/* 전체 컨테이너 */}
-        <div className="max-w-[1080px]  mx-auto px-4 mb-60 ">
-  <div className="w-[1072px] h-[603px] mx-auto rounded-[30px] overflow-hidden bg-black">
-  <img
-    src={data.heroImage}
-    alt={data.title}
-    className="w-full h-full object-contain"
+       <div className="max-w-[1080px] mx-auto px-4 mb-60">
+  <div
+    className="w-[1040px] aspect-[233/131] mx-auto rounded-[30px] overflow-hidden bg-center bg-cover bg-no-repeat"
+    style={{
+      backgroundImage: `url(${data.heroImage})`,
+      backgroundColor: '#d3d3d3', 
+    }}
   />
-</div>
+
+
 
 
           {/* 태그 */}

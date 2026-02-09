@@ -2,14 +2,14 @@ import React from 'react'
 import star from "./../assets/star.svg"
 import { Link } from 'react-router-dom'
 import { sectionTitleStyle, body20Style, caption20Style } from '../styles/typography'
-import MEDIV from '../assets/MEDIV.svg'
-import CLMN from '../assets/CLMN.svg'
+import MEDIV from '../assets/MEDIV.png'
+import CLMN from '../assets/CLMN.png'
 import Scooty from '../assets/Scooty.svg'
-import DEEPSAFE from '../assets/DEEPSAFE.svg'
-import ONDOMI from '../assets/ONDOMI.svg'
-import BRIDGEE from '../assets/BRIDGEE.svg'
-import ILKAN from '../assets/ILKAN.svg'
-import STARTPOINTER from '../assets/STARTPOINTER.svg'
+import DEEPSAFE from '../assets/DEEPSAFE.png'
+import ONDOMI from '../assets/ONDOMI.png'
+import BRIDGEE from '../assets/BRIDGEE.png'
+import ILKAN from '../assets/ILKAN.png'
+import STARTPOINTER from '../assets/STARTPOINTER.png'
 
 
 const cards = [MEDIV, CLMN, DEEPSAFE, BRIDGEE, Scooty, ONDOMI, ILKAN, STARTPOINTER]
