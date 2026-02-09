@@ -86,7 +86,7 @@ const TrackCard = () => {
     <div className="min-h-screen w-full bg-transparent flex flex-col items-center justify-center py-20 px-4 relative overflow-hidden">
       <div className="w-full max-w-7xl flex flex-col items-start mb-[62.53px]">
         <div className="flex flex-row items-center justify-center gap-4.75">
-          <img src={star} alt="star" className="w-[19.7] h-[19.7]" />
+          <img src={star} alt="star" />
           <p
             className="font-normal text-[20px] bg-linear-to-r from-[#FF9000] to-[#FF5E00] 
                             bg-clip-text text-transparent

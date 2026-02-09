@@ -29,7 +29,7 @@ const MainScreen = () => {
 
   return (
     <div className="relative w-screen h-screen overflow-hidden font-pretendard">
-      <div className="fixed top-0 left-0 w-full z-10">
+      <div className="fixed top-0 left-0 w-full z-50">
         <MainHeader scrollToHome={scrollToHome} />
       </div>
 

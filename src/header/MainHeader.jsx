@@ -8,21 +8,27 @@ const navBaseClass =
 
 const MainHeader = ({ scrollToHome }) => {
   return (
-    <div className="flex flex-row font-pretendard py-9 items-center justify-between bg-transparent glass-header z-50">
-      <Link to="/">
-        <img
-          className="pl-10 cursor-pointer"
-          src={LOGO}
-          onClick={() => scrollToSection(sectionRefs.home)}
-        />
-      </Link>
+    <div className="relative font-pretendard py-9 bg-transparent glass-header z-50">
+      <div
+        className="absolute inset-0 backdrop-blur-sm pointer-events-none"
+        aria-hidden="true"
+      />
+      <div className="relative flex flex-row items-center justify-between">
+        <Link to="/">
+          <img
+            className="pl-10 cursor-pointer"
+            src={LOGO}
+            onClick={() => scrollToSection(sectionRefs.home)}
+          />
+        </Link>
 
-      <div className="flex flex-row items-center gap-[60px]">
-        <div className="flex flex-row items-center">
-          {/* HOME 눌렀을 때 첫화면  */}
-          <span onClick={scrollToHome} className={navBaseClass} style={headerNavStyle}>
-            <Link to="/">HOME</Link>
-          </span>
+        <div className="flex flex-row items-center gap-[60px]">
+          <div className="flex flex-row items-center">
+            {/* HOME 눌렀을 때 첫화면  */}
+            <span onClick={scrollToHome} className={navBaseClass} style={headerNavStyle}>
+              <Link to="/">HOME</Link>
+            </span>
+
 
           <span className={navBaseClass} style={headerNavStyle}>
             <Link to="/recruit">RECRUIT</Link>
@@ -35,11 +41,12 @@ const MainHeader = ({ scrollToHome }) => {
           </span>
         </div>
 
-        <div
-          className="w-[192px] h-[52px] border rounded-[40px] px-10 py-3 text-white bg-gradient-to-r from-[#FF5E00]/40 to-[#FFAE00]/40 border-white/30 backdrop-blur-sm mr-15 cursor-pointer hover:from-[#FF5E00] hover:to-[#FFAE00] transition-all duration-300 ease-in-out flex items-center justify-center whitespace-nowrap"
-          style={headerButtonStyle}
-        >
-          14기 지원하기
+          <div
+            className="w-[192px] h-[52px] border rounded-[40px] px-10 py-3 text-white bg-gradient-to-r from-[#FF5E00]/40 to-[#FFAE00]/40 border-white/30 backdrop-blur-sm mr-15 cursor-pointer hover:from-[#FF5E00] hover:to-[#FFAE00] transition-all duration-300 ease-in-out flex items-center justify-center whitespace-nowrap"
+            style={headerButtonStyle}
+          >
+            14기 지원하기
+          </div>
         </div>
       </div>
     </div>
