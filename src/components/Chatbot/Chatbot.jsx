@@ -8,6 +8,12 @@ const HEADER_CLEARANCE_PX = 120;
 const EDGE_PADDING_PX = 16;
 const VERTICAL_SLACK_PX = 0;
 const CHATBOT_BUTTON_SIZE = 56;
+const getChattbotPanelWidth = () => {
+  const screenWidth = window.innerWidth;
+  const maxPanelWidth = 384;
+  const minPadding = 16;
+  return Math.min(maxPanelWidth, screenWidth - minPadding * 2);
+};
 const CHATBOT_PANEL_WIDTH = 384;
 const DRAG_THRESHOLD_PX = 6;
 const OPEN_CHAT_URL = "https://open.kakao.com/o/sDw4nwdi";
@@ -122,9 +128,30 @@ const [messages, setMessages] = useState([
   }, [messages]);
 
   useEffect(() => {
+    const handleResize = () => {
+      if (position && containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        const panelWidth = getChattbotPanelWidth();
+        const width = isOpen ? panelWidth : CHATBOT_BUTTON_SIZE;
+        const height = rect?.height ?? (isOpen ? 600 : CHATBOT_BUTTON_SIZE);
+        const clamped = clampPosition(position.x, position.y, width, height);
+        if (clamped.x !== position.x || clamped.y !== position.y) {
+          setPosition(clamped);
+        }
+      }
+    };
+    
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [position, isOpen]);
+
+  useEffect(() => {
     if (!position || !containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
-    const clamped = clampPosition(position.x, position.y, rect.width, rect.height);
+    const panelWidth = getChattbotPanelWidth();
+    const width = isOpen ? panelWidth : CHATBOT_BUTTON_SIZE;
+    const height = rect?.height ?? (isOpen ? 600 : CHATBOT_BUTTON_SIZE);
+    const clamped = clampPosition(position.x, position.y, width, height);
     if (clamped.x !== position.x || clamped.y !== position.y) {
       setPosition(clamped);
     }
@@ -134,7 +161,8 @@ const [messages, setMessages] = useState([
     if (!position) return;
     const wasOpen = prevIsOpenRef.current;
     const rect = containerRef.current?.getBoundingClientRect();
-    const width = isOpen ? CHATBOT_PANEL_WIDTH : CHATBOT_BUTTON_SIZE;
+    const panelWidth = getChattbotPanelWidth();
+    const width = isOpen ? panelWidth : CHATBOT_BUTTON_SIZE;
     const height = rect?.height ?? (isOpen ? 600 : CHATBOT_BUTTON_SIZE);
     const snapX = dockSide === "left"
       ? EDGE_PADDING_PX
@@ -380,8 +408,9 @@ const [messages, setMessages] = useState([
 
       {isOpen && (
         <div
-          className="relative glass w-96 bg-[#1a1a1a]/90 overflow-hidden"
+          className="relative glass bg-[#1a1a1a]/90 overflow-hidden"
           style={{
+            width: `${getChattbotPanelWidth()}px`,
             height: "min(600px, calc(100dvh - 3rem))",
             maxHeight: "600px",
           }}

@@ -21,6 +21,30 @@ const Schedule = () => {
 			style={{ overflow: "visible" }}
 		>
 			<div className="relative w-full max-w-[1040px] mx-auto">
+				{/* Timeline dots - fixed position */}
+				<div className="absolute top-[480px] z-10" style={{left: "calc(11.77% - 100px)"}}>
+					<span className="absolute w-[12px] h-[12px] rounded-full bg-white -translate-x-1/2 -translate-y-1/2" style={{boxShadow: "0 0 12px rgba(255, 210, 140, 0.9), 0 0 24px rgba(255, 140, 0, 0.65)"}} />
+				</div>
+				<div className="absolute top-[480px] z-10" style={{left: "calc(37.26% - 100px)"}}>
+					<span className="absolute w-[12px] h-[12px] rounded-full bg-white -translate-x-1/2 -translate-y-1/2" style={{boxShadow: "0 0 12px rgba(255, 210, 140, 0.9), 0 0 24px rgba(255, 140, 0, 0.65)"}} />
+				</div>
+				<div className="absolute top-[480px] z-10" style={{left: "calc(62.74% - 100px)"}}>
+					<span className="absolute w-[12px] h-[12px] rounded-full bg-white -translate-x-1/2 -translate-y-1/2" style={{boxShadow: "0 0 12px rgba(255, 210, 140, 0.9), 0 0 24px rgba(255, 140, 0, 0.65)"}} />
+				</div>
+				<div className="absolute top-[480px] z-10" style={{left: "calc(88.22% - 100px)"}}>
+					<span className="absolute w-[12px] h-[12px] rounded-full bg-white -translate-x-1/2 -translate-y-1/2" style={{boxShadow: "0 0 12px rgba(255, 210, 140, 0.9), 0 0 24px rgba(255, 140, 0, 0.65)"}} />
+				</div>
+				{/* Timeline Background */}
+				<div className="absolute left-0 right-0 top-[480px] pointer-events-none z-0">
+					<div
+						className="absolute left-0 right-0 h-[2px]"
+						style={{
+							background:
+								"linear-gradient(90deg, #FFAE00 0%, #FF8A00 50%, #FF5E00 100%)",
+							boxShadow: "0 0 12px rgba(255, 140, 0, 0.35)",
+						}}
+					/>
+				</div>
 				<div className="flex items-center text-left w-[632.6772px] h-[35.6772px] gap-[19px] pt-[19vh]">
 					<img src={star} alt="star" />
 					<span
@@ -56,7 +80,7 @@ const Schedule = () => {
 					</p>
 				</div>
 
-				<div className="mt-[118.16px] flex flex-row flex-wrap gap-5">
+				<div className="mt-[118.16px] flex flex-row flex-wrap gap-5 relative z-10">
 					{ScheduleData.map((card) => (
 						<div
 							key={card.id}

@@ -29,7 +29,7 @@ const RecruitQnaSection = () => {
 
 	return (
 		<section
-			className="relative w-full px-[200px] pb-[16vh] box-border"
+			className="relative w-full px-4 sm:px-8 md:px-12 lg:px-[200px] pb-[16vh] box-border"
 			style={{ overflow: "visible" }}
 		>
 			<div className="relative w-full max-w-[1040px] mx-auto">
@@ -51,10 +51,10 @@ const RecruitQnaSection = () => {
 						<QnACard key={idx} q={item.q} a={item.a} />
 					))}
 
-					<span className="text-[20px] text-[#87725F] pl-46 mt-[26px]">
+					<span className="text-[20px] text-[#87725F] mt-[26px] w-full sm:w-96 md:w-[500px] lg:w-175 max-w-[90vw] text-right">
 						추가로 궁금한 점이 있다면 디엠과 오픈채팅방으로 문의하세요
 					</span>
-					<div className="flex flex-row mt-3 gap-4 pl-120 items-center">
+					<div className="flex flex-row mt-3 gap-4 items-center w-full sm:w-96 md:w-[500px] lg:w-175 max-w-[90vw] justify-end">
 						<img src={akar} alt="" />
 						<a
 							href="https://www.instagram.com/likelion_yu/"
