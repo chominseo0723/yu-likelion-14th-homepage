@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { QNA_DATA, CHATBOT_ONLY_QNA } from "../../data/qnaData";
 import OpenAI from "openai";
-import likelionLogo from "../../assets/likelion_logo.svg";
+import likelionLogo from "../../assets/likelion_logo_chatbot.svg";
 
 const MIN_KEYWORD_LENGTH = 1;
 const MESSAGE_DELAY_MS = 500;
