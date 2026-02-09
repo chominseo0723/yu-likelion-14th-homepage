@@ -4,6 +4,18 @@ import OpenAI from "openai";
 import likelionLogo from "../../assets/likelion_logo_chatbot.svg";
 const MIN_KEYWORD_LENGTH = 1;
 const MESSAGE_DELAY_MS = 500;
+const HEADER_CLEARANCE_PX = 120;
+const EDGE_PADDING_PX = 16;
+const VERTICAL_SLACK_PX = 0;
+const CHATBOT_BUTTON_SIZE = 56;
+const getChattbotPanelWidth = () => {
+  const screenWidth = window.innerWidth;
+  const maxPanelWidth = 384;
+  const minPadding = 16;
+  return Math.min(maxPanelWidth, screenWidth - minPadding * 2);
+};
+const CHATBOT_PANEL_WIDTH = 384;
+const DRAG_THRESHOLD_PX = 6;
 const OPEN_CHAT_URL = "https://open.kakao.com/o/sDw4nwdi";
 const OPEN_CHAT_MESSAGE =
   "\n\n💬 추가 문의사항이 있으시면 오픈채팅방을 이용해주세요!\n👉 " +
@@ -83,6 +95,24 @@ const renderMessageWithLinks = (text) => {
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [position, setPosition] = useState(null);
+  const [dockSide, setDockSide] = useState("right");
+  const lastClosedPosRef = useRef(null);
+  const lastOpenPosRef = useRef(null);
+  const dragStateRef = useRef({
+    active: false,
+    offsetX: 0,
+    offsetY: 0,
+    width: 0,
+    height: 0,
+    lastClientX: null,
+    startClientX: null,
+    startClientY: null,
+    moved: false,
+    lastPositionX: null,
+    lastPositionY: null,
+  });
+  const containerRef = useRef(null);
 const [messages, setMessages] = useState([
   { 
     type: "bot", 
@@ -91,10 +121,78 @@ const [messages, setMessages] = useState([
 ]);
   const [inputValue, setInputValue] = useState("");
   const messagesEndRef = useRef(null);
+  const prevIsOpenRef = useRef(isOpen);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (position && containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        const panelWidth = getChattbotPanelWidth();
+        const width = isOpen ? panelWidth : CHATBOT_BUTTON_SIZE;
+        const height = rect?.height ?? (isOpen ? 600 : CHATBOT_BUTTON_SIZE);
+        const clamped = clampPosition(position.x, position.y, width, height);
+        if (clamped.x !== position.x || clamped.y !== position.y) {
+          setPosition(clamped);
+        }
+      }
+    };
+    
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [position, isOpen]);
+
+  useEffect(() => {
+    if (!position || !containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const panelWidth = getChattbotPanelWidth();
+    const width = isOpen ? panelWidth : CHATBOT_BUTTON_SIZE;
+    const height = rect?.height ?? (isOpen ? 600 : CHATBOT_BUTTON_SIZE);
+    const clamped = clampPosition(position.x, position.y, width, height);
+    if (clamped.x !== position.x || clamped.y !== position.y) {
+      setPosition(clamped);
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!position) return;
+    const wasOpen = prevIsOpenRef.current;
+    const rect = containerRef.current?.getBoundingClientRect();
+    const panelWidth = getChattbotPanelWidth();
+    const width = isOpen ? panelWidth : CHATBOT_BUTTON_SIZE;
+    const height = rect?.height ?? (isOpen ? 600 : CHATBOT_BUTTON_SIZE);
+    const snapX = dockSide === "left"
+      ? EDGE_PADDING_PX
+      : Math.max(window.innerWidth - width - EDGE_PADDING_PX, EDGE_PADDING_PX);
+
+    if (wasOpen && !isOpen) {
+      const closedY = lastClosedPosRef.current?.y ?? position.y;
+      const closedX = lastClosedPosRef.current?.x ?? snapX;
+      setPosition(clampPosition(closedX, closedY, width, height));
+    } else if (!wasOpen && isOpen) {
+      const openY = lastOpenPosRef.current?.y ?? position.y;
+      setPosition(clampPosition(snapX, openY, width, height));
+    }
+    prevIsOpenRef.current = isOpen;
+  }, [isOpen, position, dockSide]);
+
+  const clampPosition = (x, y, width, height) => {
+    const minX = EDGE_PADDING_PX;
+    const maxX = window.innerWidth - width - EDGE_PADDING_PX;
+    const minY = Math.max(
+      EDGE_PADDING_PX,
+      HEADER_CLEARANCE_PX + VERTICAL_SLACK_PX
+    );
+    const maxY = window.innerHeight - height - EDGE_PADDING_PX;
+
+    return {
+      x: Math.min(Math.max(x, minX), Math.max(maxX, minX)),
+      y: Math.min(Math.max(y, minY), Math.max(maxY, minY)),
+    };
+  };
 
   const findAnswer = (question) => {
   const lowerQuestion = String(question ?? "").toLowerCase().trim();
@@ -183,15 +281,117 @@ const [messages, setMessages] = useState([
     }
   };
 
+  const beginDrag = (event) => {
+    const target = containerRef.current;
+    if (!target) return;
+
+    const rect = target.getBoundingClientRect();
+    const pointX = event.clientX ?? event.touches?.[0]?.clientX;
+    const pointY = event.clientY ?? event.touches?.[0]?.clientY;
+
+    if (pointX == null || pointY == null) return;
+
+    dragStateRef.current = {
+      active: true,
+      offsetX: pointX - rect.left,
+      offsetY: pointY - rect.top,
+      width: rect.width,
+      height: rect.height,
+      lastClientX: pointX,
+      startClientX: pointX,
+      startClientY: pointY,
+      moved: false,
+      lastPositionX: rect.left,
+      lastPositionY: rect.top,
+    };
+
+    if (!position) {
+      setPosition({ x: rect.left, y: rect.top });
+    }
+
+    window.addEventListener("pointermove", handleDrag);
+    window.addEventListener("pointerup", endDrag);
+  };
+
+  const handleDrag = (event) => {
+    if (!dragStateRef.current.active) return;
+    const pointX = event.clientX;
+    const pointY = event.clientY;
+    if (pointX == null || pointY == null) return;
+
+    const { offsetX, offsetY, width, height } = dragStateRef.current;
+    const nextX = pointX - offsetX;
+    const nextY = pointY - offsetY;
+    dragStateRef.current.lastClientX = pointX;
+    const deltaX = Math.abs(pointX - (dragStateRef.current.startClientX ?? pointX));
+    const deltaY = Math.abs(pointY - (dragStateRef.current.startClientY ?? pointY));
+    if (deltaX > DRAG_THRESHOLD_PX || deltaY > DRAG_THRESHOLD_PX) {
+      dragStateRef.current.moved = true;
+    }
+    const nextPosition = clampPosition(nextX, nextY, width, height);
+    dragStateRef.current.lastPositionX = nextPosition.x;
+    dragStateRef.current.lastPositionY = nextPosition.y;
+    if (isOpen) {
+      lastOpenPosRef.current = { x: nextPosition.x, y: nextPosition.y };
+    } else {
+      lastClosedPosRef.current = { x: nextPosition.x, y: nextPosition.y };
+    }
+    setPosition(nextPosition);
+  };
+
+  const endDrag = () => {
+    dragStateRef.current.active = false;
+    window.removeEventListener("pointermove", handleDrag);
+    window.removeEventListener("pointerup", endDrag);
+
+    if (!position) return;
+
+    const { width, height, lastClientX, lastPositionY } = dragStateRef.current;
+    const maxX = window.innerWidth - width - EDGE_PADDING_PX;
+    const referenceX = lastClientX ?? position.x + width / 2;
+    const baseY = lastPositionY ?? position.y;
+
+    const side = referenceX < window.innerWidth / 2 ? "left" : "right";
+    const snapX = side === "left" ? EDGE_PADDING_PX : Math.max(maxX, EDGE_PADDING_PX);
+
+    const snapped = clampPosition(snapX, baseY, width, height);
+    setDockSide(side);
+    if (isOpen) {
+      lastOpenPosRef.current = { x: snapped.x, y: snapped.y };
+    } else {
+      lastClosedPosRef.current = { x: snapped.x, y: snapped.y };
+    }
+    setPosition(snapped);
+  };
+
   return (
-    <div className="fixed bottom-6 right-8 z-40 font-pretendard">
+    <div
+      ref={containerRef}
+      className="fixed z-40 font-pretendard"
+      style={
+        position
+          ? { left: position.x, top: position.y }
+          : {
+            right: "2rem",
+            bottom: "calc(1.5rem + env(safe-area-inset-bottom))",
+          }
+      }
+    >
       {!isOpen && (
         <button
-          onClick={() => setIsOpen(true)}
-          className="glass w-20 text-3xl h-20 rounded-full bg-gradient-to-r from-[#FF9000] to-[#FF5E00] shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group hover:scale-110"
+          onPointerDown={beginDrag}
+          onClick={() => {
+            if (dragStateRef.current.moved) {
+              dragStateRef.current.moved = false;
+              return;
+            }
+            setIsOpen(true);
+          }}
+          className="glass w-14 h-14 rounded-full bg-gradient-to-r from-[#FF9000] to-[#FF5E00] shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group hover:scale-110"
+          style={{ touchAction: "none" }}
         >
             <svg
-            className="w-8 h-8 text-white"
+            className="w-6 h-6 text-white"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -207,14 +407,25 @@ const [messages, setMessages] = useState([
       )}
 
       {isOpen && (
-        <div className="relative glass w-96 h-[calc(100vh-1.5rem)] max-h-[600px] bg-[#1a1a1a]/90 overflow-hidden">
+        <div
+          className="relative glass bg-[#1a1a1a]/90 overflow-hidden"
+          style={{
+            width: `${getChattbotPanelWidth()}px`,
+            height: "min(600px, calc(100dvh - 3rem))",
+            maxHeight: "600px",
+          }}
+        >
           <div
             className="absolute inset-0 backdrop-blur-lg bg-white/5 pointer-events-none"
             aria-hidden="true"
           />
           <div className="relative flex flex-col h-full">
             {/* 헤더 */}
-            <div className="relative bg-gradient-to-r from-[#FF9000] to-[#FF5E00] p-4 flex items-center justify-between">
+            <div
+              className="relative bg-gradient-to-r from-[#FF9000] to-[#FF5E00] p-4 flex items-center justify-between"
+              onPointerDown={beginDrag}
+              style={{ touchAction: "none", cursor: "grab" }}
+            >
               <div className="flex items-center gap-2">
                 <img
                   src={likelionLogo}

@@ -10,37 +10,39 @@ import RecruitQnaSection from "../components/Recruit/RecruitQnaSection";
 
 const Recruit = () => {
   return (
-    <div
-      className="min-h-screen text-white overflow-x-hidden"
-      style={{
-        background:
-          "linear-gradient(180deg, #000000 0%, #000000 35%, #362209 100%)",
-      }}
-    >
+    <div className="min-h-screen text-white overflow-x-hidden">
       <div className="fixed top-0 left-0 w-full z-20">
         <MainHeader scrollToHome={() => {}} />
       </div>
       <div className="relative min-h-screen">
         <main className="snap-container no-scrollbar relative z-10 overflow-x-hidden">
-          <section className="snap-section-center relative">
-            <IntroComment />
-          </section>
-          <section className="snap-section-center relative">
-            <IdealTalent />
-          </section>
-          <section className="snap-section-center relative">
-            <Schedule />
-          </section>
-          <section className="snap-section-center relative">
-            <AnnualSchedule />
-          </section>
-          <section className="snap-section-center relative">
-            <RequiredParticipation />
-          </section>
-          <section className="snap-section-center relative">
-            <RecruitQnaSection />
-          </section>
-          <MainFooter />
+          <div
+            className="min-h-screen"
+            style={{
+              background:
+                "linear-gradient(180deg, #000000 0%, #000000 35%, #362209 100%)",
+            }}
+          >
+            <section className="snap-section-center relative">
+              <IntroComment />
+            </section>
+            <section className="snap-section-center relative">
+              <IdealTalent />
+            </section>
+            <section className="snap-section-center relative">
+              <Schedule />
+            </section>
+            <section className="snap-section-center relative">
+              <AnnualSchedule />
+            </section>
+            <section className="snap-section-center relative">
+              <RequiredParticipation />
+            </section>
+            <section className="snap-section-center relative">
+              <RecruitQnaSection />
+            </section>
+            <MainFooter />
+          </div>
         </main>
       </div>
     </div>

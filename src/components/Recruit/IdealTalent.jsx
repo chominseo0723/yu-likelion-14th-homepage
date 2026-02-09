@@ -1,6 +1,6 @@
 import React from "react";
 import IdealTalentData from "../../data/IdealTalentData";
-import light from "/src/assets/star.svg";
+import star from "/workspaces/yu-likelion-14th-homepage/src/assets/star.svg";
 import recruitStarBackground from "../../assets/recruit-starbackground.png";
 import {
 	mediumStyle,
@@ -32,7 +32,7 @@ const IdealTalent = () => {
 			<div className="relative w-full max-w-[1040px] mx-auto z-10">
 				<div className="flex w-[632.6772px] h-[35.6772px] items-center gap-[19px] text-left">
                     {/* asset 변경 필요 */}
-					<img src={light} alt="star" style={{ width: "35.6772px", height: "35.6772px" }}/> 
+					<img src={star} alt="star" />
 					<span
 						style={{
 							...mediumStyle,

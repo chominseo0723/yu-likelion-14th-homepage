@@ -9,7 +9,7 @@ const QnACard = ({ q, a }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="w-175 mb-6 font-pretendard">
+    <div className="w-full sm:w-96 md:w-[500px] lg:w-175 mb-6 font-pretendard max-w-[90vw]">
       {/* Q */}
       <button
         onClick={() => setIsOpen((prev) => !prev)}

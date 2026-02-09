@@ -1,6 +1,6 @@
 import React from "react";
 import RequiredParticipationData from "../../data/RequiredParticipationData";
-import light from "/src/assets/star.svg";
+import star from "/workspaces/yu-likelion-14th-homepage/src/assets/star.svg";
 import {
 	mediumStyle,
 	boldStyle,
@@ -28,7 +28,7 @@ const RequiredParticipation = () => {
 		>
 			<div className="relative w-full max-w-[1040px] mx-auto">
 				<div className="flex w-full max-w-[632.6772px] h-[35.6772px] items-center gap-[19px] text-left pt-[19vh]">
-					<img src={light} alt="star" style={{ width: "35.6772px", height: "35.6772px" }} />
+					<img src={star} alt="star" />
 					<span style={sectionLabelStyle}>Certificate</span>
 				</div>
 				<div className="mt-[27.16px]">
