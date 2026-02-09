@@ -28,7 +28,7 @@ const MainHeader = ({ scrollToHome }) => {
             <Link to="/recruit">RECRUIT</Link>
           </span>
           <span className={navBaseClass} style={headerNavStyle}>
-            <Link to="/project">Project</Link>
+            <Link to="/project">PROJECT</Link>
           </span>
           <span className={navBaseClass} style={headerNavStyle}>
             <Link to="/qanda">Q&A</Link>
