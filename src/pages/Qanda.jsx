@@ -39,7 +39,7 @@ const Qanda = () => {
               bg-[linear-gradient(160deg,rgba(255,255,255,0.25)_0%,rgba(255,255,255,0.15)_50%,rgba(255,255,255,0.2)_100%)]
               transition-all duration-600 ease-[cubic-bezier(0.34,1.4,0.5,1.02)]"
             style={{
-              transform: `translateY(${categories.indexOf(selected) * (46 + 6)}px)`,
+              transform: `translateY(${categories.indexOf(selected) * (76)}px)`,
             }}
           >
             <div className="glass-toc-slide w-full h-full rounded-[30px]" />
