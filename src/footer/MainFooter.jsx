@@ -8,7 +8,7 @@ import github from "../assets/github_logo.svg";
 const MainFooter = () => {
   return (
     <>
-      <footer className="w-full py-5 px-10 bg-[#070708] text-zinc-500 text-sm border-t border-white/10">
+      <footer className="w-full py-10 px-10 bg-[#070708] text-zinc-500 text-sm border-t border-white/10 min-h-[140px]">
         <div className="flex flex-row justify-between items-center">
           <div className="flex flex-col gap-0.5">
             <img src={footerLogo} className="w-16 h-16" />
@@ -17,7 +17,7 @@ const MainFooter = () => {
               @ 2026 LIKELION YU. All rights reserved.
             </p>
           </div>
-          <div className="flex flex-row justify-center items-center gap-4">
+          <div className="flex flex-row justify-center items-center gap-4 -mt-2">
             {/* 인스타 링크 */}
             <a
               href="https://www.instagram.com/likelion_yu"
