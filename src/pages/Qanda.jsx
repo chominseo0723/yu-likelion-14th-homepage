@@ -33,7 +33,7 @@ const Qanda = () => {
     
       <div className="flex gap-43 justify-center mx-auto max-w-[1200px] px-10">
         {/* 카테고리 */}
-        <div className="flex flex-col gap-[6px] mt-[176px] relative">
+        <div className="flex flex-col gap-[30px] mt-[176px] relative">
           <div
             className="absolute left-0 w-[179px] h-[46px] rounded-[30px] p-[0.5px] z-0
               bg-[linear-gradient(160deg,rgba(255,255,255,0.25)_0%,rgba(255,255,255,0.15)_50%,rgba(255,255,255,0.2)_100%)]
