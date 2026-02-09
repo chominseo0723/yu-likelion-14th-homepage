@@ -1,6 +1,6 @@
 import React from "react";
 import RequiredParticipationData from "../../data/RequiredParticipationData";
-import star from "/workspaces/yu-likelion-14th-homepage/src/assets/star.svg";
+import star from "../../assets/star.svg";
 import {
 	mediumStyle,
 	boldStyle,

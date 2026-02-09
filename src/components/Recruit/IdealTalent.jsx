@@ -1,6 +1,6 @@
 import React from "react";
 import IdealTalentData from "../../data/IdealTalentData";
-import star from "/workspaces/yu-likelion-14th-homepage/src/assets/star.svg";
+import star from "../../assets/star.svg";
 import recruitStarBackground from "../../assets/recruit-starbackground.png";
 import {
 	mediumStyle,

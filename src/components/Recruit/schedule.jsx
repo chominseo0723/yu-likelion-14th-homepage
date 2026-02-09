@@ -1,6 +1,6 @@
 import React from "react";
 import ScheduleData from "../../data/ScheduleData";
-import star from "/workspaces/yu-likelion-14th-homepage/src/assets/star.svg";
+import star from "../../assets/star.svg";
 import {
     mediumStyle,
     semiBoldStyle,
