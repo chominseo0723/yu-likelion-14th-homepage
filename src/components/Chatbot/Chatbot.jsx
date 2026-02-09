@@ -332,87 +332,93 @@ const Chatbot = () => {
 
       {/* 챗봇 창 */}
       {isOpen && (
-        <div className="glass w-96 h-[calc(100vh-1.5rem)] max-h-[600px] bg-[#1a1a1a]/90 flex flex-col overflow-hidden">
-          {/* 헤더 */}
-          <div className="relative bg-gradient-to-r from-[#FF9000] to-[#FF5E00] p-4 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <img
-                src={likelionLogo}
-                alt="멋쟁이사자처럼"
-                className="w-8 h-8 brightness-0 invert"
-              />
-              <h3 className="text-white font-bold text-lg">
-                영남대 멋쟁이사자
-              </h3>
-            </div>
-            <button
-              onClick={() => setIsOpen(false)}
-              className="text-white hover:bg-white/20 rounded-full p-1 transition-colors"
-              aria-label="챗봇 닫기"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
+        <div className="relative glass w-96 h-[calc(100vh-1.5rem)] max-h-[600px] bg-[#1a1a1a]/90 overflow-hidden">
+          <div
+            className="absolute inset-0 backdrop-blur-lg bg-white/5 pointer-events-none"
+            aria-hidden="true"
+          />
+          <div className="relative flex flex-col h-full">
+            {/* 헤더 */}
+            <div className="relative bg-gradient-to-r from-[#FF9000] to-[#FF5E00] p-4 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <img
+                  src={likelionLogo}
+                  alt="멋쟁이사자처럼"
+                  className="w-8 h-8"
                 />
-              </svg>
-            </button>
-          </div>
-
-          {/* 메시지 영역 */}
-          <div className="flex-1 overflow-y-auto no-scrollbar p-4 space-y-3 bg-[#0a0a0a]/50">
-            {messages.map((message, index) => (
-              <div
-                key={index}
-                className={`flex ${
-                  message.type === "user" ? "justify-end" : "justify-start"
-                }`}
+                <h3 className="text-white font-bold text-lg">
+                  영남대 멋쟁이사자
+                </h3>
+              </div>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-white hover:bg-white/20 rounded-full p-1 transition-colors"
+                aria-label="챗봇 닫기"
               >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            {/* 메시지 영역 */}
+            <div className="flex-1 overflow-y-auto no-scrollbar p-4 space-y-3 bg-[#0a0a0a]/50">
+              {messages.map((message, index) => (
                 <div
-                  className={`max-w-[80%] p-3 rounded-2xl ${
-                    message.type === "user"
-                      ? "bg-gradient-to-r from-[#FF9000] to-[#FF5E00] text-white shadow-lg"
-                      : "glass bg-[#2a2a2a]/70 text-white"
+                  key={index}
+                  className={`flex ${
+                    message.type === "user" ? "justify-end" : "justify-start"
                   }`}
                 >
-                  <p className="text-sm whitespace-pre-wrap break-words">
-                    {renderMessageWithLinks(message.text)}
-                  </p>
+                  <div
+                    className={`max-w-[80%] p-3 rounded-2xl ${
+                      message.type === "user"
+                        ? "bg-gradient-to-r from-[#FF9000] to-[#FF5E00] text-white shadow-lg"
+                        : "glass bg-[#2a2a2a]/70 text-white"
+                    }`}
+                  >
+                    <p className="text-sm whitespace-pre-wrap break-words">
+                      {renderMessageWithLinks(message.text)}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
-            <div ref={messagesEndRef} />
-          </div>
+              ))}
+              <div ref={messagesEndRef} />
+            </div>
 
-          {/* 입력 영역 */}
-          <div className="p-4 bg-[#1a1a1a]/80 border-t border-white/10">
-            <div className="flex gap-2">
-              <input
-                type="text"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                onKeyPress={handleKeyPress}
-                placeholder="질문을 입력하세요..."
-                className="flex-1 bg-[#2a2a2a] text-white px-4 py-3 rounded-xl 
+            {/* 입력 영역 */}
+            <div className="p-4 bg-[#1a1a1a]/80 border-t border-white/10">
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  onKeyPress={handleKeyPress}
+                  placeholder="질문을 입력하세요..."
+                  className="flex-1 bg-[#2a2a2a] text-white px-4 py-3 rounded-xl 
                           border border-white/20 
                           focus:outline-none focus:border-[#FF9000] 
                           placeholder-gray-500
                           transition-all"
-              />
-              <button
-                onClick={handleSend}
-                className="bg-gradient-to-r from-[#FF9000] to-[#FF5E00] text-white px-6 py-3 rounded-xl 
+                />
+                <button
+                  onClick={handleSend}
+                  className="bg-gradient-to-r from-[#FF9000] to-[#FF5E00] text-white px-6 py-3 rounded-xl 
                           hover:shadow-lg transition-all duration-300 font-semibold"
-              >
-                전송
-              </button>
+                >
+                  전송
+                </button>
+              </div>
             </div>
           </div>
         </div>
