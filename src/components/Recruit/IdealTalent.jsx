@@ -63,9 +63,13 @@ const IdealTalent = () => {
 					  {IdealTalentData.map((card) => (
 						<div
 							key={card.id}
-							className="w-full max-w-[599px] h-[305px] bg-transparent p-[1px] rounded-[30px] "
+							className="relative w-full max-w-[599px] h-[305px] bg-transparent p-[1px] rounded-[30px]"
 						>
-							<div className="glass glass-ideal w-full h-full rounded-[30px] px-[30px] py-[30px]">
+							<div
+								className="absolute inset-0 rounded-[30px] backdrop-blur-lg bg-white/5 pointer-events-none"
+								aria-hidden="true"
+							/>
+							<div className="relative glass glass-ideal w-full h-full rounded-[30px] px-[30px] py-[30px]">
 								<p
 									className="text-white whitespace-pre-line"
 									style={{

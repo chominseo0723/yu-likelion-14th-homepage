@@ -10,7 +10,7 @@ const MainHeader = ({ scrollToHome }) => {
   return (
     <div className="relative font-pretendard py-9 bg-transparent glass-header z-50">
       <div
-        className="absolute inset-0 backdrop-blur-sm bg-white/5 pointer-events-none"
+        className="absolute inset-0 backdrop-blur-sm pointer-events-none"
         aria-hidden="true"
       />
       <div className="relative flex flex-row items-center justify-between">
