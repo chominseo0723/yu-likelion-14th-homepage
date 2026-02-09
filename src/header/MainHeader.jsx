@@ -29,16 +29,17 @@ const MainHeader = ({ scrollToHome }) => {
               <Link to="/">HOME</Link>
             </span>
 
-            <span className={navBaseClass} style={headerNavStyle}>
-              <Link to="/recruit">RECRUIT</Link>
-            </span>
-            <span className={navBaseClass} style={headerNavStyle}>
-              <Link to="/project">Project</Link>
-            </span>
-            <span className={navBaseClass} style={headerNavStyle}>
-              <Link to="/qanda">Q&A</Link>
-            </span>
-          </div>
+
+          <span className={navBaseClass} style={headerNavStyle}>
+            <Link to="/recruit">RECRUIT</Link>
+          </span>
+          <span className={navBaseClass} style={headerNavStyle}>
+            <Link to="/project">PROJECT</Link>
+          </span>
+          <span className={navBaseClass} style={headerNavStyle}>
+            <Link to="/qanda">Q&A</Link>
+          </span>
+        </div>
 
           <div
             className="w-[192px] h-[52px] border rounded-[40px] px-10 py-3 text-white bg-gradient-to-r from-[#FF5E00]/40 to-[#FFAE00]/40 border-white/30 backdrop-blur-sm mr-15 cursor-pointer hover:from-[#FF5E00] hover:to-[#FFAE00] transition-all duration-300 ease-in-out flex items-center justify-center whitespace-nowrap"

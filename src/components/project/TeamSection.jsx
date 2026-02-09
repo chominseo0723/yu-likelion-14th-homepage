@@ -30,14 +30,14 @@ const TeamSection = ({ team }) => {
           >
             <span className=" bg-[linear-gradient(90deg,#FF9000_0%,#FF5E00_100%)]
     bg-clip-text 
-    text-transparent text-[30px] font-black ">
+    text-transparent text-[30px] font-black">
               P&D
             </span>
           </div>
 
           {/* names */}
           {team.pd.map(name => (
-            <p key={name} className="text-[24px] leading-[50px]">
+            <p key={name} className="text-[24px] leading-[50px] ml-5">
               {name}
             </p>
           ))}
@@ -68,7 +68,7 @@ const TeamSection = ({ team }) => {
           </div>
 
           {team.fe.map(name => (
-            <p key={name} className="text-[24px] leading-[50px]">
+            <p key={name} className="text-[24px] leading-[50px]  ml-5">
               {name}
             </p>
           ))}
@@ -98,7 +98,7 @@ const TeamSection = ({ team }) => {
           </div>
 
           {team.be.map(name => (
-            <p key={name} className="text-[24px] leading-[50px]">
+            <p key={name} className=" ml-5 text-[24px] leading-[50px]">
               {name}
             </p>
           ))}

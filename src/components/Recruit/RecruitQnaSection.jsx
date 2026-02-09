@@ -53,7 +53,7 @@ const RecruitQnaSection = () => {
 
 					<div className="mt-[26px]">
 						<p className="text-[20px] text-[#87725F] m-0">
-							추가로 궁금한점이 있다면 디엠과 오픈채팅방으로 문의주세요!
+							추가로 궁금한점이 있다면 디엠과 오픈채팅방으로 문의하세요
 						</p>
 						<div className="flex flex-row mt-3 gap-4 items-center">
 							<img src={akar} alt="" />

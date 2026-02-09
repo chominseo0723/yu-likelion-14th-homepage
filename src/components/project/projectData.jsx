@@ -16,7 +16,7 @@ export const projectData = [
     subtitle: '메디브',
     description:
       'MEDIV는 약과 영양제를 사진으로 인식해 상호작용·부작용·복용법을 AI 요약 카드로 알려주는, ‘복약에 안심을 더하는’ 스마트 복약 관리 서비스입니다.',
-    author: '개발자상주의',
+    author: '개발지상주의',
   },
   {
     id: 'clmn',
@@ -56,7 +56,7 @@ export const projectData = [
     subtitle: '스타트 포인터',
     description:
       'Start Pointer는 청년이 떠나는 경산에서, 흩어진 창업 정보·상권 분석·멘토 연결을 하나로 통합해 청년 창업자가 ‘머물고 성장할 수 있는 길’을 만드는 지역 기반 AI 창업 지원 플랫폼입니다.',
-    author: '개발자상주의',
+    author: '개발지상주의',
   },
   {
     id:'ondomi',
