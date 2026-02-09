@@ -21,10 +21,23 @@ const ProjectDetail = () => {
     return <div className="text-white">존재하지 않는 프로젝트입니다.</div>
   }
 
+  const renderBoldText = (text) => {
+  return text.split(/(\*\*.*?\*\*)/g).map((part, idx) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return (
+        <span key={idx} className="font-semibold">
+          {part.replace(/\*\*/g, '')}
+        </span>
+      )
+    }
+    return <span key={idx}>{part}</span>
+  })
+}
+
+
   return (
     <div className="relative
     min-h-screen
-    overflow-hidden
     font-pretendard
     text-white
 
@@ -45,13 +58,13 @@ const ProjectDetail = () => {
       />
 
       <div className="relative z-10">
-        <div className="sticky top-0 z-50">
+       <div className="fixed top-0 left-0 right-0 z-50">
           <MainHeader />
         </div>
         {/* 전체 컨테이너 */}
-       <div className="max-w-[1080px] mx-auto px-4 mb-60">
+       <div className="max-w-[1080px] mx-auto px-4 mb-60 pt-[130px]">
   <div
-    className="w-[1040px] aspect-[233/131] mx-auto rounded-[30px] overflow-hidden bg-center bg-cover bg-no-repeat"
+    className="  w-full aspect-[233/131] rounded-[30px] overflow-hidden bg-center bg-cover bg-no-repeat"
     style={{
       backgroundImage: `url(${data.heroImage})`,
       backgroundColor: '#d3d3d3', 
@@ -84,7 +97,7 @@ const ProjectDetail = () => {
           </h1>
 
           {/* 요약 */}
-          <p className="mt-4 max-w-[900px]" style={body20Leading35Style}>
+          <p className="mt-4" style={body20Leading35Style}>
             {data.summary}
           </p>
 
@@ -104,6 +117,7 @@ const ProjectDetail = () => {
                 shadow-[inset_0_1px_0_rgba(255,255,255,0.15),0_8px_40px_rgba(0,0,0,0.3)]
                 p-10
                 space-y-12
+                
               "
             >
               {/* 서비스 배경 */}
@@ -111,9 +125,9 @@ const ProjectDetail = () => {
                 <span className="flex items-center gap-2" style={sectionLabelStyle}>
                   🗯️ 서비스 배경
                 </span>
-                <p className="mt-4 whitespace-pre-line" style={body14Leading35Style}>
-                  {data.background}
-                </p>
+               <p className="mt-4 whitespace-pre-line" style={body14Leading35Style}>
+  {renderBoldText(data.background)}
+</p>
               </div>
 
               {/* 핵심 기능 */}
@@ -122,8 +136,8 @@ const ProjectDetail = () => {
                   💡 서비스 소개 및 핵심 기능
                 </span>
                 <p className="mt-4 whitespace-pre-line" style={body14Leading35Style}>
-                  {data.solution}
-                </p>
+  {renderBoldText(data.solution)}
+</p>
               </div>
             </div>
           </div>
