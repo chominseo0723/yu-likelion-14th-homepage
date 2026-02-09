@@ -66,12 +66,18 @@ const Time = () => {
         </div>
 
         {/* 버튼 */}
-        <button
-          className="w-[192px] h-[52px] border rounded-[40px] px-10 py-3 text-white bg-gradient-to-r from-[#FF5E00]/40 to-[#FFAE00]/40 border-white/30 backdrop-blur-sm cursor-pointer hover:from-[#FF5E00] hover:to-[#FFAE00] transition-all duration-300 ease-in-out flex items-center justify-center whitespace-nowrap"
-          style={headerButtonStyle}
-        >
-          14기 지원하기
-        </button>
+        <a
+  href="https://docs.google.com/forms/d/e/1FAIpQLSczac64aVsLkuYSKIUUqYGXawEPr0AjzgX8qOcOtbOeeqZ1fA/viewform"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <button
+    className="w-[192px] h-[52px] border rounded-[40px] px-10 py-3 text-white bg-gradient-to-r from-[#FF5E00]/40 to-[#FFAE00]/40 border-white/30 backdrop-blur-sm cursor-pointer hover:from-[#FF5E00] hover:to-[#FFAE00] transition-all duration-300 ease-in-out flex items-center justify-center whitespace-nowrap"
+    style={headerButtonStyle}
+  >
+    14기 지원하기
+  </button>
+</a>
 
       </div>
     </div>
