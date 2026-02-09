@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { QNA_DATA, CHATBOT_ONLY_QNA } from "../../data/qnaData";
-import OpenAI from "openai";
 import likelionLogo from "../../assets/likelion_logo.svg";
 
 const MIN_KEYWORD_LENGTH = 1;
@@ -9,13 +8,6 @@ const OPEN_CHAT_URL = "https://open.kakao.com/o/sDw4nwdi";
 const OPEN_CHAT_MESSAGE =
   "\n\n💬 추가 문의사항이 있으시면 오픈채팅방을 이용해주세요!\n👉 " +
   OPEN_CHAT_URL;
-
-const openai = import.meta.env.VITE_OPENAI_API_KEY
-  ? new OpenAI({
-      apiKey: import.meta.env.VITE_OPENAI_API_KEY,
-      dangerouslyAllowBrowser: true,
-    })
-  : null;
 
 const LIKELION_CONTEXT = `
 당신은 영남대학교 멋쟁이사자처럼 14기 챗봇입니다.
@@ -39,180 +31,110 @@ const LIKELION_CONTEXT = `
 `;
 
 const STOPWORDS = [
-  "은",
-  "는",
-  "이",
-  "가",
-  "을",
-  "를",
-  "의",
-  "에",
-  "에서",
-  "와",
-  "과",
-  "도",
-  "로",
-  "으로",
-  "까지",
-  "부터",
-  "한테",
-  "께",
-  "이나",
-  "나",
-  "요",
-  "이요",
-  "네요",
-  "어요",
-  "아요",
-  "해요",
-  "죠",
-  "지요",
-  "나요",
-  "까요",
-  "어",
-  "아",
-  "지",
-  "고",
-  "며",
-  "면",
-  "서",
-  "게",
-  "도록",
-  "한",
-  "그",
-  "저",
-  "이런",
-  "저런",
-  "어떤",
-  "무슨",
-  "어느",
-  "있",
-  "없",
-  "하",
+  "은","는","이","가","을","를","의","에","에서","와","과","도","로","으로","까지","부터",
+  "한테","께","이나","나","요","이요","네요","어요","아요","해요","죠","지요","나요","까요",
+  "어","아","지","고","며","면","서","게","도록","한","그","저","이런","저런","어떤","무슨",
+  "어느","있","없","하",
 ];
 
-// 질문에서 의미있는 키워드 추출
 const extractKeywords = (text) => {
-  // 특수문자 제거하고 공백으로 분리
-  const words = text
-    .replace(/[?!.,]/g, " ")
-    .split(/\s+/)
-    .filter((w) => w.length > 0);
-
+  const words = text.replace(/[?!.,]/g, " ").split(/\s+/).filter(Boolean);
   const keywords = [];
+
   words.forEach((word) => {
-    // 원본 단어 추가
     if (word.length >= MIN_KEYWORD_LENGTH && !STOPWORDS.includes(word)) {
       keywords.push(word);
     }
-
-    // 조사/어미 제거 버전 추가
     for (const stopword of STOPWORDS) {
       if (word.endsWith(stopword) && word.length > stopword.length) {
         const stem = word.slice(0, -stopword.length);
         if (stem.length >= MIN_KEYWORD_LENGTH && !STOPWORDS.includes(stem)) {
           keywords.push(stem);
-          break; // 첫 번째 매칭만 사용
+          break;
         }
       }
     }
   });
 
-  // 중복 제거
   return [...new Set(keywords)];
+};
+
+const renderMessageWithLinks = (text) => {
+  const urlPattern = /(https?:\/\/[^\s]+)/g;
+  const parts = text.split(urlPattern);
+
+  return parts.map((part, index) => {
+    if (part.match(urlPattern)) {
+      return (
+        <a
+          key={index}
+          href={part}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#FFB84D] hover:text-[#FF9000] underline font-semibold transition-colors"
+        >
+          {part}
+        </a>
+      );
+    }
+    return <span key={index}>{part}</span>;
+  });
 };
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([
-    {
-      type: "bot",
-      text: "안녕하세요! 영남대 멋쟁이사자처럼 14기 챗봇입니다. 무엇이 궁금하신가요?",
-    },
-  ]);
+const [messages, setMessages] = useState([
+  { 
+    type: "bot", 
+    text: "안녕하세요! 영남대 멋쟁이사자처럼 14기 챗봇입니다.\n무엇이 궁금하신가요?" 
+  },
+]);
   const [inputValue, setInputValue] = useState("");
   const messagesEndRef = useRef(null);
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
   useEffect(() => {
-    scrollToBottom();
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  // 키워드 기반 답변 찾기
   const findAnswer = (question) => {
-    const lowerQuestion = question.toLowerCase().trim();
-
-    // 모든 카테고리의 Q&A 검색
+  const lowerQuestion = String(question ?? "").toLowerCase().trim();
     const allQnA = [];
 
-    // Q&A 데이터 추가
     Object.keys(QNA_DATA).forEach((category) => {
-      QNA_DATA[category].forEach((item) => {
-        allQnA.push({ ...item, category });
-      });
+      QNA_DATA[category].forEach((item) => allQnA.push({ ...item, category }));
     });
-
-    // 챗봇 전용 Q&A 데이터 추가
-    CHATBOT_ONLY_QNA.forEach((item) => {
-      allQnA.push({ ...item, category: "chatbot-only" });
-    });
+    CHATBOT_ONLY_QNA.forEach((item) => allQnA.push({ ...item, category: "chatbot-only" }));
 
     const keywords = extractKeywords(lowerQuestion);
 
-    // 점수 기반 매칭
-    const scoredMatches = allQnA.map((item) => {
-      const itemQ = item.q.toLowerCase();
-      const itemA = item.a.toLowerCase();
-      let score = 0;
+    return allQnA
+      .map((item) => {
+        let score = 0;
+          const itemQ = String(item.q ?? "").toLowerCase();
+      const itemA = String(item.a ?? "").toLowerCase();
 
-      // 전체 질문이 포함되어 있으면 매우 높은 점수
-      if (itemQ.includes(lowerQuestion)) {
-        score += 100;
-      }
-
-      // 키워드별 점수 계산
-      keywords.forEach((keyword) => {
-        if (itemQ.includes(keyword)) {
-          score += 15;
-        }
-        if (itemA.includes(keyword)) {
-          score += 8;
-        }
-      });
-
-      return { ...item, score };
-    });
-
-    // 점수가 0보다 큰 항목만 필터링하고 점수순 정렬
-    const matches = scoredMatches
+      if (itemQ.includes(lowerQuestion)) score += 100;
+        keywords.forEach((k) => {
+              if (itemQ.includes(k)) score += 15;
+        if (itemA.includes(k)) score += 8;
+        });
+        return { ...item, score };
+      })
       .filter((item) => item.score > 0)
       .sort((a, b) => b.score - a.score);
-
-    return matches;
   };
 
   const askGPT = async (question) => {
-    if (!openai) {
-      return null;
-    }
-
     try {
-      const completion = await openai.chat.completions.create({
-        model: "gpt-3.5-turbo",
-        messages: [
-          { role: "system", content: LIKELION_CONTEXT },
-          { role: "user", content: question },
-        ],
-        max_tokens: 200,
-        temperature: 0.7,
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question }),
       });
-
-      return completion.choices[0]?.message?.content || null;
-    } catch (error) {
-      console.error("GPT API Error:", error);
+      const data = await res.json();
+      return data.choices?.[0]?.message?.content || null;
+    } catch (e) {
+      console.error("API 호출 에러:", e);
       return null;
     }
   };
@@ -220,57 +142,36 @@ const Chatbot = () => {
   const handleSend = async () => {
     if (!inputValue.trim()) return;
 
-    const userMessage = { type: "user", text: inputValue };
-    setMessages((prev) => [...prev, userMessage]);
-
     const question = inputValue;
+    setMessages((prev) => [...prev, { type: "user", text: question }]);
     setInputValue("");
 
     const answers = findAnswer(question);
 
     setTimeout(async () => {
       if (answers.length > 0 && answers[0].score >= 15) {
-        const topAnswer = answers[0];
-        const botMessage = {
-          type: "bot",
-          text: `${topAnswer.q}\n\n${topAnswer.a}${OPEN_CHAT_MESSAGE}`,
-        };
-        setMessages((prev) => [...prev, botMessage]);
+        setMessages((prev) => [
+          ...prev,
+          { type: "bot", text: `${answers[0].q}\n\n${answers[0].a}${OPEN_CHAT_MESSAGE}` },
+        ]);
       } else {
-        // 내부 검색으로 답을 찾지 못했거나 점수가 낮을 때 GPT API 사용
-        if (openai) {
-          const thinkingMessage = {
+        setMessages((prev) => [...prev, { type: "bot", text: "🤔 답변을 생성하고 있습니다..." }]);
+
+        const gptAnswer = await askGPT(question);
+
+        setMessages((prev) =>
+          prev.filter((msg) => msg.text !== "🤔 답변을 생성하고 있습니다...")
+        );
+
+        setMessages((prev) => [
+          ...prev,
+          {
             type: "bot",
-            text: "🤔 답변을 생성하고 있습니다...",
-          };
-          setMessages((prev) => [...prev, thinkingMessage]);
-
-          const gptAnswer = await askGPT(question);
-
-          setMessages((prev) =>
-            prev.filter((msg) => msg.text !== "🤔 답변을 생성하고 있습니다..."),
-          );
-
-          if (gptAnswer) {
-            const botMessage = {
-              type: "bot",
-              text: `${gptAnswer}${OPEN_CHAT_MESSAGE}`,
-            };
-            setMessages((prev) => [...prev, botMessage]);
-          } else {
-            const botMessage = {
-              type: "bot",
-              text: `죄송합니다. 관련된 답변을 찾을 수 없습니다. 다른 질문을 해주시거나, Q&A 페이지를 방문해주세요!${OPEN_CHAT_MESSAGE}`,
-            };
-            setMessages((prev) => [...prev, botMessage]);
-          }
-        } else {
-          const botMessage = {
-            type: "bot",
-            text: `죄송합니다. 관련된 답변을 찾을 수 없습니다. 다른 질문을 해주시거나, Q&A 페이지를 방문해주세요!${OPEN_CHAT_MESSAGE}`,
-          };
-          setMessages((prev) => [...prev, botMessage]);
-        }
+            text: gptAnswer
+              ? `${gptAnswer}${OPEN_CHAT_MESSAGE}`
+              : `죄송합니다. 관련된 답변을 찾을 수 없습니다.${OPEN_CHAT_MESSAGE}`,
+          },
+        ]);
       }
     }, MESSAGE_DELAY_MS);
   };
@@ -282,138 +183,49 @@ const Chatbot = () => {
     }
   };
 
-  const renderMessageWithLinks = (text) => {
-    // URL 패턴 정규식
-    const urlPattern = /(https?:\/\/[^\s]+)/g;
-    const parts = text.split(urlPattern);
-
-    return parts.map((part, index) => {
-      if (part.match(urlPattern)) {
-        return (
-          <a
-            key={index}
-            href={part}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#FFB84D] hover:text-[#FF9000] underline font-semibold transition-colors"
-          >
-            {part}
-          </a>
-        );
-      }
-      return <span key={index}>{part}</span>;
-    });
-  };
-
   return (
     <div className="fixed bottom-6 right-8 z-40 font-pretendard">
-      {/* 플로팅 챗봇 버튼 */}
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="glass w-16 h-16 rounded-full bg-gradient-to-r from-[#FF9000] to-[#FF5E00] shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group hover:scale-110"
-          aria-label="챗봇 열기"
+          className="glass w-20 text-3xl h-20 rounded-full bg-gradient-to-r from-[#FF9000] to-[#FF5E00] shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group hover:scale-110"
         >
-          <svg
-            className="w-8 h-8 text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-            />
-          </svg>
+          💬
         </button>
       )}
 
-      {/* 챗봇 창 */}
       {isOpen && (
         <div className="glass w-96 h-[calc(100vh-1.5rem)] max-h-[600px] bg-[#1a1a1a]/90 flex flex-col overflow-hidden">
-          {/* 헤더 */}
-          <div className="relative bg-gradient-to-r from-[#FF9000] to-[#FF5E00] p-4 flex items-center justify-between">
+          <div className="bg-gradient-to-r from-[#FF9000] to-[#FF5E00] p-4 flex justify-between items-center">
             <div className="flex items-center gap-2">
-              <img
-                src={likelionLogo}
-                alt="멋쟁이사자처럼"
-                className="w-8 h-8 brightness-0 invert"
-              />
-              <h3 className="text-white font-bold text-lg">
-                영남대 멋쟁이사자
-              </h3>
+              <img src={likelionLogo} alt="멋쟁이사자처럼" className="w-8 h-8 brightness-0 invert" />
+              <h3 className="text-white font-bold">영남대 멋쟁이사자</h3>
             </div>
-            <button
-              onClick={() => setIsOpen(false)}
-              className="text-white hover:bg-white/20 rounded-full p-1 transition-colors"
-              aria-label="챗봇 닫기"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
+            <button onClick={() => setIsOpen(false)} className="text-white">✕</button>
           </div>
 
-          {/* 메시지 영역 */}
-          <div className="flex-1 overflow-y-auto no-scrollbar p-4 space-y-3 bg-[#0a0a0a]/50">
-            {messages.map((message, index) => (
-              <div
-                key={index}
-                className={`flex ${
-                  message.type === "user" ? "justify-end" : "justify-start"
-                }`}
-              >
-                <div
-                  className={`max-w-[80%] p-3 rounded-2xl ${
-                    message.type === "user"
-                      ? "bg-gradient-to-r from-[#FF9000] to-[#FF5E00] text-white shadow-lg"
-                      : "glass bg-[#2a2a2a]/70 text-white"
-                  }`}
-                >
-                  <p className="text-sm whitespace-pre-wrap break-words">
-                    {renderMessageWithLinks(message.text)}
-                  </p>
-                </div>
+          <div className="flex-1 overflow-y-auto p-4 space-y-3">
+            {messages.map((m, i) => (
+              <div key={i} className={`flex ${m.type === "user" ? "justify-end" : "justify-start"}`}>
+                 <div className="max-w-[80%] p-3 rounded-xl bg-[#2a2a2a] text-white text-sm whitespace-pre-wrap">
+    {renderMessageWithLinks(m.text)}
+  </div>
               </div>
             ))}
             <div ref={messagesEndRef} />
           </div>
 
-          {/* 입력 영역 */}
-          <div className="p-4 bg-[#1a1a1a]/80 border-t border-white/10">
-            <div className="flex gap-2">
-              <input
-                type="text"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                onKeyPress={handleKeyPress}
-                placeholder="질문을 입력하세요..."
-                className="flex-1 bg-[#2a2a2a] text-white px-4 py-3 rounded-xl 
-                          border border-white/20 
-                          focus:outline-none focus:border-[#FF9000] 
-                          placeholder-gray-500
-                          transition-all"
-              />
-              <button
-                onClick={handleSend}
-                className="bg-gradient-to-r from-[#FF9000] to-[#FF5E00] text-white px-6 py-3 rounded-xl 
-                          hover:shadow-lg transition-all duration-300 font-semibold"
-              >
-                전송
-              </button>
-            </div>
+          <div className="p-4 border-t border-white/10 flex gap-2">
+            <input
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              onKeyPress={handleKeyPress}
+              className="flex-1 rounded px-3 py-2 bg-[#2a2a2a] text-white"
+              placeholder="질문을 입력하세요..."
+            />
+            <button onClick={handleSend} className="px-4 py-2 bg-orange-500 text-white rounded">
+              전송
+            </button>
           </div>
         </div>
       )}
