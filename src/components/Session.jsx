@@ -14,19 +14,19 @@ const SessionCard = ({ data }) => {
         >
           <div
             className="w-full h-full rounded-[30px] overflow-hidden
-            bg-[linear-gradient(103deg,#333333_0%,#353533_17%,#333331_28%,#31312F_36%,#2D2D2B_46%,#2A2A28_59%,#282826_70%,#232321_100%)]
-            backdrop-blur-2xl flex flex-col items-center gap-7 justify-center
-          "
+                       bg-[linear-gradient(103deg,#333333_0%,#353533_17%,#333331_28%,#31312F_36%,#2D2D2B_46%,#2A2A28_59%,#282826_70%,#232321_100%)]
+                       backdrop-blur-2xl flex flex-col items-center justify-center"
           >
-            <p className="flex justify-center items-center w-full text-[32px] font-bold text-white select-none">
-              {data.title1}
-            </p>
-            <a
-              href="#_"
-              className="text-[18px] text-[#B4A69E] leading-5 border-b border-b-[#B4A69E] select-none"
-            >
-              교육과정 보러가기 {">>"}
-            </a>
+            <div className="rounded-[30px] flex flex-col gap-[20px]">
+              <p className="w-[261px] h-[49.977px] flex items-center justify-center text-center font-bold text-[32px] text-white select-none pt-[25.01px] whitespace-nowrap">
+                {data.title1}
+              </p>
+              <p className="h-[50px] text-[#B4A69E] text-center text-[18px] font-normal leading-18 select-none">
+                <span className="border-b border-b-[#B4A69E] pb-1">
+                  교육과정 보러가기 {">>"}
+                </span>
+              </p>
+            </div>
           </div>
         </div>
         {/* 뒷면 */}
