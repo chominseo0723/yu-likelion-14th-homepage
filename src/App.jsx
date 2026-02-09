@@ -5,11 +5,14 @@ import Recruit from "./pages/Recruit";
 import Project from "./pages/Project";
 import Qanda from "./pages/Qanda";
 import ProjectDetail from "./pages/ProjectDetail";
+import Chatbot from "./components/Chatbot/Chatbot";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
 
   return(
   <BrowserRouter>
+     <ScrollToTop /> 
     <Routes>
       <Route path="/" element={<MainScreen/>}/>
       <Route path="/recruit" element={<Recruit/>}/>
@@ -18,6 +21,7 @@ const App = () => {
        <Route path="/recruit" element={<Recruit />} />
       <Route path="/qanda" element={<Qanda/>}/>
     </Routes>
+    <Chatbot />
   </BrowserRouter>
   )
 };

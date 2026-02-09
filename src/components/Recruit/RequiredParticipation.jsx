@@ -22,9 +22,12 @@ const sectionLabelStyle = {
 
 const RequiredParticipation = () => {
 	return (
-		<section className="relative w-full px-[200px] pb-[411.03px] box-border overflow-hidden">
+		<section
+			className="relative w-full px-[200px] pb-[16vh] box-border"
+			style={{ overflow: "visible" }}
+		>
 			<div className="relative w-full max-w-[1040px] mx-auto">
-				<div className="flex w-full max-w-[632.6772px] h-[35.6772px] items-center gap-[19px] text-left pt-[120px]">
+				<div className="flex w-full max-w-[632.6772px] h-[35.6772px] items-center gap-[19px] text-left pt-[19vh]">
 					<img src={light} alt="star" style={{ width: "35.6772px", height: "35.6772px" }} />
 					<span style={sectionLabelStyle}>Certificate</span>
 				</div>
@@ -45,13 +48,7 @@ const RequiredParticipation = () => {
 					{RequiredParticipationData.map((text, index) => (
 						<div
 							key={index}
-							className={`w-full max-w-[511px] h-[106px] rounded-[30px] pl-[31px] pr-[31px] flex items-center justify-start border border-[#3B2A1A] box-border ${index === 0 ? "" : index === 1 ? "" : "mt-[31px]"}`}
-							style={{
-								background:
-									"linear-gradient(135deg, #3B2A1AF2 0%, #1C1917F9 100%)",
-								boxShadow:
-									"inset 0 1px 0 0 #FFFFFF0F, 0 4px 24px #00000033",
-							}}
+							className={`w-full max-w-[511px] h-[106px] rounded-[30px] pl-[31px] pr-[31px] flex items-center justify-start box-border glass glass-ideal ${index === 0 ? "" : index === 1 ? "" : "mt-[31px]"}`}
 						>
 							<p
 								className="text-left m-0"

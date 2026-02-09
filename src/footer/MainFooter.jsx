@@ -14,7 +14,7 @@ const MainFooter = () => {
             <img src={footerLogo} className="w-16 h-16" />
             <img src={footerTitle} className="w-35 h-10" />
             <p className="text-[#A66822]">
-              @ 2024 LIKELION YU. All rights reserved.
+              @ 2026 LIKELION YU. All rights reserved.
             </p>
           </div>
           <div className="flex flex-row justify-center items-center gap-4">

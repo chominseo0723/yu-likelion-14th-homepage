@@ -4,6 +4,14 @@ import TeamSection from '../components/project/TeamSection'
 import MainHeader from '../header/MainHeader'
 import MainFooter from '../footer/MainFooter'
 import projectStar from '../assets/projectstar.svg'
+import {
+  detailTitleStyle,
+  detailTitleRegularStyle,
+  body20Leading35Style,
+  sectionLabelStyle,
+  body14Leading35Style,
+  tagStyle,
+} from '../styles/typography'
 
 const ProjectDetail = () => {
   const { id } = useParams()
@@ -37,16 +45,20 @@ const ProjectDetail = () => {
       />
 
       <div className="relative z-10">
-        <MainHeader />
+        <div className="sticky top-0 z-50">
+          <MainHeader />
+        </div>
         {/* 전체 컨테이너 */}
-        <div className="max-w-[1080px]  mx-auto px-4 mb-60">
-  <div className="w-[1072px] h-[603px] mx-auto rounded-[30px] overflow-hidden bg-black">
-  <img
-    src={data.heroImage}
-    alt={data.title}
-    className="w-full h-full object-contain"
+       <div className="max-w-[1080px] mx-auto px-4 mb-60">
+  <div
+    className="w-[1040px] aspect-[233/131] mx-auto rounded-[30px] overflow-hidden bg-center bg-cover bg-no-repeat"
+    style={{
+      backgroundImage: `url(${data.heroImage})`,
+      backgroundColor: '#d3d3d3', 
+    }}
   />
-</div>
+
+
 
 
           {/* 태그 */}
@@ -54,15 +66,8 @@ const ProjectDetail = () => {
   {data.tag.map(tag => (
     <span
       key={tag}
-      className="
-        px-5 py-2
-        rounded-[40px]
-        text-[12px]
-        font-medium
-        bg-white/10
-        border border-white/[0.25]
-        backdrop-blur-md
-      "
+      className="px-5 py-2 rounded-[40px] bg-white/10 border border-white/[0.25] backdrop-blur-md"
+      style={tagStyle}
     >
       {tag}
     </span>
@@ -71,15 +76,15 @@ const ProjectDetail = () => {
 
 
           {/* 타이틀 */}
-          <h1 className="mt-4 text-[42px] font-semibold leading-[60px]">
+          <h1 className="mt-4" style={detailTitleStyle}>
             {data.title}
-            <span className="ml-2 text-[42px] font-normal">
+            <span className="ml-2" style={detailTitleRegularStyle}>
               ({data.subtitle})
             </span>
           </h1>
 
           {/* 요약 */}
-          <p className="mt-4 text-[20px] leading-[35px] max-w-[900px]">
+          <p className="mt-4 max-w-[900px]" style={body20Leading35Style}>
             {data.summary}
           </p>
 
@@ -103,20 +108,20 @@ const ProjectDetail = () => {
             >
               {/* 서비스 배경 */}
               <div>
-                <span className="text-[20px] font-semibold flex items-center gap-2">
+                <span className="flex items-center gap-2" style={sectionLabelStyle}>
                   🗯️ 서비스 배경
                 </span>
-                <p className="mt-4 text-[14px] leading-[35px] whitespace-pre-line">
+                <p className="mt-4 whitespace-pre-line" style={body14Leading35Style}>
                   {data.background}
                 </p>
               </div>
 
               {/* 핵심 기능 */}
               <div>
-                <span className="text-[20px] font-semibold flex items-center gap-2">
+                <span className="flex items-center gap-2" style={sectionLabelStyle}>
                   💡 서비스 소개 및 핵심 기능
                 </span>
-                <p className="mt-4 text-[14px] leading-[35px] whitespace-pre-line">
+                <p className="mt-4 whitespace-pre-line" style={body14Leading35Style}>
                   {data.solution}
                 </p>
               </div>

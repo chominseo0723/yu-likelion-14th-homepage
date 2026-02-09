@@ -1,6 +1,7 @@
 import React from "react";
 import IdealTalentData from "../../data/IdealTalentData";
 import light from "/src/assets/star.svg";
+import recruitStarBackground from "../../assets/recruit-starbackground.png";
 import {
 	mediumStyle,
 	semiBoldStyle,
@@ -10,8 +11,25 @@ import {
 
 const IdealTalent = () => {
 	return (
-		<section className="relative w-full px-[200px] pb-[416.22px] box-border overflow-hidden">
-			<div className="relative w-full max-w-[1040px] mx-auto">
+		<section
+			className="relative w-full px-[200px] pb-[416.22px] box-border"
+			style={{ overflow: "visible" }}
+		>
+			<img
+				src={recruitStarBackground}
+				alt="constellation background"
+				className="pointer-events-none absolute"
+				style={{
+					width: "1177.6976px",
+					height: "auto",
+					top: "56%",
+					right: "30px",
+					transform: "translateY(-50%) rotate(-8.36deg)",
+					opacity: 0.9,
+					zIndex: 0,
+				}}
+			/>
+			<div className="relative w-full max-w-[1040px] mx-auto z-10">
 				<div className="flex w-[632.6772px] h-[35.6772px] items-center gap-[19px] text-left">
                     {/* asset 변경 필요 */}
 					<img src={light} alt="star" style={{ width: "35.6772px", height: "35.6772px" }}/> 
@@ -45,9 +63,13 @@ const IdealTalent = () => {
 					  {IdealTalentData.map((card) => (
 						<div
 							key={card.id}
-							className="w-full max-w-[599px] h-[305px] bg-transparent p-[1px] rounded-[30px]"
+							className="relative w-full max-w-[599px] h-[305px] bg-transparent p-[1px] rounded-[30px]"
 						>
-							<div className="w-full h-full rounded-[30px] px-[30px] py-[30px] bg-[linear-gradient(108deg,#FFAE0033_0%,#FF5E0033_100%)] border border-[#3B2A1A]">
+							<div
+								className="absolute inset-0 rounded-[30px] backdrop-blur-lg bg-white/5 pointer-events-none"
+								aria-hidden="true"
+							/>
+							<div className="relative glass glass-ideal w-full h-full rounded-[30px] px-[30px] py-[30px]">
 								<p
 									className="text-white whitespace-pre-line"
 									style={{

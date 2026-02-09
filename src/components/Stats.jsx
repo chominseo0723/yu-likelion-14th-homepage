@@ -169,7 +169,7 @@ const Stats = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center gap-25">
+    <div className="flex flex-col items-center gap-25 pt-[50px]">
       {/* 타이틀 */}
       <div className="flex flex-col items-center">
         <p
@@ -209,15 +209,18 @@ const Stats = () => {
           <HeightLine />
         </div>
 
-        <div className="relative -translate-x-1/2 -translate-y-1/2 z-10">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 z-10 flex items-center justify-center">
+          {/* 바깥쪽 원 (Ellipse) */}
           <img
             src={Ellipse}
-            className="absolute top-45 left-[845px] w-[118.87px] h-[118.87px] z-0"
+            alt="logo-bg"
+            className="absolute w-[118.87px] h-[118.87px] z-0 max-w-none"
           />
-
+          {/* 안쪽 사자 로고 (EllipseLikelion) */}
           <img
             src={EllipseLikelion}
-            className="absolute top-[189.5px] left-[863.5px] w-[83.925px] h-[83.925px] z-5"
+            alt="likelion-logo"
+            className="relative w-[83.925px] h-[83.925px] z-5 max-w-none"
           />
         </div>
 

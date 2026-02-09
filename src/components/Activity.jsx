@@ -81,13 +81,13 @@ const ActivityList = () => {
               <div
                 className={`absolute w-[532px] h-[288px] top-73 left-15 rounded-[30px] p-[0.5px] backdrop-blur-[3px] transition-all ease-in-out duration-700
                               ${isActive ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}
-                              bg-[linear-gradient(160deg,rgba(255,255,255,0.7)_0%,rgba(255,255,255,0.3)_17%,rgba(255,255,255,0.2)_28%,rgba(255,255,255,0.15)_36%,rgba(255,255,255,0.1)_50%,rgba(255,255,255,0.25)_100%)]`}
+                              bg-transparent`}
               >
-                <div className="w-full h-full px-[30px] pt-[59px] pb-[10px] whitespace-pre-line bg-[linear-gradient(160deg,rgba(76,49,3,0.7)_0%,rgba(68,43,6,0.5)_17%,rgba(78,49,6,0.8)_38%,rgba(64,40,5,0.4)_56%,rgba(77,41,6,0.7)_86%,rgba(80,40,6,0.6)_100%)] rounded-[30px] self-stretch">
-                  <p className="text-[20px] font-bold text-white mb-2">
+                <div className="w-full h-full px-[30px] pt-[59px] pb-[10px] glass glass-main rounded-[30px] self-stretch">
+                  <p className="w-[472px] min-h-[35px] text-[20px] font-[700] leading-[35px] text-white mb-2 whitespace-pre-line">
                     {act.description1}
                   </p>
-                  <p className="flex items-center w-[472px] h-[140px] text-[20px] font-normal text-white leading-relaxed">
+                  <p className="w-[472px] min-h-[140px] text-[20px] font-[400] leading-[35px] text-white whitespace-pre-line">
                     {act.description2}
                   </p>
                 </div>
