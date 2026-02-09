@@ -1,6 +1,6 @@
 import React from "react";
 import ScheduleData from "../../data/ScheduleData";
-import light from "/src/assets/star.svg";
+import star from "/workspaces/yu-likelion-14th-homepage/src/assets/star.svg";
 import {
     mediumStyle,
     semiBoldStyle,
@@ -22,7 +22,7 @@ const Schedule = () => {
 		>
 			<div className="relative w-full max-w-[1040px] mx-auto">
 				<div className="flex items-center text-left w-[632.6772px] h-[35.6772px] gap-[19px] pt-[19vh]">
-					<img src={light} alt="schedule" className="w-[35.6772px] h-[35.6772px] shrink-0" />
+					<img src={star} alt="star" />
 					<span
 						style={{
 							...mediumStyle,

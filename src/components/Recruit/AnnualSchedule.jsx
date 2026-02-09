@@ -1,5 +1,5 @@
 import React from "react";
-import light from "/src/assets/star.svg";
+import star from "/workspaces/yu-likelion-14th-homepage/src/assets/star.svg";
 import { mediumStyle, titleStyle } from "../../styles/typography";
 
 const sectionLabelStyle = {
@@ -33,7 +33,7 @@ const AnnualSchedule = () => {
 		<section className="relative w-full px-[200px] pb-[353.89px] box-border overflow-hidden">
 			<div className="relative w-full max-w-[1040px] mx-auto">
 				<div className="flex w-full max-w-[632.6772px] h-[35.6772px] items-center gap-[19px] text-left pt-[120px]">
-					<img src={light} alt="annual schedule" style={{ width: "35.6772px", height: "35.6772px" }} />
+					<img src={star} alt="star" />
 					<span style={sectionLabelStyle}>Annual schedule</span>
 				</div>
 

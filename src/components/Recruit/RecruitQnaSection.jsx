@@ -1,5 +1,5 @@
 import React from "react";
-import light from "/src/assets/star.svg";
+import star from "/workspaces/yu-likelion-14th-homepage/src/assets/star.svg";
 import {
 	mediumStyle,
 	titleStyle,
@@ -34,7 +34,7 @@ const RecruitQnaSection = () => {
 		>
 			<div className="relative w-full max-w-[1040px] mx-auto">
 				<div className="flex w-full max-w-[632.6772px] h-[35.6772px] items-center gap-[19px] text-left pt-[19vh]">
-					<img src={light} alt="Q&A" style={{ width: "35.6772px", height: "35.6772px" }} />
+					<img src={star} alt="star" />
 					<span style={sectionLabelStyle}>Q&A</span>
 				</div>
 				<div className="mt-[27.16px]">
@@ -46,7 +46,7 @@ const RecruitQnaSection = () => {
 					</p>
 				</div>
 
-				<div className="flex flex-col items-end mt-[87.76px]">
+				<div className="flex flex-col items-center mt-[87.76px]">
 					{qnaList.map((item, idx) => (
 						<QnACard key={idx} q={item.q} a={item.a} />
 					))}
