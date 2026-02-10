@@ -15,8 +15,22 @@ const dateGradient = {
 };
 
 const Schedule = () => {
-	const timelineTop = "calc(19vh + 87px + 118.16px + 50.14px)";
-	
+	const [linePosition, setLinePosition] = useState(405);
+
+	useEffect(() => {
+		const handleResize = () => {
+			if (window.innerWidth <= 1024) {
+				setLinePosition(380);
+			} else {
+				setLinePosition(405);
+			}
+		};
+
+		handleResize();
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
+
 	return (
 		<section
 			className="relative w-full px-[200px] pb-[16vh] box-border"
@@ -86,10 +100,14 @@ const Schedule = () => {
 					{ScheduleData.map((card) => (
 						<div
 							key={card.id}
-							className="w-[245px] h-[395px] min-w-[245px] min-h-[395px] bg-transparent rounded-[30px] shrink-0"
+							className="relative w-[245px] h-[395px] min-w-[245px] min-h-[395px] bg-transparent p-[1px] rounded-[30px] shrink-0"
 						>
 							<div
-								className="relative w-full h-full rounded-[30px] overflow-hidden flex flex-col box-border pt-[50.14px] pb-[16.78px] px-6 glass glass-ideal"
+								className="absolute inset-0 rounded-[30px] backdrop-blur-lg bg-white/1 pointer-events-none"
+								aria-hidden="true"
+							/>
+							<div
+								className="relative w-full h-full rounded-[30px] overflow-hidden flex flex-col box-border pt-[50.14px] pb-[16.78px] px-6 glass glass-ideal glass-header"
 							>
 								<div
 									className="absolute top-0 left-0 w-[70%] h-[55%] pointer-events-none"

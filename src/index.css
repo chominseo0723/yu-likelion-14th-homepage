@@ -102,6 +102,11 @@
   -webkit-backdrop-filter: blur(10px) saturate(130%);
 }
 
+.annual-schedule-blur {
+  backdrop-filter: blur(10px) saturate(130%);
+  -webkit-backdrop-filter: blur(10px) saturate(130%);
+}
+
 .glass-main {
   background: linear-gradient(
     108deg,
