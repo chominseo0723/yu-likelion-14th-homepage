@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ScheduleData from "../../data/ScheduleData";
 import star from "../../assets/star.svg";
 import {
@@ -14,52 +14,17 @@ const dateGradient = {
 	WebkitTextFillColor: "transparent",
 };
 
+const TIMELINE_DOT_TOP_POSITION = "35px";
+const CARD_GAP = "20px";
+const HORIZONTAL_PADDING = "20px";
+
 const Schedule = () => {
-	const [linePosition, setLinePosition] = useState(405);
-
-	useEffect(() => {
-		const handleResize = () => {
-			if (window.innerWidth <= 1024) {
-				setLinePosition(380);
-			} else {
-				setLinePosition(405);
-			}
-		};
-
-		handleResize();
-		window.addEventListener("resize", handleResize);
-		return () => window.removeEventListener("resize", handleResize);
-	}, []);
-
 	return (
 		<section
 			className="relative w-full px-[200px] pb-[16vh] box-border"
 			style={{ overflow: "visible" }}
 		>
 			<div className="relative w-full max-w-[1040px] mx-auto">
-				<div className="absolute left-0 right-0 pointer-events-none z-0" style={{top: linePosition}}>
-					<div
-						className="absolute left-0 right-0 h-[2px]"
-						style={{
-							background:
-								"linear-gradient(90deg, #FFAE00 0%, #FF8A00 50%, #FF5E00 100%)",
-							boxShadow: "0 0 12px rgba(255, 140, 0, 0.35)",
-						}}
-					/>
-				</div>
-				
-				<div className="absolute z-0" style={{top: linePosition, left: "calc(11.77% - 100px)"}}>
-					<span className="absolute w-[12px] h-[12px] rounded-full bg-white -translate-x-1/2 -translate-y-1/2" style={{boxShadow: "0 0 12px rgba(255, 210, 140, 0.9), 0 0 24px rgba(255, 140, 0, 0.65)"}} />
-				</div>
-				<div className="absolute z-0" style={{top: linePosition, left: "calc(37.26% - 100px)"}}>
-					<span className="absolute w-[12px] h-[12px] rounded-full bg-white -translate-x-1/2 -translate-y-1/2" style={{boxShadow: "0 0 12px rgba(255, 210, 140, 0.9), 0 0 24px rgba(255, 140, 0, 0.65)"}} />
-				</div>
-				<div className="absolute z-0" style={{top: linePosition, left: "calc(62.74% - 100px)"}}>
-					<span className="absolute w-[12px] h-[12px] rounded-full bg-white -translate-x-1/2 -translate-y-1/2" style={{boxShadow: "0 0 12px rgba(255, 210, 140, 0.9), 0 0 24px rgba(255, 140, 0, 0.65)"}} />
-				</div>
-				<div className="absolute z-0" style={{top: linePosition, left: "calc(88.22% - 100px)"}}>
-					<span className="absolute w-[12px] h-[12px] rounded-full bg-white -translate-x-1/2 -translate-y-1/2" style={{boxShadow: "0 0 12px rgba(255, 210, 140, 0.9), 0 0 24px rgba(255, 140, 0, 0.65)"}} />
-				</div>
 				
 				<div className="flex items-center text-left w-[632.6772px] h-[35.6772px] gap-[19px] pt-[19vh]">
 					<img src={star} alt="star" />
@@ -96,18 +61,49 @@ const Schedule = () => {
 					</p>
 				</div>
 
-				<div className="mt-[118.16px] flex flex-row flex-wrap gap-5 relative z-10">
-					{ScheduleData.map((card) => (
+				<div className="mt-[118.16px] flex flex-row flex-wrap gap-5 relative">
+					{ScheduleData.map((card, index) => (
 						<div
 							key={card.id}
 							className="relative w-[245px] h-[395px] min-w-[245px] min-h-[395px] bg-transparent p-[1px] rounded-[30px] shrink-0"
 						>
+							<div 
+								className="absolute pointer-events-none z-20" 
+								style={{ 
+									top: TIMELINE_DOT_TOP_POSITION,
+									left: HORIZONTAL_PADDING,
+									width: `calc(108% - ${HORIZONTAL_PADDING} * 2)`,
+									height: "3px",
+									opacity: 0.6,
+									transform: "translateY(-50%)"
+								}}
+							>
+								<div
+									className="w-full h-full"
+									style={{
+										background: "linear-gradient(90deg, #FFAE00 0%, #FF8A00 50%, #FF5E00 100%)",
+										boxShadow: "0 0 12px rgba(255, 140, 0, 0.35)",
+										filter: "blur(1.5px)"
+									}}
+								/>
+							</div>
+							
+							<div className="absolute pointer-events-none z-20" style={{ top: TIMELINE_DOT_TOP_POSITION, left: HORIZONTAL_PADDING, transform: "translate(-50%, -50%)", opacity: 0.7 }}>
+								<span 
+									className="block w-[12px] h-[12px] rounded-full bg-white" 
+									style={{
+										boxShadow: "0 0 12px rgba(255, 210, 140, 0.9), 0 0 24px rgba(255, 140, 0, 0.65)",
+										filter: "blur(2px)"
+									}} 
+								/>
+							</div>
+							
 							<div
-								className="absolute inset-0 rounded-[30px] backdrop-blur-lg bg-white/1 pointer-events-none"
+								className="absolute inset-0 rounded-[30px] backdrop-blur-md bg-white/1 pointer-events-none z-10"
 								aria-hidden="true"
 							/>
 							<div
-								className="relative w-full h-full rounded-[30px] overflow-hidden flex flex-col box-border pt-[50.14px] pb-[16.78px] px-6 glass glass-ideal glass-header"
+								className="relative w-full h-full rounded-[30px] overflow-hidden flex flex-col box-border pt-[50.14px] pb-[16.78px] px-6 glass glass-ideal glass-header z-10"
 							>
 								<div
 									className="absolute top-0 left-0 w-[70%] h-[55%] pointer-events-none"
