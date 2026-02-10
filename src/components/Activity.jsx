@@ -12,11 +12,10 @@ const ActivityList = () => {
       {/* 활동 목록 */}
       <div className="flex flex-col gap-[25px] relative">
         <div
-          className="absolute left-0 w-[386px] h-[40px] rounded-[30px] p-[0.5px] backdrop-blur-2xl transition-all duration-600 ease-[cubic-bezier(0.34,1.4,0.5,1.02)] z-0
-                     bg-[linear-gradient(160deg,rgba(255,255,255,0.7)_0%,rgba(255,255,255,0.3)_17%,rgba(255,255,255,0.2)_28%,rgba(255,255,255,0.15)_36%,rgba(255,255,255,0.1)_50%,rgba(255,255,255,0.25)_100%)]"
+          className="absolute left-0 w-[386px] h-[40px] rounded-[30px] p-[0.5px] backdrop-blur-2xl transition-all duration-600 ease-[cubic-bezier(0.34,1.4,0.5,1.02)] z-0"
           style={{ transform: `translateY(${activeIndex * (40 + 25)}px)` }}
         >
-          <div className="w-full h-full rounded-[30px] bg-[linear-gradient(160deg,#261F19_0%,#2B251C_17%,#27221C_38%,#27211B_56%,#27221C_86%,#2B251C_100%)]"></div>
+          <div className="w-full h-full rounded-[30px] glass-event"></div>
         </div>
 
         {ActivityData.map((act) => (
