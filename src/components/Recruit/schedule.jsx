@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ScheduleData from "../../data/ScheduleData";
 import star from "../../assets/star.svg";
 import {
@@ -37,7 +37,7 @@ const Schedule = () => {
 			style={{ overflow: "visible" }}
 		>
 			<div className="relative w-full max-w-[1040px] mx-auto">
-				<div className="absolute left-0 right-0 pointer-events-none z-0" style={{top: timelineTop}}>
+				<div className="absolute left-0 right-0 pointer-events-none z-0" style={{top: linePosition}}>
 					<div
 						className="absolute left-0 right-0 h-[2px]"
 						style={{
@@ -48,16 +48,16 @@ const Schedule = () => {
 					/>
 				</div>
 				
-				<div className="absolute z-0" style={{top: timelineTop, left: "calc(11.77% - 100px)"}}>
+				<div className="absolute z-0" style={{top: linePosition, left: "calc(11.77% - 100px)"}}>
 					<span className="absolute w-[12px] h-[12px] rounded-full bg-white -translate-x-1/2 -translate-y-1/2" style={{boxShadow: "0 0 12px rgba(255, 210, 140, 0.9), 0 0 24px rgba(255, 140, 0, 0.65)"}} />
 				</div>
-				<div className="absolute z-0" style={{top: timelineTop, left: "calc(37.26% - 100px)"}}>
+				<div className="absolute z-0" style={{top: linePosition, left: "calc(37.26% - 100px)"}}>
 					<span className="absolute w-[12px] h-[12px] rounded-full bg-white -translate-x-1/2 -translate-y-1/2" style={{boxShadow: "0 0 12px rgba(255, 210, 140, 0.9), 0 0 24px rgba(255, 140, 0, 0.65)"}} />
 				</div>
-				<div className="absolute z-0" style={{top: timelineTop, left: "calc(62.74% - 100px)"}}>
+				<div className="absolute z-0" style={{top: linePosition, left: "calc(62.74% - 100px)"}}>
 					<span className="absolute w-[12px] h-[12px] rounded-full bg-white -translate-x-1/2 -translate-y-1/2" style={{boxShadow: "0 0 12px rgba(255, 210, 140, 0.9), 0 0 24px rgba(255, 140, 0, 0.65)"}} />
 				</div>
-				<div className="absolute z-0" style={{top: timelineTop, left: "calc(88.22% - 100px)"}}>
+				<div className="absolute z-0" style={{top: linePosition, left: "calc(88.22% - 100px)"}}>
 					<span className="absolute w-[12px] h-[12px] rounded-full bg-white -translate-x-1/2 -translate-y-1/2" style={{boxShadow: "0 0 12px rgba(255, 210, 140, 0.9), 0 0 24px rgba(255, 140, 0, 0.65)"}} />
 				</div>
 				
