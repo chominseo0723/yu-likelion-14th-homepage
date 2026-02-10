@@ -133,7 +133,7 @@ const AnnualSchedule = () => {
 
 				{/* 이벤트 박스들 */}
 				<div
-					className="glass-event absolute flex items-center justify-center"
+					className="glass-event glass-header absolute flex items-center justify-center"
 					style={{
 						left: "0px",
 						top: "88px",
@@ -146,7 +146,7 @@ const AnnualSchedule = () => {
 				</div>
 
 				<div
-					className="glass-event absolute flex items-center justify-center"
+					className="glass-event glass-header absolute flex items-center justify-center"
 					style={{
 						left: "0px",
 						top: "208px",
@@ -159,7 +159,7 @@ const AnnualSchedule = () => {
 				</div>
 
 				<div
-					className="glass-event absolute flex items-center justify-center"
+					className="glass-event glass-header absolute flex items-center justify-center"
 					style={{
 						left: "443px",
 						top: "208px",
@@ -172,7 +172,7 @@ const AnnualSchedule = () => {
 				</div>
 
 				<div
-					className="glass-event absolute flex items-center justify-center"
+					className="glass-event glass-header absolute flex items-center justify-center"
 					style={{
 						left: "796px",
 						top: "208px",
@@ -224,7 +224,7 @@ const AnnualSchedule = () => {
 				</div>
 
 				<div
-					className="glass-event absolute flex items-center justify-center"
+					className="glass-event glass-header absolute flex items-center justify-center"
 					style={{
 						left: "0px",
 						top: `${secondBlockOffset + 88}px`,
@@ -237,7 +237,7 @@ const AnnualSchedule = () => {
 				</div>
 
 				<div
-					className="glass-event absolute flex items-center justify-center"
+					className="glass-event glass-header absolute flex items-center justify-center"
 					style={{
 						left: "265px",
 						top: `${secondBlockOffset + 88}px`,
