@@ -105,7 +105,7 @@ const AnnualSchedule = () => {
 
 				{/* 상단 월별 레이블 영역 */}
 				<div
-					className="glass-main relative flex items-center justify-center"
+					className="glass-main annual-schedule-blur relative flex items-center justify-center"
 					style={{
 						width: `${gridWidth}px`,
 						height: "38px",
@@ -133,7 +133,7 @@ const AnnualSchedule = () => {
 
 				{/* 이벤트 박스들 */}
 				<div
-					className="glass-event absolute flex items-center justify-center"
+					className="glass-event annual-schedule-blur absolute flex items-center justify-center"
 					style={{
 						left: "0px",
 						top: "88px",
@@ -146,7 +146,7 @@ const AnnualSchedule = () => {
 				</div>
 
 				<div
-					className="glass-event absolute flex items-center justify-center"
+					className="glass-event annual-schedule-blur absolute flex items-center justify-center"
 					style={{
 						left: "0px",
 						top: "208px",
@@ -159,7 +159,7 @@ const AnnualSchedule = () => {
 				</div>
 
 				<div
-					className="glass-event absolute flex items-center justify-center"
+					className="glass-event annual-schedule-blur absolute flex items-center justify-center"
 					style={{
 						left: "443px",
 						top: "208px",
@@ -172,7 +172,7 @@ const AnnualSchedule = () => {
 				</div>
 
 				<div
-					className="glass-event absolute flex items-center justify-center"
+					className="glass-event annual-schedule-blur absolute flex items-center justify-center"
 					style={{
 						left: "796px",
 						top: "208px",
@@ -186,7 +186,7 @@ const AnnualSchedule = () => {
 
 				{/* 하단 월별 레이블 영역 */}
 				<div
-					className="glass-main absolute flex items-center justify-center"
+					className="glass-main annual-schedule-blur absolute flex items-center justify-center"
 					style={{
 						top: `${secondBlockOffset}px`,
 						left: "0px",
@@ -224,7 +224,7 @@ const AnnualSchedule = () => {
 				</div>
 
 				<div
-					className="glass-event absolute flex items-center justify-center"
+					className="glass-event annual-schedule-blur absolute flex items-center justify-center"
 					style={{
 						left: "0px",
 						top: `${secondBlockOffset + 88}px`,
@@ -237,7 +237,7 @@ const AnnualSchedule = () => {
 				</div>
 
 				<div
-					className="glass-event absolute flex items-center justify-center"
+					className="glass-event annual-schedule-blur absolute flex items-center justify-center"
 					style={{
 						left: "265px",
 						top: `${secondBlockOffset + 88}px`,
