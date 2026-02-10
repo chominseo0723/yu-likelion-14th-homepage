@@ -102,11 +102,11 @@ const Schedule = () => {
 							className="relative w-[245px] h-[395px] min-w-[245px] min-h-[395px] bg-transparent p-[1px] rounded-[30px] shrink-0"
 						>
 							<div
-								className="absolute inset-0 rounded-[30px] backdrop-blur-lg bg-white/5 pointer-events-none"
+								className="absolute inset-0 rounded-[30px] backdrop-blur-lg bg-white/1 pointer-events-none"
 								aria-hidden="true"
 							/>
 							<div
-								className="relative w-full h-full rounded-[30px] overflow-hidden flex flex-col box-border pt-[50.14px] pb-[16.78px] px-6 glass glass-ideal"
+								className="relative w-full h-full rounded-[30px] overflow-hidden flex flex-col box-border pt-[50.14px] pb-[16.78px] px-6 glass glass-ideal glass-header"
 							>
 								<div
 									className="absolute top-0 left-0 w-[70%] h-[55%] pointer-events-none"
