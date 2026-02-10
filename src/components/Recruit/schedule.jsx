@@ -15,14 +15,14 @@ const dateGradient = {
 };
 
 const Schedule = () => {
-	const [linePosition, setLinePosition] = useState(480);
+	const [linePosition, setLinePosition] = useState(405);
 
 	useEffect(() => {
 		const handleResize = () => {
 			if (window.innerWidth <= 1024) {
 				setLinePosition(380);
 			} else {
-				setLinePosition(480);
+				setLinePosition(405);
 			}
 		};
 
@@ -99,8 +99,12 @@ const Schedule = () => {
 					{ScheduleData.map((card) => (
 						<div
 							key={card.id}
-							className="w-[245px] h-[395px] min-w-[245px] min-h-[395px] bg-transparent rounded-[30px] shrink-0"
+							className="relative w-[245px] h-[395px] min-w-[245px] min-h-[395px] bg-transparent p-[1px] rounded-[30px] shrink-0"
 						>
+							<div
+								className="absolute inset-0 rounded-[30px] backdrop-blur-lg bg-white/5 pointer-events-none"
+								aria-hidden="true"
+							/>
 							<div
 								className="relative w-full h-full rounded-[30px] overflow-hidden flex flex-col box-border pt-[50.14px] pb-[16.78px] px-6 glass glass-ideal"
 							>
