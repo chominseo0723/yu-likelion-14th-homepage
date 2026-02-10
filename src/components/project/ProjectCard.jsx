@@ -36,20 +36,20 @@ const ProjectCard = ({
       </div>
 
       {/* 텍스트 영역 */}
-      <div className="mt-4">
+      <div className="mt-[17.88px]">
         {/* 제목 */}
         <div className="flex items-end gap-2">
-          <h3 className="text-[32px] font-bold leading-none">{title}</h3>
-          <span className="text-[16px] font-light text-white">{subtitle}</span>
+          <h3 className="text-[32px] font-bold leading-[50px]">{title}</h3>
+          <span className="text-[16px] font-light text-white leading-[50px]">{subtitle}</span>
         </div>
 
         {/* 설명 */}
-        <p className="mt-2 text-[12px] leading-[20px] text-white line-clamp-2">
+        <p className="mt-[6px] text-[12px] leading-[20px] text-white line-clamp-2">
           {description}
         </p>
 
         {/* 작성자 */}
-        <div className="mt-3 text-[10px] text-white text-right">{author}</div>
+        <div className="mt-[8px] text-[10px] text-white text-right">{author}</div>
       </div>
     </div>
   );
