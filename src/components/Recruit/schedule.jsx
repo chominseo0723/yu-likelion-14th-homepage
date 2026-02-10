@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ScheduleData from "../../data/ScheduleData";
 import star from "../../assets/star.svg";
 import {
@@ -30,27 +30,14 @@ const Schedule = () => {
 		window.addEventListener("resize", handleResize);
 		return () => window.removeEventListener("resize", handleResize);
 	}, []);
+
 	return (
 		<section
 			className="relative w-full px-[200px] pb-[16vh] box-border"
 			style={{ overflow: "visible" }}
 		>
 			<div className="relative w-full max-w-[1040px] mx-auto">
-				{/* Timeline dots - fixed position */}
-				<div className="absolute z-10" style={{top: `${linePosition}px`, left: "calc(11.77% - 100px)"}}>
-					<span className="absolute w-[12px] h-[12px] rounded-full bg-white -translate-x-1/2 -translate-y-1/2" style={{boxShadow: "0 0 12px rgba(255, 210, 140, 0.9), 0 0 24px rgba(255, 140, 0, 0.65)"}} />
-				</div>
-				<div className="absolute z-10" style={{top: `${linePosition}px`, left: "calc(37.26% - 100px)"}}>
-					<span className="absolute w-[12px] h-[12px] rounded-full bg-white -translate-x-1/2 -translate-y-1/2" style={{boxShadow: "0 0 12px rgba(255, 210, 140, 0.9), 0 0 24px rgba(255, 140, 0, 0.65)"}} />
-				</div>
-				<div className="absolute z-10" style={{top: `${linePosition}px`, left: "calc(62.74% - 100px)"}}>
-					<span className="absolute w-[12px] h-[12px] rounded-full bg-white -translate-x-1/2 -translate-y-1/2" style={{boxShadow: "0 0 12px rgba(255, 210, 140, 0.9), 0 0 24px rgba(255, 140, 0, 0.65)"}} />
-				</div>
-				<div className="absolute z-10" style={{top: `${linePosition}px`, left: "calc(88.22% - 100px)"}}>
-					<span className="absolute w-[12px] h-[12px] rounded-full bg-white -translate-x-1/2 -translate-y-1/2" style={{boxShadow: "0 0 12px rgba(255, 210, 140, 0.9), 0 0 24px rgba(255, 140, 0, 0.65)"}} />
-				</div>
-				{/* Timeline Background */}
-				<div className="absolute left-0 right-0 pointer-events-none z-0" style={{top: `${linePosition}px`}}>
+				<div className="absolute left-0 right-0 pointer-events-none z-0" style={{top: timelineTop}}>
 					<div
 						className="absolute left-0 right-0 h-[2px]"
 						style={{
@@ -60,6 +47,20 @@ const Schedule = () => {
 						}}
 					/>
 				</div>
+				
+				<div className="absolute z-0" style={{top: timelineTop, left: "calc(11.77% - 100px)"}}>
+					<span className="absolute w-[12px] h-[12px] rounded-full bg-white -translate-x-1/2 -translate-y-1/2" style={{boxShadow: "0 0 12px rgba(255, 210, 140, 0.9), 0 0 24px rgba(255, 140, 0, 0.65)"}} />
+				</div>
+				<div className="absolute z-0" style={{top: timelineTop, left: "calc(37.26% - 100px)"}}>
+					<span className="absolute w-[12px] h-[12px] rounded-full bg-white -translate-x-1/2 -translate-y-1/2" style={{boxShadow: "0 0 12px rgba(255, 210, 140, 0.9), 0 0 24px rgba(255, 140, 0, 0.65)"}} />
+				</div>
+				<div className="absolute z-0" style={{top: timelineTop, left: "calc(62.74% - 100px)"}}>
+					<span className="absolute w-[12px] h-[12px] rounded-full bg-white -translate-x-1/2 -translate-y-1/2" style={{boxShadow: "0 0 12px rgba(255, 210, 140, 0.9), 0 0 24px rgba(255, 140, 0, 0.65)"}} />
+				</div>
+				<div className="absolute z-0" style={{top: timelineTop, left: "calc(88.22% - 100px)"}}>
+					<span className="absolute w-[12px] h-[12px] rounded-full bg-white -translate-x-1/2 -translate-y-1/2" style={{boxShadow: "0 0 12px rgba(255, 210, 140, 0.9), 0 0 24px rgba(255, 140, 0, 0.65)"}} />
+				</div>
+				
 				<div className="flex items-center text-left w-[632.6772px] h-[35.6772px] gap-[19px] pt-[19vh]">
 					<img src={star} alt="star" />
 					<span

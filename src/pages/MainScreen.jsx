@@ -111,7 +111,7 @@ const MainScreen = () => {
         </section>
         <Spacer />
 
-        {/* stats */}
+        {/* review */}
         <section className="snap-section min-h-[100vh] flex items-center justify-center bg-transparent text-white">
           <div className="relative z-5">
             <Review />
