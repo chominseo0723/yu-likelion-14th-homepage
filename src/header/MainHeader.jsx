@@ -1,11 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+ import { Link, NavLink } from "react-router-dom";
 import LOGO from "./../assets/LOGO.svg";
 import { headerNavStyle, headerButtonStyle } from "../styles/typography";
 
 const navBaseClass =
   "w-[150px] h-[40px] flex flex-row items-center justify-center text-[#686E7D] hover:text-[#FFAE00] cursor-pointer transition-all duration-200";
-
+ const navActiveClass = "text-[#FFAE00]";
 const MainHeader = ({ scrollToHome }) => {
   return (
     <div className="relative font-pretendard py-9 bg-transparent glass-header z-50">
@@ -25,20 +25,45 @@ const MainHeader = ({ scrollToHome }) => {
         <div className="flex flex-row items-center gap-[60px]">
           <div className="flex flex-row items-center">
             {/* HOME 눌렀을 때 첫화면  */}
-            <span onClick={scrollToHome} className={navBaseClass} style={headerNavStyle}>
-              <Link to="/">HOME</Link>
-            </span>
+             <NavLink
+   to="/"
+   onClick={scrollToHome}
+   className={({ isActive }) =>
+     `${navBaseClass} ${isActive ? navActiveClass : ""}`
+   }
+   style={headerNavStyle}
+ >
+   HOME
+ </NavLink>
 
 
-          <span className={navBaseClass} style={headerNavStyle}>
-            <Link to="/recruit">RECRUIT</Link>
-          </span>
-          <span className={navBaseClass} style={headerNavStyle}>
-            <Link to="/project">PROJECT</Link>
-          </span>
-          <span className={navBaseClass} style={headerNavStyle}>
-            <Link to="/qanda">Q&A</Link>
-          </span>
+          <NavLink
+   to="/recruit"
+   className={({ isActive }) =>
+     `${navBaseClass} ${isActive ? navActiveClass : ""}`
+   }
+   style={headerNavStyle}
+ >
+   RECRUIT
+ </NavLink>
+      <NavLink
+   to="/project"
+   className={({ isActive }) =>
+     `${navBaseClass} ${isActive ? navActiveClass : ""}`
+   }
+   style={headerNavStyle}
+ >
+   PROJECT
+ </NavLink>
+          <NavLink
+   to="/qanda"
+   className={({ isActive }) =>
+     `${navBaseClass} ${isActive ? navActiveClass : ""}`
+   }
+   style={headerNavStyle}
+ >
+   Q&A
+ </NavLink>
         </div>
 
           <a
