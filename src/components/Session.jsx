@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import SessionData from "../data/SessionData";
 import star from "../assets/star.svg";
 
-const SessionCard = ({ data }) => {
+const SessionCard = ({ data, flippedId, setFlippedId }) => {
+  const isFlipped = flippedId === data.id;
+
   return (
-    <div className="group w-[310.667px] max-md:w-full max-md:max-w-[310px] h-[159px] max-w-sm [perspective:1000px] cursor-pointer">
-      <div className="relative w-full h-full transition-all duration-500 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+    <div
+      className="group w-[310.667px] max-md:w-full max-md:max-w-[310px] h-[159px] max-w-sm [perspective:1000px] cursor-pointer"
+      onClick={() => setFlippedId(isFlipped ? null : data.id)}
+    >
+      <div
+        className={`relative w-full h-full transition-all duration-500 ease-out 
+        [transform-style:preserve-3d] 
+        group-hover:[transform:rotateY(180deg)]
+        ${isFlipped ? "[transform:rotateY(180deg)]" : ""}`}
+      >
         {/* 앞면 */}
         <div
           className={`absolute inset-0 w-full h-full [backface-visibility:hidden] rounded-[30px]
@@ -29,11 +39,13 @@ const SessionCard = ({ data }) => {
             </div>
           </div>
         </div>
+
         {/* 뒷면 */}
         <div
           className={`absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-[30px]
              bg-[linear-gradient(103deg,#FF5E00_28.72%,#FF9000_97.77%)] flex flex-col items-center justify-center`}
-          onClick={() => {
+          onClick={(e) => {
+            e.stopPropagation();
             if (data.url) {
               window.open(data.url, "_blank");
             } else {
@@ -56,6 +68,8 @@ const SessionCard = ({ data }) => {
 };
 
 const Session = () => {
+  const [flippedId, setFlippedId] = useState(null);
+
   return (
     <div className="min-h-screen w-full mx-auto bg-transparent flex flex-col items-center max-md:items-stretch justify-center py-20 max-md:py-10 px-4 relative overflow-hidden">
       <div className="w-full max-w-7xl flex flex-col items-start mb-[56.97px] max-md:mb-8">
@@ -66,8 +80,7 @@ const Session = () => {
                     bg-clip-text text-transparent
                     [-webkit-text-stroke:0.2px_#FFAE00]
                     [text-shadow:0_1.5px_1px_rgba(124,66,5,0.9)]
-                    select-none
-          "
+                    select-none"
           >
             Session
           </p>
@@ -82,9 +95,15 @@ const Session = () => {
           제공받을 수 있어요!
         </h3>
       </div>
+
       <div className="grid grid-cols-3 max-md:grid-cols-1 gap-x-13.5 gap-y-12.5 max-md:gap-4 w-full h-full max-w-7xl relative z-10 items-center max-md:justify-items-center">
         {SessionData.map((card) => (
-          <SessionCard key={card.id} data={card} />
+          <SessionCard
+            key={card.id}
+            data={card}
+            flippedId={flippedId}
+            setFlippedId={setFlippedId}
+          />
         ))}
       </div>
     </div>
