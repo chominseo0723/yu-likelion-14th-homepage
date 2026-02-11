@@ -16,9 +16,7 @@ const ProjectCard = ({
       onClick={() => navigate(`/project/${id}`)}
       className="
         w-[333px] h-[355px] max-md:w-full max-md:max-w-[333px] max-md:h-auto max-md:min-h-[355px]
-        rounded-[30px]
-        bg-white/5
-        backdrop-blur-md
+        glass-projectCard
         shadow-[0_4px_4px_rgba(255,255,255,0.25)] font-pretendard
         p-4
         text-white
@@ -39,8 +37,12 @@ const ProjectCard = ({
       <div className="mt-[17.88px]">
         {/* 제목 */}
         <div className="flex items-end gap-2 max-md:flex-wrap">
-          <h3 className="text-[32px] max-md:text-[33px] font-bold leading-[50px] max-md:leading-[45px]">{title}</h3>
-          <span className="text-[16px] max-md:text-[14px] font-light text-white leading-[50px] max-md:leading-[45px]">{subtitle}</span>
+          <h3 className="text-[32px] max-md:text-[33px] font-bold leading-[50px] max-md:leading-[45px]">
+            {title}
+          </h3>
+          <span className="text-[16px] max-md:text-[14px] font-light text-white leading-[50px] max-md:leading-[45px]">
+            {subtitle}
+          </span>
         </div>
 
         {/* 설명 */}
@@ -49,7 +51,9 @@ const ProjectCard = ({
         </p>
 
         {/* 작성자 */}
-        <div className="mt-[8px] text-[10px] text-white text-right">{author}</div>
+        <div className="mt-[8px] text-[10px] text-white text-right">
+          {author}
+        </div>
       </div>
     </div>
   );
