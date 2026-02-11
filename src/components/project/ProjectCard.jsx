@@ -15,7 +15,7 @@ const ProjectCard = ({
     <div
       onClick={() => navigate(`/project/${id}`)}
       className="
-        w-[333px] h-[355px]
+        w-[333px] h-[355px] max-md:w-full max-md:max-w-[333px] max-md:h-auto max-md:min-h-[355px]
         rounded-[30px]
         bg-white/5
         backdrop-blur-md
@@ -38,13 +38,13 @@ const ProjectCard = ({
       {/* 텍스트 영역 */}
       <div className="mt-[17.88px]">
         {/* 제목 */}
-        <div className="flex items-end gap-2">
-          <h3 className="text-[32px] font-bold leading-[50px]">{title}</h3>
-          <span className="text-[16px] font-light text-white leading-[50px]">{subtitle}</span>
+        <div className="flex items-end gap-2 max-md:flex-wrap">
+          <h3 className="text-[32px] max-md:text-[33px] font-bold leading-[50px] max-md:leading-[45px]">{title}</h3>
+          <span className="text-[16px] max-md:text-[14px] font-light text-white leading-[50px] max-md:leading-[45px]">{subtitle}</span>
         </div>
 
         {/* 설명 */}
-        <p className="mt-[6px] text-[12px] leading-[20px] text-white line-clamp-2">
+        <p className="mt-[6px] text-[12px] leading-[20px] text-white line-clamp-2 max-md:break-all">
           {description}
         </p>
 

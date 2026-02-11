@@ -37,30 +37,53 @@ const IntroData = [
 ];
 
 const IntroItem = ({ data }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const qnaTitleStyleMobile = {
+    ...qnaTitleStyle,
+    fontSize: "33px",
+    lineHeight: "45px",
+  };
+
+  const body20Leading35StyleMobile = {
+    ...body20Leading35Style,
+    fontSize: "16px",
+    lineHeight: "28px",
+  };
+
   return (
     // 전체 컨테이너
-    <div className="relative w-[948px] h-[480px]">
+    <div className="relative w-[948px] max-md:w-full h-[480px] max-md:h-auto max-md:min-h-[400px]">
       {/* 글래스 컨테이너 */}
       <div
-        className="absolute left-0 top-0 z-5
+        className="absolute max-md:relative left-0 top-0 z-5
                     flex flex-col items-start self-stretch
-                    w-[578px] h-[305px] p-[30px] gap-[10px]
+                    w-[578px] max-md:w-full h-[305px] max-md:h-auto p-[30px] max-md:p-5 gap-[10px]
                     rounded-[30px] glass glass-main"
       >
         {/* 내부 스타일링 컨테이너 */}
-        <div className="flex flex-col items-start w-[518px] gap-[30px]">
+        <div className="flex flex-col items-start w-[518px] max-md:w-full gap-[30px] max-md:gap-4">
           {/* subtitle1 스타일링 */}
           <p
-            className="whitespace-pre-line text-white select-none w-[410px] h-[119px]"
-            style={qnaTitleStyle}
+            className="whitespace-pre-line text-white select-none w-[410px] max-md:w-full h-[119px] max-md:h-auto max-md:whitespace-normal max-md:break-words"
+            style={isMobile ? qnaTitleStyleMobile : qnaTitleStyle}
           >
             {data.subtitle1}
           </p>
 
           {/* subtitle2 스타일링 */}
           <p
-            className="whitespace-pre-line text-white break-keep select-none w-[527.561px] h-[86.297px]"
-            style={body20Leading35Style}
+            className="whitespace-pre-line text-white break-keep select-none w-[527.561px] max-md:w-full h-[86.297px] max-md:h-auto max-md:whitespace-normal max-md:break-words"
+            style={isMobile ? body20Leading35StyleMobile : body20Leading35Style}
           >
             {data.subtitle2}
           </p>
@@ -68,11 +91,11 @@ const IntroItem = ({ data }) => {
       </div>
 
       {/* 이미지 박스 */}
-      <div className="absolute left-[380px] top-[267px] z-0">
+      <div className="absolute max-md:relative left-[380px] max-md:left-0 top-[267px] max-md:top-4 z-0 max-md:w-full">
         <img
           src={data.background}
           alt={data.title}
-          className="w-[562.55px] h-[317.531px] object-cover rounded-[20px] shadow-lg"
+          className="w-[562.55px] max-md:w-full h-[317.531px] max-md:h-auto object-cover rounded-[20px] shadow-lg"
         />
       </div>
     </div>
@@ -116,11 +139,11 @@ const IntroSection = ({ data, body20Style }) => {
   return (
     <section
       ref={sectionRef}
-      className="snap-section min-h-screen w-full flex justify-center items-center bg-transparent"
+      className="snap-section min-h-screen w-full flex justify-center items-center bg-transparent px-4"
     >
-      <div className="w-full max-w-7xl flex flex-row justify-center items-start gap-10">
+      <div className="w-full max-w-7xl flex flex-row max-md:flex-col justify-center items-start gap-10 max-md:gap-6">
         {/* 수직 라인 영역 */}
-        <div className="flex flex-col items-center relative min-w-[30px]">
+        <div className="flex flex-col items-center relative min-w-[30px] max-md:hidden">
           {/* 별 아이콘 */}
           <img
             src={star}
@@ -143,7 +166,7 @@ const IntroSection = ({ data, body20Style }) => {
 
         {/* 콘텐츠 영역 */}
         <div
-          className="flex flex-col items-start gap-[32px]"
+          className="flex flex-col items-start gap-[32px] max-md:gap-4 max-md:w-full"
           style={{
             opacity: fastProgress,
             transition: "all 0.4s ease-out",
@@ -151,7 +174,7 @@ const IntroSection = ({ data, body20Style }) => {
           }}
         >
           <p
-            className="bg-linear-to-r from-[#FF9000] to-[#FF5E00] bg-clip-text text-transparent select-none"
+            className="bg-linear-to-r from-[#FF9000] to-[#FF5E00] bg-clip-text text-transparent select-none max-md:text-[20px]"
             style={body20Style}
           >
             {data.title}

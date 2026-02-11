@@ -58,6 +58,14 @@
     color: #c56908;
   }
 
+  /* Mobile: Match answer text size (12px) */
+  @media (max-width: 767px) {
+    .qna-answer-note {
+      font-size: 12px;
+      line-height: 24px;
+    }
+  }
+
   /* Q&A·Recruit */
   .icon-contact-warm {
     background: linear-gradient(135deg, #4d4135 0%, #3d3329 40%, #2e2520 100%);

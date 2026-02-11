@@ -62,7 +62,7 @@ const ProjectDetail = () => {
           <MainHeader />
         </div>
         {/* 전체 컨테이너 */}
-       <div className="max-w-[1080px] mx-auto px-4 mb-60 pt-[130px]">
+       <div className="max-w-[1080px] mx-auto px-4 max-md:px-4 mb-60 max-md:mb-20 pt-[130px] max-md:pt-[100px]">
   <div
     className="  w-full aspect-[233/131] rounded-[30px] overflow-hidden bg-center bg-cover bg-no-repeat"
     style={{
@@ -75,11 +75,11 @@ const ProjectDetail = () => {
 
 
           {/* 태그 */}
-<div className="flex gap-3 mt-10">
+<div className="flex gap-3 max-md:gap-2 mt-10 max-md:mt-6 max-md:flex-wrap">
   {data.tag.map(tag => (
     <span
       key={tag}
-      className="px-5 py-2 rounded-[40px] bg-white/10 border border-white/[0.25] backdrop-blur-md"
+      className="px-5 max-md:px-3 py-2 max-md:py-1 rounded-[40px] bg-white/10 border border-white/[0.25] backdrop-blur-md max-md:text-[12px]"
       style={tagStyle}
     >
       {tag}
@@ -89,20 +89,20 @@ const ProjectDetail = () => {
 
 
           {/* 타이틀 */}
-          <h1 className="mt-4" style={detailTitleStyle}>
+          <h1 className="mt-4 max-md:mt-3 max-md:text-[28px] max-md:leading-[40px]" style={detailTitleStyle}>
             {data.title}
-            <span className="ml-2" style={detailTitleRegularStyle}>
+            <span className="ml-2 max-md:text-[28px] max-md:leading-[40px]" style={detailTitleRegularStyle}>
               ({data.subtitle})
             </span>
           </h1>
 
           {/* 요약 */}
-          <p className="mt-4" style={body20Leading35Style}>
+          <p className="mt-4 max-md:mt-3 max-md:text-[16px] max-md:leading-[28px] max-md:break-all" style={body20Leading35Style}>
             {data.summary}
           </p>
 
           {/* 메인 콘텐츠 */}
-          <div className="flex gap-[40px] mt-20 items-start">
+          <div className="flex max-md:flex-col gap-[40px] max-md:gap-6 mt-20 max-md:mt-10 items-start">
             {/* 팀 섹션 */}
             <TeamSection team={data.team} />
 
@@ -115,27 +115,27 @@ const ProjectDetail = () => {
                 backdrop-blur-[20px]
                 border border-white/[0.18]
                 shadow-[inset_0_1px_0_rgba(255,255,255,0.15),0_8px_40px_rgba(0,0,0,0.3)]
-                p-10
-                space-y-12
+                p-10 max-md:p-5
+                space-y-12 max-md:space-y-6
                 
               "
             >
               {/* 서비스 배경 */}
               <div>
-                <span className="flex items-center gap-2" style={sectionLabelStyle}>
+                <span className="flex items-center gap-2 max-md:text-[16px]" style={sectionLabelStyle}>
                   🗯️ 서비스 배경
                 </span>
-               <p className="mt-4 whitespace-pre-line" style={body14Leading35Style}>
+               <p className="mt-4 max-md:mt-2 whitespace-pre-line max-md:text-[14px] max-md:leading-[24px] max-md:break-all" style={body14Leading35Style}>
   {renderBoldText(data.background)}
 </p>
               </div>
 
               {/* 핵심 기능 */}
               <div>
-                <span className="flex items-center gap-2" style={sectionLabelStyle}>
+                <span className="flex items-center gap-2 max-md:text-[16px]" style={sectionLabelStyle}>
                   💡 서비스 소개 및 핵심 기능
                 </span>
-                <p className="mt-4 whitespace-pre-line" style={body14Leading35Style}>
+                <p className="mt-4 max-md:mt-2 whitespace-pre-line max-md:text-[14px] max-md:leading-[24px] max-md:break-all" style={body14Leading35Style}>
   {renderBoldText(data.solution)}
 </p>
               </div>

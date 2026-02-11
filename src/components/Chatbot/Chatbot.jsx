@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { QNA_DATA, CHATBOT_ONLY_QNA } from "../../data/qnaData";
 import OpenAI from "openai";
 import likelionLogo from "../../assets/likelion_logo_chatbot.svg";
+import { IoSend } from "react-icons/io5";
 const MIN_KEYWORD_LENGTH = 1;
 const MESSAGE_DELAY_MS = 500;
 const HEADER_CLEARANCE_PX = 120;
@@ -484,7 +485,7 @@ const [messages, setMessages] = useState([
 
             {/* 입력 영역 */}
             <div className="p-4 bg-[#1a1a1a]/80 border-t border-white/10">
-              <div className="flex gap-2">
+              <div className="flex gap-2 items-center">
                 <input
                   type="text"
                   value={inputValue}
@@ -495,14 +496,18 @@ const [messages, setMessages] = useState([
                           border border-white/20 
                           focus:outline-none focus:border-[#FF9000] 
                           placeholder-gray-500
-                          transition-all"
+                          transition-all min-w-0"
                 />
                 <button
                   onClick={handleSend}
-                  className="bg-gradient-to-r from-[#FF9000] to-[#FF5E00] text-white px-6 py-3 rounded-xl 
-                          hover:shadow-lg transition-all duration-300 font-semibold"
+                  className="bg-gradient-to-r from-[#FF9000] to-[#FF5E00] text-white 
+                          w-12 h-12 flex-shrink-0 rounded-xl 
+                          hover:shadow-lg transition-all duration-300 
+                          flex items-center justify-center
+                          active:scale-95"
+                  aria-label="전송"
                 >
-                  전송
+                  <IoSend className="w-5 h-5" />
                 </button>
               </div>
             </div>

@@ -20,7 +20,7 @@ const ReviewData = [
     id: 3,
     title: "내 디자인이 구현되는 모습에\n가슴이 뛰었습니다.",
     detail:
-      "멋쟁이사자처럼에 들어오기 전의 저는 “UX/UI 쪽으로 가고 싶다”는 생각만 있었을 뿐, 실제 협업 경험은 거의 없었습니다. 그래서 멋쟁이사자처럼을 선택했습니다. 가장 기억에 남는 순간은 해커톤에서 제가 디자인한 서비스가 실제로 동작하던 장면입니다. **화면이 구현되는 모습을 보며 가슴이 뛰었고**, 그때 “아, 이게 진짜구나”라는 생각이 들었습니다. 반대로 아이디어톤에서 주제를 변경해야 했던 경험은 협업이 생각보다 훨씬 현실적인 일이라는 것을 알려주었습니다. ",
+      "멋쟁이사자처럼에 들어오기 전의 저는 \"UX/UI 쪽으로 가고 싶다\"는 생각만 있었을 뿐, 실제 협업 경험은 거의 없었습니다. 그래서 멋쟁이사자처럼을 선택했습니다. 가장 기억에 남는 순간은 해커톤에서 제가 디자인한 서비스가 실제로 동작하던 장면입니다. **화면이 구현되는 모습을 보며 가슴이 뛰었고**, 그때 \"아, 이게 진짜구나\"라는 생각이 들었습니다. 반대로 아이디어톤에서 주제를 변경해야 했던 경험은 협업이 생각보다 훨씬 현실적인 일이라는 것을 알려주었습니다. ",
     author: "김*윤 | 13기 활동 | P&D | 시각디자인학과",
   },
   {
@@ -31,6 +31,127 @@ const ReviewData = [
     author: "김*현 | 12기 활동, 13기 운영진 | FE | 정보통신공학과",
   },
 ];
+
+const renderBoldText = (text) => {
+  const parts = text.split(/(\*\*.*?\*\*)/g);
+  return parts.map((part, index) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={index} className="font-[700]">
+          {part.replace(/\*\*/g, "")}
+        </strong>
+      );
+    }
+    return part;
+  });
+};
+
+// 모바일 버전 - 스와이프 및 버튼 내비게이션
+const ReviewMobile = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 75) {
+      if (activeIndex < ReviewData.length - 1) {
+        setActiveIndex(activeIndex + 1);
+      }
+    }
+
+    if (touchStart - touchEnd < -75) {
+      if (activeIndex > 0) {
+        setActiveIndex(activeIndex - 1);
+      }
+    }
+  };
+
+  const currentData = ReviewData[activeIndex];
+
+  return (
+    <div className="w-full min-h-screen flex flex-col items-center justify-center py-10 px-4">
+      <div className="w-full max-w-7xl flex flex-col items-start mb-6">
+        <div className="flex flex-row items-center justify-center gap-2">
+          <img src={star} alt="star" className="w-4 h-4" />
+          <p className="font-normal text-[16px] bg-linear-to-r from-[#FF9000] to-[#FF5E00] bg-clip-text text-transparent [-webkit-text-stroke:0.2px_#FFAE00] [text-shadow:0_1.5px_1px_rgba(124,66,5,0.9)] select-none">
+            Review
+          </p>
+        </div>
+        <p className="text-[#C56908] text-[24px] font-semibold leading-[36px]">
+          멋사는 어땠나요?
+        </p>
+      </div>
+
+      <div 
+        className="w-full relative touch-pan-y"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        {/* Title */}
+        <div className="w-full h-auto overflow-hidden mb-6">
+          <p className="whitespace-pre-line text-[24px] text-white font-[600] leading-[36px] text-left break-all">
+            {currentData.title}
+          </p>
+        </div>
+
+        {/* Review Card */}
+        <div className="glass-main rounded-[20px] w-full h-auto p-5 gap-3 flex flex-col shadow-2xl">
+          <div className="w-full h-auto text-[16px] font-[400] leading-[28px] text-white/90 whitespace-pre-line break-all">
+            {renderBoldText(currentData.detail)}
+          </div>
+          <div className="text-[14px] font-[700] leading-[24px] text-white">
+            {currentData.author}
+          </div>
+        </div>
+
+        {/* Navigation dot */}
+        <div className="flex justify-center gap-2 mt-6">
+          {ReviewData.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveIndex(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === activeIndex ? 'bg-[#FF9000] w-6' : 'bg-white/30'
+              }`}
+              aria-label={`Go to review ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Navigation buttons */}
+        <div className="flex justify-between mt-4">
+          <button
+            onClick={() => activeIndex > 0 && setActiveIndex(activeIndex - 1)}
+            disabled={activeIndex === 0}
+            className={`px-4 py-2 rounded-full ${
+              activeIndex === 0 ? 'text-white/30' : 'text-white'
+            } transition-all`}
+          >
+            ← 이전
+          </button>
+          <button
+            onClick={() => activeIndex < ReviewData.length - 1 && setActiveIndex(activeIndex + 1)}
+            disabled={activeIndex === ReviewData.length - 1}
+            className={`px-4 py-2 rounded-full ${
+              activeIndex === ReviewData.length - 1 ? 'text-white/30' : 'text-white'
+            } transition-all`}
+          >
+            다음 →
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const ScrollSection = ({ index, setActiveIndex }) => {
   const sectionRef = useRef(null);
@@ -58,22 +179,8 @@ const ReviewCard = ({ activeIndex }) => {
   const isLast = activeIndex === ReviewData.length - 1;
   const nextData = !isLast ? ReviewData[activeIndex + 1] : null;
 
-  const renderBoldText = (text) => {
-    const parts = text.split(/(\*\*.*?\*\*)/g);
-    return parts.map((part, index) => {
-      if (part.startsWith("**") && part.endsWith("**")) {
-        return (
-          <strong key={index} className="font-[700]">
-            {part.replace(/\*\*/g, "")}
-          </strong>
-        );
-      }
-      return part;
-    });
-  };
-
   return (
-    <div className="relative flex flex-col w-full max-w-[1200px]">
+    <div className="relative flex flex-col w-full max-w-[1200px] px-4">
       <div className="flex flex-col w-full gap-[60px]">
         {/* 리뷰 타이틀 */}
         <div className="w-[1040px] h-[164px] overflow-hidden">
@@ -121,7 +228,7 @@ const ReviewCard = ({ activeIndex }) => {
   );
 };
 
-const Review = () => {
+const ReviewDesktop = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -156,6 +263,23 @@ const Review = () => {
       </div>
     </div>
   );
+};
+
+const Review = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  return isMobile ? <ReviewMobile /> : <ReviewDesktop />;
 };
 
 export default Review;

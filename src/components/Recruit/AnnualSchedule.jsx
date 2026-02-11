@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import star from "../../assets/star.svg";
-import { mediumStyle, titleStyle } from "../../styles/typography";
+import { mediumStyle, titleStyle, semiBoldStyle, boldStyle } from "../../styles/typography";
 
 const sectionLabelStyle = {
 	...mediumStyle,
@@ -15,7 +15,98 @@ const sectionLabelStyle = {
 	textShadow: "0 4px 1.8px #00000080",
 };
 
-const AnnualSchedule = () => {
+const mobileSessionTextStyle = {
+	...boldStyle,
+	fontSize: "18px",
+	lineHeight: "28px",
+	color: "#FFFFFF",
+};
+
+const mobileDateTextStyle = {
+	...boldStyle,
+	fontSize: "14px",
+	lineHeight: "normal",
+	color: "#FF9000",
+};
+
+// 모바일 레이아웃
+const AnnualScheduleMobile = () => {
+	const [isMobile, setIsMobile] = useState(false);
+
+	useEffect(() => {
+		const checkMobile = () => {
+			setIsMobile(window.innerWidth < 768);
+		};
+		checkMobile();
+		window.addEventListener('resize', checkMobile);
+		return () => window.removeEventListener('resize', checkMobile);
+	}, []);
+
+	const scheduleData = [
+		{ period: "3월 - 7월", title: "1학기 정기 세션 주 2회", span: "full" },
+		{ period: "3월 - 5월", title: "네트워킹 데이 2회", span: "half" },
+		{ period: "6월", title: "아이디어톤", span: "quarter" },
+		{ period: "7월", title: "특강 세션", span: "quarter" },
+		{ period: "8월", title: "해커톤", span: "quarter" },
+		{ period: "9월 - 12월", title: "연합/ 기업 해커톤", span: "large" },
+	];
+
+	const titleStyleMobile = {
+		...titleStyle,
+		color: "#C56908",
+		fontSize: "24px",
+		lineHeight: "36px",
+	};
+
+	return (
+		<section className="relative w-full px-4 pb-[8vh] box-border overflow-hidden">
+			<div className="relative w-full max-w-[1040px] mx-auto">
+				<div className="flex w-full h-auto items-center gap-2 text-left pt-[12vh]">
+					<img src={star} alt="star" className="w-4 h-4" />
+					<span 						
+						style={{
+							...mediumStyle,
+							fontSize: "20px",
+							fontStyle: "normal",
+							background: "linear-gradient(180deg, #FFAF01, #be781d 0%)",
+							backgroundClip: "text",
+							WebkitBackgroundClip: "text",
+							WebkitTextFillColor: "transparent",
+							WebkitTextStrokeWidth: "0.1px",
+							WebkitTextStrokeColor: "#FFAF01",
+							textShadow: "0 4px 1.8px #00000080",
+						}}
+						className="max-md:text-[20px]">
+						Annual schedule
+					</span>
+				</div>
+
+				<div className="mt-4">
+					<p
+						className="w-full h-auto m-0"
+						style={titleStyleMobile}
+					>
+						1년 동안 이렇게 함께해요
+					</p>
+				</div>
+
+				<div className="mt-12 flex flex-col gap-4">
+					{scheduleData.map((item, index) => (
+						<div
+							key={index}
+							className="glass glass-ideal glass-header rounded-[20px] p-5 flex flex-col gap-2"
+						>
+							<span style={mobileSessionTextStyle}>{item.title}</span>
+							<span style={mobileDateTextStyle}>{item.period}</span>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+	);
+};
+
+const AnnualScheduleDesktop = () => {
 	const gridWidth = 1040;
 	const lineSpanWidth = 1010;
 	const gridInset = (gridWidth - lineSpanWidth) / 2;
@@ -252,6 +343,23 @@ const AnnualSchedule = () => {
 			</div>
 		</section>
 	);
+};
+
+const AnnualSchedule = () => {
+	const [isMobile, setIsMobile] = useState(false);
+
+	useEffect(() => {
+		const checkMobile = () => {
+			setIsMobile(window.innerWidth <= 768);
+		};
+		
+		checkMobile();
+		window.addEventListener('resize', checkMobile);
+		
+		return () => window.removeEventListener('resize', checkMobile);
+	}, []);
+
+	return isMobile ? <AnnualScheduleMobile /> : <AnnualScheduleDesktop />;
 };
 
 export default AnnualSchedule;

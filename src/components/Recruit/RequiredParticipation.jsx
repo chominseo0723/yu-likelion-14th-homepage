@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import RequiredParticipationData from "../../data/RequiredParticipationData";
 import star from "../../assets/star.svg";
 import {
@@ -21,45 +21,101 @@ const sectionLabelStyle = {
 };
 
 const RequiredParticipation = () => {
+	const [isMobile, setIsMobile] = useState(false)
+
+	useEffect(() => {
+		const checkMobile = () => {
+			setIsMobile(window.innerWidth < 768)
+		}
+		
+		checkMobile()
+		window.addEventListener('resize', checkMobile)
+		
+		return () => window.removeEventListener('resize', checkMobile)
+	}, [])
+
+	const titleStyleMobile = {
+		...titleStyle,
+		fontSize: "24px",
+		lineHeight: "36px",
+	}
+
+	const cardTextStyleMobile = {
+		...boldStyle,
+		fontWeight: 700,
+		fontFamily: "Pretendard",
+		fontSize: "20px",
+		lineHeight: "32px",
+		color: "#FFFFFF",
+	}
+
+	const noteTextStyleMobile = {
+		...boldStyle,
+		fontSize: "16px",
+		color: "#AF6524",
+	}
+
+	const smallTextStyleMobile = {
+		...boldStyle,
+		fontSize: "14px",
+		color: "#959595",
+	}
+
+	const titleStyleDesktop = {
+		...titleStyle,
+		fontSize: "40px",
+		lineHeight: "60px",
+	}
+
+	const cardTextStyleDesktop = {
+		...boldStyle,
+		fontWeight: 700,
+		fontFamily: "Pretendard",
+		fontSize: "32px",
+		lineHeight: "70px",
+		color: "#FFFFFF",
+	}
+
+	const noteTextStyleDesktop = {
+		...boldStyle,
+		fontSize: "20px",
+		color: "#AF6524",
+	}
+
+	const smallTextStyleDesktop = {
+		...boldStyle,
+		fontSize: "16px",
+		color: "#959595",
+	}
+
 	return (
 		<section
-			className="relative w-full px-[200px] pb-[16vh] box-border"
+			className="relative w-full px-[200px] max-md:px-4 pb-[16vh] max-md:pb-[8vh] box-border"
 			style={{ overflow: "visible" }}
 		>
 			<div className="relative w-full max-w-[1040px] mx-auto">
-				<div className="flex w-full max-w-[632.6772px] h-[35.6772px] items-center gap-[19px] text-left pt-[19vh]">
-					<img src={star} alt="star" />
-					<span style={sectionLabelStyle}>Certificate</span>
+				<div className="flex w-full max-w-[632.6772px] max-md:max-w-full h-[35.6772px] max-md:h-auto items-center gap-[19px] max-md:gap-2 text-left pt-[19vh] max-md:pt-[12vh]">
+					<img src={star} alt="star" className="max-md:w-4 max-md:h-4" />
+					<span className="max-md:text-[20px]" style={sectionLabelStyle}>Certificate</span>
 				</div>
-				<div className="mt-[27.16px]">
+				<div className="mt-[27.16px] max-md:mt-4">
 					<p
-						className="w-full max-w-[598px] h-[60px] m-0"
-						style={{
-              ...titleStyle,
-              fontSize: "40px",
-              lineHeight: "60px",
-            }}
+						className="w-full max-w-[598px] max-md:max-w-full h-[60px] max-md:h-auto m-0"
+						style={isMobile ? titleStyleMobile : titleStyleDesktop}
 					>
 						수료증을 받기 위해서 지켜주세요!
 					</p>
 				</div>
 
-				<div className="mt-[110.16px] grid grid-cols-2 gap-x-[10px]">
+				<div className="mt-[110.16px] max-md:mt-10 grid grid-cols-2 max-md:grid-cols-1 gap-x-[10px] gap-y-[31px] max-md:gap-y-4">
 					{RequiredParticipationData.map((text, index) => (
 						<div
 							key={index}
-							className={`w-full max-w-[511px] h-[106px] rounded-[30px] pl-[31px] pr-[31px] flex items-center justify-start box-border glass glass-ideal ${index === 0 ? "" : index === 1 ? "" : "mt-[31px]"}`}
+							className={`w-full max-w-[511px] max-md:max-w-full h-[106px] max-md:h-auto max-md:min-h-[80px] rounded-[30px] pl-[31px] max-md:pl-5 pr-[31px] max-md:pr-5 flex items-center justify-start box-border glass glass-ideal ${index === 0 ? "" : index === 1 ? "" : "mt-[31px] max-md:mt-0"}`}
 						>
 							<p
-								className="text-left m-0"
-								style={{
-									...boldStyle,
-									fontWeight: 700,
-									fontFamily: "Pretendard",
-									fontSize: "32px",
-									lineHeight: "70px",
-									color: "#FFFFFF",
-								}}
+								className="text-left m-0 max-md:break-all"
+								style={isMobile ? cardTextStyleMobile : cardTextStyleDesktop}
 							>
 								{text}
 							</p>
@@ -67,24 +123,16 @@ const RequiredParticipation = () => {
 					))}
 
 					{/* 마지막은 카드형식 아니라 예외 */}
-					<div className="w-full max-w-[511px] min-h-[106px] mt-[19px] pl-[8px] pr-[31px] flex flex-col justify-center overflow-visible box-border bg-transparent">
+					<div className="w-full max-w-[511px] max-md:max-w-full min-h-[106px] max-md:min-h-0 mt-[19px] max-md:mt-0 pl-[8px] max-md:pl-0 pr-[31px] max-md:pr-0 flex flex-col justify-center overflow-visible box-border bg-transparent">
 						<p
 							className="mb-2"
-							style={{
-								...boldStyle,
-								fontSize: "20px",
-								color: "#AF6524",
-							}}
+							style={isMobile ? noteTextStyleMobile : noteTextStyleDesktop}
 						>
 							(부득이한 상황 제외)
 						</p>
 						<p
-							className="leading-relaxed m-0 whitespace-pre-line"
-							style={{
-								...boldStyle,
-								fontSize: "16px",
-								color: "#959595",
-							}}
+							className="leading-relaxed m-0 whitespace-pre-line max-md:leading-[24px]"
+							style={isMobile ? smallTextStyleMobile : smallTextStyleDesktop}
 						>
 							증빙자료 제출 - 직계가족 경조사, 학교 내/외 공식 일정
 							{"\n"}
