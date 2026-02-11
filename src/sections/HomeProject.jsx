@@ -1,133 +1,91 @@
 import React, { useState, useEffect } from 'react'
-import MainHeader from '../header/MainHeader'
-import MainFooter from '../footer/MainFooter'
-import QnACard from '../components/Q&A/QnACard'
-import { QNA_DATA } from '../data/qnaData'
-import Time from '../components/Q&A/Time'
-import { qnaTitleStyle, qnaCategoryStyle, qnaCategoryActiveStyle } from '../styles/typography'
+import star from "./../assets/star.svg"
+import { Link } from 'react-router-dom'
+import { sectionTitleStyle, body20Style, caption20Style } from '../styles/typography'
+import MEDIV from '../assets/MEDIV.png'
+import CLMN from '../assets/CLMN.png'
+import Scooty from '../assets/Scooty.svg'
+import DEEPSAFE from '../assets/DEEPSAFE.png'
+import ONDOMI from '../assets/ONDOMI.png'
+import BRIDGEE from '../assets/BRIDGEE.png'
+import ILKAN from '../assets/ILKAN.png'
+import STARTPOINTER from '../assets/STARTPOINTER.png'
 
-const categories = [
-  '주요',
-  '모집 / 지원',
-  '선발 기준',
-  '활동',
-  '비용 / 운영',
-  '기타',
-]
 
-const qnaTitleStyleMobile = {
-  ...qnaTitleStyle,
-  fontSize: "30px",
-  lineHeight: "28px",
-}
+const cards = [MEDIV, CLMN, DEEPSAFE, BRIDGEE, Scooty, ONDOMI, ILKAN, STARTPOINTER]
 
-const qnaTitleStyleMobileLarge = {
-  ...qnaTitleStyle,
-  fontSize: "33px",
-  lineHeight: "32px",
-}
-
-const qnaCategoryStyleMobile = {
-  ...qnaCategoryStyle,
-  fontSize: "12px",
-  lineHeight: "normal",
-}
-
-const qnaCategoryActiveStyleMobile = {
-  ...qnaCategoryActiveStyle,
-  fontSize: "12px",
-  lineHeight: "normal",
-}
-
-const Qanda = () => {
-  const [selected, setSelected] = useState('주요')
-  const [isMobile, setIsMobile] = useState(false)
+const Project = () => {
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
+      setIsMobile(window.innerWidth < 768);
+    };
     
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
     
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const sectionTitleStyleMobile = {
+    ...sectionTitleStyle,
+    fontSize: "24px",
+    lineHeight: "36px",
+  };
 
   return (
-    <div className="bg-[linear-gradient(180deg,#000000_0%,#3A250A_100%)] font-pretendard h-screen overflow-hidden flex flex-col">
-      <div className="fixed top-0 left-0 w-full z-20">
-        <MainHeader />
-      </div>
-      <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden no-scrollbar snap-container-inner pt-[120px] max-md:pt-[0px]">
-      <section className="snap-section-center min-h-0 pt-0">
-      <div className="flex mt-41 max-md:mt-8 gap-3 max-md:gap-2 mx-auto max-w-[1200px] px-10 max-md:px-4">
-        <span style={isMobile ? { ...qnaTitleStyleMobile, color: "#FFFFFF" } : { ...qnaTitleStyle, color: "#FFFFFF" }}>자주 묻는 질문</span>
-        <span style={isMobile ? { ...qnaTitleStyleMobileLarge, color: "#FF9000" } : { ...qnaTitleStyle, color: "#FF9000" }}>'Q&A'</span>
-      </div>
-
-    
-      <div className="flex max-md:flex-col gap-43 max-md:gap-6 justify-center mx-auto max-w-[1200px] px-10 max-md:px-4">
-        {/* 카테고리 */}
-        <div className="flex max-md:flex-row max-md:overflow-x-auto max-md:w-full flex-col gap-[30px] max-md:gap-3 mt-[176px] max-md:mt-6 max-md:mb-5 relative">
-          <div
-            className="absolute max-md:hidden left-0 w-[179px] h-[46px] rounded-[30px] p-[0.5px] z-0
-              bg-[linear-gradient(160deg,rgba(255,255,255,0.25)_0%,rgba(255,255,255,0.15)_50%,rgba(255,255,255,0.2)_100%)]
-              transition-transform duration-300"
-            style={{
-              transform: `translateY(${categories.indexOf(selected) * (76)}px)`,
-            }}
-          >
-            <div className="glass-toc-slide w-full h-full rounded-[30px]" />
+   <div className="w-full bg-transparent flex flex-col items-center justify-start py-20 px-4 relative overflow-hidden font-pretendard">
+      <div className="w-full max-w-6xl">
+        <div className="w-full flex flex-col items-start">
+          <div className="flex flex-row gap-5 max-md:gap-2 items-center">
+            <img src={star} alt="star" className="max-md:w-4 max-md:h-4" />
+            <span
+              className="bg-linear-to-r from-[#FF9000] to-[#FF5E00] bg-clip-text text-transparent [-webkit-text-stroke:0.2px_#FFAE00] [text-shadow:0_1.5px_1px_rgba(124,66,5,0.9)] select-none text-[20px] max-md:text-[20px]"
+              style={body20Style}
+            >
+              Project
+            </span>
           </div>
 
-          {categories.map((c) => {
-            const isActive = selected === c
-            return (
-              <button
-                key={c}
-                type="button"
-                onClick={() => setSelected(c)}
-                className="relative z-10 w-[179px] max-md:w-auto max-md:flex-shrink-0 h-[46px] max-md:h-[32px] max-md:py-1 max-md:px-3 flex items-center px-[23px] py-[3px] rounded-[30px] max-md:rounded-[20px] cursor-pointer transition-colors duration-300 max-md:transition-none text-left max-md:border max-md:border-white/20"
-                style={isActive ? { background: 'linear-gradient(160deg,rgba(255,255,255,0.25) 0%,rgba(255,255,255,0.15) 50%,rgba(255,255,255,0.2) 100%)' } : {}}
-              >
-                <span
-                  className={`select-none transition-colors duration-300 max-md:transition-none max-md:whitespace-nowrap ${
-                    isActive
-                      ? "bg-gradient-to-r from-[#FF9000] to-[#FF5E00] bg-clip-text text-transparent drop-shadow-[0_4px_4px_rgba(255,255,255,0.145)]"
-                      : "text-white"
-                  }`}
-                  style={
-                    isMobile 
-                      ? (isActive ? qnaCategoryActiveStyleMobile : qnaCategoryStyleMobile)
-                      : (isActive ? qnaCategoryActiveStyle : qnaCategoryStyle)
-                  }
-                >
-                  {c}
-                </span>
-              </button>
-            )
-          })}
-        </div>
 
-        {/* Q&A 리스트 */}
-        <div className="mt-44 max-md:mt-0 w-full max-md:mb-8">
-          {(QNA_DATA[selected] || []).map((item, idx) => (
-            <QnACard
-              key={`${selected}-${idx}`}
-              q={item.q}
-              a={item.a}
-            />
+          <Link
+            className="text-[40px] font-bold text-[#C56908] max-md:text-[24px] max-md:leading-[36px]"
+            to="/project"
+            style={isMobile ? sectionTitleStyleMobile : sectionTitleStyle}
+          >
+          13기가 진행한 프로젝트예요!
+          </Link>
+        </div>
+      </div>
+
+    <div className="mt-[232px] max-md:mt-[100px] w-screen overflow-hidden relative">
+
+        <div className="marquee-track pause-on-hover gap-[59px] px-12">
+          {[...cards, ...cards, ...cards].map((src, i) => (
+            <div key={i} className="shrink-0">
+              <img
+                src={src}
+                alt={`project-${i}`}
+                className="rounded-2xl"
+              />
+            </div>
           ))}
         </div>
-      </div>
-      </section>
 
-      <Time />
-      <MainFooter />
+        <div className="flex justify-center">
+          <Link
+            className="text-[#87725F] border-b border-[#87725F] inline-block mt-15"
+            to="/project"
+            style={caption20Style}
+          >
+            멋사 13기 활동 더보기 &gt;&gt;
+          </Link>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Qanda
+
+export default Project
