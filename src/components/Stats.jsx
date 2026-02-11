@@ -25,7 +25,7 @@ const semiBoldStyle = {
   /* 라인 스타일링 */
 }
 const WidthLine = () => (
-  <div className="w-full flex justify-center py-10">
+  <div className="w-full flex justify-center py-[79.5px]">
     <svg
       width="100%"
       height="1"
@@ -148,8 +148,8 @@ const Stats = () => {
       setIsMobile(window.innerWidth < 768);
     };
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   useEffect(() => {
@@ -192,19 +192,34 @@ const Stats = () => {
         {isMobile ? (
           // Mobile: 5 lines
           <>
-            <p className="text-white tracking-normal text-center max-md:text-[33px] max-md:leading-[45px]" style={titleStyleMobile}>
+            <p
+              className="text-white tracking-normal text-center max-md:text-[33px] max-md:leading-[45px]"
+              style={titleStyleMobile}
+            >
               국내 <span style={gradientOrangeStyle}>최대 규모의</span>
             </p>
-            <p className="text-white tracking-normal text-center max-md:text-[33px] max-md:leading-[45px]" style={titleStyleMobile}>
+            <p
+              className="text-white tracking-normal text-center max-md:text-[33px] max-md:leading-[45px]"
+              style={titleStyleMobile}
+            >
               전국 IT 창업 동아리
             </p>
-            <p className="text-white tracking-normal text-center max-md:text-[33px] max-md:leading-[45px]" style={titleStyleMobile}>
+            <p
+              className="text-white tracking-normal text-center max-md:text-[33px] max-md:leading-[45px]"
+              style={titleStyleMobile}
+            >
               <span style={gradientOrangeStyle}>멋쟁이 사자처럼</span>이
             </p>
-            <p className="text-white tracking-normal text-center max-md:text-[33px] max-md:leading-[45px]" style={titleStyleMobile}>
+            <p
+              className="text-white tracking-normal text-center max-md:text-[33px] max-md:leading-[45px]"
+              style={titleStyleMobile}
+            >
               14기 아기사자
             </p>
-            <p className="text-white tracking-normal text-center max-md:text-[33px] max-md:leading-[45px]" style={titleStyleMobile}>
+            <p
+              className="text-white tracking-normal text-center max-md:text-[33px] max-md:leading-[45px]"
+              style={titleStyleMobile}
+            >
               여러분을 기다립니다.
             </p>
           </>
@@ -232,7 +247,8 @@ const Stats = () => {
                 ...semiBoldStyle,
               }}
             >
-              <span style={gradientOrangeStyle}>멋쟁이 사자처럼</span>이{"\u00A0"}
+              <span style={gradientOrangeStyle}>멋쟁이 사자처럼</span>이
+              {"\u00A0"}
               14기 아기사자 여러분을 기다립니다.
             </p>
           </>
@@ -287,7 +303,9 @@ const Stats = () => {
                     {stat.unit}
                   </p>
                 </div>
-                <p className="text-[24px] max-md:text-[14px] font-normal text-center">{stat.title}</p>
+                <p className="text-[24px] max-md:text-[14px] font-normal text-center">
+                  {stat.title}
+                </p>
               </div>
             );
           })}

@@ -57,7 +57,7 @@ const SessionCard = ({ data }) => {
 
 const Session = () => {
   return (
-    <div className="min-h-screen w-full max-w-7xl bg-transparent flex flex-col items-center max-md:items-start justify-center py-20 max-md:py-10 px-4 relative overflow-hidden">
+    <div className="min-h-screen w-full mx-auto bg-transparent flex flex-col items-center max-md:items-stretch justify-center py-20 max-md:py-10 px-4 relative overflow-hidden">
       <div className="w-full max-w-7xl flex flex-col items-start mb-[56.97px] max-md:mb-8">
         <div className="flex flex-row items-center justify-start gap-4.75 max-md:gap-2">
           <img src={star} alt="star" className="max-md:w-4 max-md:h-4" />
@@ -82,7 +82,7 @@ const Session = () => {
           제공받을 수 있어요!
         </h3>
       </div>
-      <div className="flex flex-wrap gap-x-13.5 gap-y-12.5 max-md:gap-4 w-full h-full max-w-7xl relative z-10 items-center max-md:justify-center">
+      <div className="grid grid-cols-3 max-md:grid-cols-1 gap-x-13.5 gap-y-12.5 max-md:gap-4 w-full h-full max-w-7xl relative z-10 items-center max-md:justify-items-center">
         {SessionData.map((card) => (
           <SessionCard key={card.id} data={card} />
         ))}
