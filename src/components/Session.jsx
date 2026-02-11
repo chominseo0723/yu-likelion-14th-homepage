@@ -58,7 +58,7 @@ const SessionCard = ({ data, flippedId, setFlippedId }) => {
               {data.subtitle}
             </p>
             <p className="h-[50px] max-md:h-auto text-[#7D3A13] text-center text-[18px] max-md:text-[14px] font-normal flex items-center justify-center max-md:leading-6 select-none pt-4 max-md:pt-0">
-              <span className="border-b border-b-[#7D3A13] pb-1">
+              <span className="border-b border-b-[#7D3A13]">
                 {data.title2} 보러가기 {">>"}
               </span>
             </p>
