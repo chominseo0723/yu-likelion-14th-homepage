@@ -4,14 +4,14 @@ import star from "../assets/star.svg";
 
 const Card = ({ data }) => {
   const [isFlipped, setIsFlipped] = useState(false);
-  const [isTilted, setIsTilted] = useState(false); // ✅ 추가
+  const [isTilted, setIsTilted] = useState(false);
 
   return (
     <div
       className="group w-[326.333px] max-md:w-full max-md:max-w-[326px] h-[372px] max-w-sm [perspective:1000px] cursor-pointer"
       onClick={() => setIsFlipped(!isFlipped)}
-      onTouchStart={() => setIsTilted(true)} // ✅ 추가 (아이폰 틸트)
-      onTouchEnd={() => setIsTilted(false)} // ✅ 추가
+      onTouchStart={() => setIsTilted(true)}
+      onTouchEnd={() => setIsTilted(false)}
     >
       <div
         className={`relative w-full h-full 
