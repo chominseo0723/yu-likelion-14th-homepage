@@ -53,7 +53,7 @@ const QnACard = ({ q, a }) => {
         `}
       >
       <span
-        className={`transition-all duration-300 ease-out max-md:break-all ${
+        className={`max-md:break-all ${
           isOpen
             ? "bg-[linear-gradient(90deg,#FF9000_0%,#FF5E00_100%)] bg-clip-text text-transparent"
             : "text-white"
