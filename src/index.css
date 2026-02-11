@@ -167,6 +167,45 @@
   white-space: nowrap;
 }
 
+.glass-projectCard {
+  background: rgba(255, 255, 255, 0.03);
+
+  backdrop-filter: blur(4px) saturate(130%);
+  -webkit-backdrop-filter: blur(4px) saturate(130%);
+
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    inset -10px -10px 30px rgba(255, 255, 255, 0.12);
+}
+
+.glass-projectDetailCard {
+  background: rgba(255, 255, 255, 0.09);
+
+  backdrop-filter: blur(2px) saturate(110%);
+  -webkit-backdrop-filter: blur(2px) saturate(130%);
+
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    inset -10px -10px 30px rgba(255, 255, 255, 0.12);
+}
+
+.glass-projectDetailTeamCard {
+  background: rgba(255, 255, 255, 0.0001);
+
+  backdrop-filter: blur(2px) saturate(110%);
+  -webkit-backdrop-filter: blur(2px) saturate(130%);
+
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    inset -10px -10px 30px rgba(255, 255, 255, 0.12);
+}
+
 .glass-icon {
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(14px) saturate(150%);
