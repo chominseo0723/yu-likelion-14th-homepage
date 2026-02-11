@@ -27,11 +27,11 @@ const SessionCard = ({ data, flippedId, setFlippedId }) => {
                        bg-[linear-gradient(103deg,#333333_0%,#353533_17%,#333331_28%,#31312F_36%,#2D2D2B_46%,#2A2A28_59%,#282826_70%,#232321_100%)]
                        backdrop-blur-2xl flex flex-col items-center justify-center"
           >
-            <div className="rounded-[30px] flex flex-col gap-[20px] max-md:gap-3 max-md:px-4">
-              <p className="w-[261px] max-md:w-full h-[49.977px] max-md:h-auto flex items-center justify-center text-center font-bold text-[32px] max-md:text-[24px] text-white select-none pt-[25.01px] max-md:pt-0 whitespace-nowrap max-md:whitespace-normal max-md:break-all">
+            <div className="rounded-[30px] flex flex-col gap-[20px] max-md:gap-[25px] max-md:px-4 items-center">
+              <p className="w-[261px] max-md:w-full h-[49.977px] max-md:h-auto flex items-center justify-center text-center font-bold text-[32px] max-md:text-[28px] text-white select-none whitespace-nowrap max-md:whitespace-normal max-md:break-all pt-6.25 max-md:pt-0">
                 {data.title1}
               </p>
-              <p className="h-[50px] max-md:h-auto text-[#B4A69E] text-center text-[18px] max-md:text-[14px] font-normal leading-18 select-none">
+              <p className="h-[50px] max-md:h-auto text-[#B4A69E] text-center text-[18px] max-md:text-[14px] font-normal flex items-center justify-center select-none pt-4 max-md:pt-0">
                 <span className="border-b border-b-[#B4A69E] pb-1">
                   교육과정 보러가기 {">>"}
                 </span>
@@ -53,12 +53,14 @@ const SessionCard = ({ data, flippedId, setFlippedId }) => {
             }
           }}
         >
-          <div className="rounded-[30px] flex flex-col gap-[20px] max-md:gap-3 max-md:px-4">
-            <p className="w-[261px] max-md:w-full h-[49.977px] max-md:h-auto flex items-center justify-center text-center font-bold text-[24px] max-md:text-[20px] text-black select-none whitespace-pre-line pt-[25.01px] max-md:pt-0 max-md:break-all">
+          <div className="rounded-[30px] flex flex-col gap-[20px] max-md:gap-[25px] items-center max-md:px-4">
+            <p className="w-[261px] max-md:w-full h-[49.977px] max-md:h-auto flex items-center justify-center text-center font-bold text-[24px] max-md:text-[22px] text-black select-none whitespace-pre-line max-md:break-all pt-6.25 max-md:pt-0">
               {data.subtitle}
             </p>
-            <p className="h-[50px] max-md:h-auto text-[#7D3A13] text-center text-[18px] max-md:text-[14px] font-normal leading-18 border-b border-b-[#7D3A13] select-none">
-              {data.title2} 보러가기 {">>"}
+            <p className="h-[50px] max-md:h-auto text-[#7D3A13] text-center text-[18px] max-md:text-[14px] font-normal flex items-center justify-center max-md:leading-6 select-none pt-4 max-md:pt-0">
+              <span className="border-b border-b-[#7D3A13] pb-1">
+                {data.title2} 보러가기 {">>"}
+              </span>
             </p>
           </div>
         </div>
