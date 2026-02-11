@@ -90,8 +90,8 @@ const MainScreen = () => {
         </section>
 
         {/* track */}
-        <section className="snap-section flex items-center justify-center bg-transparent text-white">
-          <div className="z-0">
+        <section className="snap-section flex items-center justify-center max-md:items-start max-md:justify-start bg-transparent text-white">
+          <div className="z-0 max-md:w-full">
             <TrackCard />
           </div>
         </section>

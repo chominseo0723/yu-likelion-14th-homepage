@@ -62,20 +62,21 @@ const WidthLine = () => (
 const HeightLine = () => (
   <svg
     width="1"
-    height="732px"
-    viewBox="0 0 1 733"
+    height="520px"
+    viewBox="0 0 1 520"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     preserveAspectRatio="none"
+    className="max-md:h-[520px]"
   >
-    <path d="M0.5 0V733" stroke="url(#paint0_linear_25_904)" strokeWidth="1" />
+    <path d="M0.5 0V520" stroke="url(#paint0_linear_25_904)" strokeWidth="1" />
     <defs>
       <linearGradient
         id="paint0_linear_25_904"
         x1="0.5"
         y1="0"
         x2="0.5"
-        y2="733"
+        y2="520"
         gradientUnits="userSpaceOnUse"
       >
         <stop stopColor="black" stopOpacity="0" />
@@ -139,7 +140,17 @@ const StatData = [
 
 const Stats = () => {
   const [inView, setInView] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const scrollRef = useRef(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     // 관찰자(Observer) 인스턴스 생성
@@ -168,48 +179,77 @@ const Stats = () => {
     return () => observer.disconnect();
   }, []);
 
+  const titleStyleMobile = {
+    fontSize: "33px",
+    lineHeight: "45px",
+    ...semiBoldStyle,
+  };
+
   return (
-    <div className="flex flex-col items-center gap-25 pt-[50px]">
+    <div className="flex flex-col items-center gap-25 max-md:gap-12 pt-[50px] max-md:pt-8 px-4">
       {/* 타이틀 */}
       <div className="flex flex-col items-center">
-        <p
-          className="text-white tracking-normal inline-block"
-          style={{
-            fontSize: "42px",
-            lineHeight: "62px",
-            ...semiBoldStyle,
-          }}
-        >
-          국내
-          {"\u00A0"}
-          <span style={gradientOrangeStyle}>최대 규모의</span>
-          {"\u00A0"}
-          전국 IT 창업 동아리
-        </p>
-        <p
-          className="text-white tracking-normal inline-block"
-          style={{
-            fontSize: "42px",
-            lineHeight: "62px",
-            ...semiBoldStyle,
-          }}
-        >
-          <span style={gradientOrangeStyle}>멋쟁이 사자처럼</span>이{"\u00A0"}
-          14기 아기사자 여러분을 기다립니다.
-        </p>
+        {isMobile ? (
+          // Mobile: 5 lines
+          <>
+            <p className="text-white tracking-normal text-center max-md:text-[33px] max-md:leading-[45px]" style={titleStyleMobile}>
+              국내 <span style={gradientOrangeStyle}>최대 규모의</span>
+            </p>
+            <p className="text-white tracking-normal text-center max-md:text-[33px] max-md:leading-[45px]" style={titleStyleMobile}>
+              전국 IT 창업 동아리
+            </p>
+            <p className="text-white tracking-normal text-center max-md:text-[33px] max-md:leading-[45px]" style={titleStyleMobile}>
+              <span style={gradientOrangeStyle}>멋쟁이 사자처럼</span>이
+            </p>
+            <p className="text-white tracking-normal text-center max-md:text-[33px] max-md:leading-[45px]" style={titleStyleMobile}>
+              14기 아기사자
+            </p>
+            <p className="text-white tracking-normal text-center max-md:text-[33px] max-md:leading-[45px]" style={titleStyleMobile}>
+              여러분을 기다립니다.
+            </p>
+          </>
+        ) : (
+          <>
+            <p
+              className="text-white tracking-normal inline-block"
+              style={{
+                fontSize: "42px",
+                lineHeight: "62px",
+                ...semiBoldStyle,
+              }}
+            >
+              국내
+              {"\u00A0"}
+              <span style={gradientOrangeStyle}>최대 규모의</span>
+              {"\u00A0"}
+              전국 IT 창업 동아리
+            </p>
+            <p
+              className="text-white tracking-normal inline-block"
+              style={{
+                fontSize: "42px",
+                lineHeight: "62px",
+                ...semiBoldStyle,
+              }}
+            >
+              <span style={gradientOrangeStyle}>멋쟁이 사자처럼</span>이{"\u00A0"}
+              14기 아기사자 여러분을 기다립니다.
+            </p>
+          </>
+        )}
       </div>
 
       {/* 수치 */}
       <div ref={scrollRef} className="relative w-full h-full max-w-5xl">
-        {/* 라인 & 로고 */}
-        <div className="absolute top-51 left-1/2 -translate-x-1/2 w-screen pointer-events-none">
+        {/* 라인 & 로고 - 모바일에서는 숨김 */}
+        <div className="max-md:hidden absolute top-40 left-1/2 -translate-x-1/2 w-screen pointer-events-none">
           <WidthLine />
         </div>
-        <div className="absolute -top-25 inset-0 flex justify-center pointer-events-none">
+        <div className="max-md:hidden absolute -top-2 inset-0 flex justify-center pointer-events-none">
           <HeightLine />
         </div>
 
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 z-10 flex items-center justify-center">
+        <div className="max-md:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 z-10 flex items-center justify-center">
           {/* 바깥쪽 원 (Ellipse) */}
           <img
             src={Ellipse}
@@ -224,17 +264,17 @@ const Stats = () => {
           />
         </div>
 
-        {/* 2x2 수치 */}
-        <div className="grid grid-cols-2 gap-[80px] w-full max-w-7xl relative z-10 place-items-center select-none">
+        {/* 2x2 */}
+        <div className="grid grid-cols-2 max-md:grid-cols-1 gap-[80px] max-md:gap-12 w-full max-w-7xl relative z-10 place-items-center select-none">
           {StatData.map((stat) => {
             return (
               <div
-                className="flex flex-col justify-center items-center gap-[30px]"
+                className="flex flex-col justify-center items-center gap-[30px] max-md:gap-4"
                 key={stat.id}
               >
-                <div className="flex flex-row gap-[5px] justify-center items-center">
+                <div className="flex flex-row gap-[5px] max-md:gap-1 justify-center items-center">
                   <p
-                    className="text-[100px] italic font-black inline-block pr-2 -mb-10
+                    className="text-[100px] max-md:text-[48px] italic font-black inline-block pr-2 max-md:pr-1 -mb-10 max-md:-mb-5
                                bg-[linear-gradient(264deg,#FFAE00_10.88%,#FF9000_90.45%)]
                                bg-clip-text text-transparent
                                [text-shadow:0_4px_4px_rgba(255,255,255,0.15)]"
@@ -242,12 +282,12 @@ const Stats = () => {
                     <Counter targetValue={stat.value} shouldStart={inView} />
                   </p>
                   <p
-                    className={`relative text-[${stat.size}px] font-bold ${stat.id == 1 || stat.id == 4 ? "top-12" : "bottom-2.5"}`}
+                    className={`relative text-[${stat.size}px] max-md:text-[12px] font-bold ${stat.id === 1 || stat.id === 4 ? "top-12 max-md:top-6" : "bottom-2.5 max-md:bottom-1"}`}
                   >
                     {stat.unit}
                   </p>
                 </div>
-                <p className="text-[24px] font-normal">{stat.title}</p>
+                <p className="text-[24px] max-md:text-[14px] font-normal text-center">{stat.title}</p>
               </div>
             );
           })}

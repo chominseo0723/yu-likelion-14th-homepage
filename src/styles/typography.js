@@ -37,7 +37,7 @@ export const scheduleCardDateStyle = {
 
 export const qnaTitleStyle = {
   ...semiBoldStyle,
-  fontSize: "42px",
+  fontSize: "40px",
   lineHeight: "60px",
   letterSpacing: "0",
 };
@@ -151,8 +151,8 @@ export const sectionTitleSemiboldStyle = {
 
 export const heroSubStyle = {
   ...semiBoldStyle,
-  fontSize: "30px",
-  lineHeight: "50px",
+  fontSize: "20px",
+  lineHeight: "40px",
 };
 
 export const heroMainStyle = {
