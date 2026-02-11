@@ -23,8 +23,8 @@ const Card = ({ data }) => {
             isFlipped
               ? "[transform:rotateY(180deg)]"
               : isTilted
-              ? "[transform:rotateY(15deg)]"
-              : "group-hover:[transform:rotateY(15deg)]"
+                ? "[transform:rotateY(15deg)]"
+                : "group-hover:[transform:rotateY(15deg)]"
           }`}
       >
         {/* 앞면 */}
@@ -41,7 +41,7 @@ const Card = ({ data }) => {
             <img
               src={data.image}
               alt={data.title}
-              className="relative w-[379.87px] max-md:w-full h-[169.94px] max-md:h-auto scale-122 pointer-events-none select-none mt-[65.13px] max-md:mt-12"
+              className="relative w-[379.87px] max-md:w-full h-[169.94px] max-md:h-auto scale-122 pointer-events-none select-none mt-[65.13px] max-md:mt-21"
             />
             <p className="relative w-full pr-[21.58px] max-md:pr-4 text-right text-[24px] max-md:text-[20px] font-bold text-white select-none mb-[20.96px] max-md:mb-4">
               {data.subtitle}
@@ -63,7 +63,7 @@ const Card = ({ data }) => {
             <img
               src={data.image}
               alt={data.title}
-              className="relative w-[379.87px] h-[169.94px] scale-122 pointer-events-none select-none mt-[65.13px]"
+              className="relative w-[379.87px] h-[169.94px] scale-122 pointer-events-none select-none mt-[65.13px] max-md:mt-16"
             />
             <p className="relative w-full pr-[21.58px] max-md:pr-4 text-right text-[24px] max-md:text-[20px] font-bold text-black select-none mb-[20.96px] max-md:mb-4">
               {data.subtitle}
@@ -71,11 +71,10 @@ const Card = ({ data }) => {
 
             <div
               className="absolute top-[15px] left-[24.65px] max-md:left-4 max-md:right-4 w-[277.033px] max-md:w-auto h-[291px] max-md:h-[300px] rounded-[30px]
-              bg-[linear-gradient(110deg,rgba(255,255,255,0.9)_0%,rgba(255,255,255,0.2)_2%,rgba(255,255,255,0.1)_17%,rgba(255,255,255,0.11)_28%,rgba(255,255,255,0.15)_36%,rgba(255,255,255,0.1)_50%,rgba(255,255,255,0.1)_100%)]
-              p-[0.5px] backdrop-blur-[1.5px] overflow-hidden flex items-center border-[1px] border-[#FFFFB9]/40"
+              glass-track overflow-hidden flex items-center"
             >
-              <div className="relative w-full h-full rounded-[30px] px-[18px] max-md:px-3">
-                <div className="flex flex-col pt-[28px] max-md:pt-4 pb-[13px] max-md:pb-3 gap-5 max-md:gap-3 w-full text-black text-[16px] max-md:text-[14px] text-left font-semibold leading-[25px] max-md:leading-[22px] break-keep whitespace-pre-line tracking-[-0.4px] select-none">
+              <div className="relative w-full h-full rounded-[30px] px-[20px] max-md:px-[22px]">
+                <div className="flex flex-col pt-[28px] max-md:pt-[35px] pb-[13px] max-md:pb-3 gap-5 max-md:gap-7 w-full text-black text-[16px] max-md:text-[17px] text-left font-semibold leading-[25px] max-md:leading-[22px] break-keep whitespace-pre-line tracking-[-0.4px] select-none">
                   <p>{data.description1}</p>
                   <p>{data.description2}</p>
                   <p>{data.description3}</p>

@@ -4,7 +4,7 @@ const SessionData = [
     id: 1,
     title1: "Frontend",
     title2: "프론트엔드 교육과정",
-    subtitle: "VS Code / React\n / Next.js / Tailwind CSS",
+    subtitle: "VS Code / React\n/ Next.js / Tailwind CSS",
     url: "https://dusty-headlight-097.notion.site/FE-2ef8d8d8838b801d912bcc97f21671a5?source=copy_link",
   },
   {
